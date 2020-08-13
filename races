@@ -1,0 +1,51 @@
+# this is the races file.  the format is:
+#   - comments at the start (like this one)
+#   - a line with the number of races defined in here
+#   - comments about the next race described
+#   - strings, chars and numbers describing the race, following
+#     the fields of the structure Srace, defined in dominion.h
+#   - repeat these last 2 steps, for as many races as prescribed
+#     at the beginning of this file
+#   - a section at the end with a list of army types that are
+#     specific to that race.  these require no technology to
+#     acquire
+#
+# for now I have defined Humans, Elves, Orcs, Dwarves, Hobbits, Merfolk,
+# Icefolk, Gnomes, Harpies, Ogres, Walruses, Algae, Squid
+#
+# DO NOT REMOVE THIS NUMBER!!! IT STATES HOW MANY RACES ARE DEFINED!!!
+13
+# Here is a list of the fields in the structure:
+#name:mark:str.:repro.:mortality:intel.:speed:stealth:pref_alt:pref_terrain:pref_climate:mag_apt:farming:mining
+#
+Human	:H:80:11: 8:50:65:4: 2: 3: 7:30: 0:0
+#
+Elf	:E:70: 8: 5:70:80:8: 2: 5: 7:55:10:-15
+#
+Orc	:O:50:15:10:20:40:3: 4: 4: 4:35: 0:5
+#
+Dwarf	:D:95: 9: 6:60:40:2: 5: 3: 6:30:-5:20
+#
+Hobbit	:h:15:10: 7:45:50:9: 3: 4: 7:20: 5:5
+#
+Merfolk	:M:30: 7: 4:75:80:7:-2:-1: 4:55:50:-10
+#
+Icefolk	:I:90: 9: 7:50:70:4: 3: 0:10:30:50:0
+#
+Gnome   :G:75:10: 8:95:40:9: 4: 3: 5:10: 0:10
+#
+Harpy   :y:40:12:10:25:60:5: 5: 4: 6:30: 0:-5
+#
+Ogre    :o:95: 5: 3:75:60:5: 4: 3: 6:50: 5:5
+#
+Walrus  :W:95: 9: 7:30:80:3:-1:-1: 7:55:50:5
+#
+Algae   :A:15:11: 6:50:60:7:-2:-1: 3:45:80:0
+#
+Squid   :S:40: 9: 8:25:110:8:-2:-1:5:40:50:15
+#
+# now the race-specific army types
+Orc_armies:Orcs
+Harpy_armies:Harpies
+Hobbit_armies:Hobbits
+Ogre_armies:Ogres

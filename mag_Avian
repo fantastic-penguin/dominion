@@ -1,0 +1,26 @@
+# this file describes magic powers available to magical order of Avian,
+# which is concerned mostly with flying.
+#
+# the format is:
+# name level cost
+# begin
+#   series of exec lines
+# end
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.
+#
+summon_flying_carpet 40 1
+summon_roc 50 1
+summon_eagle 90 2
+summon_cloud_giant 150 3
+summon_wyvern 400 4
+summon_areal_serpent 800 7
+summon_air_elemental 2000 15
+summon_tempest 3000 18
+#
+hide_army 200 1 2
+fly_army 200 1 3
+hide_sector 250 2 8
+mag_bonus 300 1 2
+haste_army 600 3 2

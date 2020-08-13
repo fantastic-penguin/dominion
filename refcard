@@ -1,0 +1,22 @@
+                       SBW QUICK REFERENCE CARD
+Movement (you are where the `*' is):
+                                   NORTH
+                                    (K)
+                              y,7   k,8   u,9
+                                 \   |   /
+                                   \ | /
+              WEST      (H) h,4 ---- * ---- l,6 (L)       EAST
+                                   / | \
+                                 /   |   \
+                              b,1   j,2   n,3
+                                    (J)
+                                   SOUTH
+Display:
+    [d]isplay options     [F] dump map to file   [w]indow manipulation
+    [^L] redraw screen    [p] jump to a point    [P] jump to your capital
+Administration:
+    [r]eports             [a]rmies               [Z]oom on sector
+    [W]izardry            [t]ransportation       [C]onstruct
+Miscellaneous:
+    [Q]uit (or [q]uit)    [m]ail                 [N]ews
+    [O]ptions

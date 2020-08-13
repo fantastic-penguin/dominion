@@ -1,0 +1,2104 @@
+Info file: dominion.info,    -*-Text-*-
+produced by latexinfo-format-buffer
+from file: junk.tex
+
+
+
+File: dominion.info  Node: Top, Prev: (dir)Top, Up: (dir)Top, Next: Overview
+
+
+
+This file documents dominion.
+
+Copyright @copyright{} 1990 Free Software Foundation, Inc.
+Authored by the dominion project (see Authors section of this manual).
+
+Permission is granted to make and distribute verbatim copies of this manual
+provided the copyright notice and this permission notice are preserved on
+all copies.
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided also that the
+GNU Copyright statement is available to the distributee, and provided that
+the entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions.
+
+
+
+
+* Menu:
+
+* Overview::
+* Getting started::
+* What is in the world::
+* Diplomacy and war::
+* Detailed description of commands::
+* The update::
+* Authors::
+
+
+
+File: dominion.info  Node: Overview, Prev: Top, Up: Top, Next: Getting started
+
+Overview
+********
+
+
+
+*Dominion* is an empire-style multi-player world simulation game.
+Each player is the leader of a nation, and makes decisions for that
+nation.  The decisions are political, military, diplomatic and
+economic, and all these are extremely important for the well-being of
+a nation.  Some nations can be played by the computer.  These nations
+are called NPCs (Non Player Countries).  They play a challenging game,
+and are quite useful if few human players are available.
+
+Dominion has features from both fantasy role-playing games, educational
+games, and war games: a user needs to develop a character as leader of
+a nation, keep a healty economy, and can then develop a strong
+military force using magic or technology.
+
+Most of the moves you make are not resolved until the end of a turn,
+when the *update* is run.  This update will incorporate your
+changes into the world data base, then it will update your economy,
+handle migration of people, resolve battles and conquest of land,
+freshen up your armies (restore move points), and a few other things.
+
+The rhythm of the game is set by how much money you have spent, and
+how much you have moved your armies.  If you have spent all your
+money, you will need to wait until your revenue comes in (after the
+update) before you can spend more.  Similarly, if you have already
+moved all your armies, and they are overcome by fatigue, then you will
+have to wait until they have recovered.  This will happen in the
+update.  The time elapsed between updates is called a *thon*.
+
+
+File: dominion.info  Node: Getting started, Prev: Overview, Up: Top, Next: Moving around the map
+
+Getting started
+***************
+
+
+
+Your nation is added to the game by the Game Master, or someone
+trusted by the Game Master.  You get to choose the *name*,
+*leader name*, *race*, *nation mark* (used for display)
+and *magical order* for your nation.  The choice of race and
+magical order are important: each race comes with certain
+characteristics (dwarves are better miners; elves are more
+intelligent, have good magical aptitude; orcs reproduce like crazy and
+so on...{}).  The magical order determines what spirits you will be
+able to summon, and which spells will be available for you to cast.
+Apart from the advantages of each race and magic order, they largely
+determine what role you will play in the game.
+
+When you first look at your country you will see sectors with letters on
+them.  Each of these is a sector designation from which you can tell
+what your country uses the sector for.  You can change these
+designations once you own a sector; this will typically cost money,
+and maybe metal and jewels.
+
+
+* Menu:
+
+* Moving around the map::
+* Moving your armies::
+* Taking sectors::
+* Setting up your budget::
+* Checking out your info screen::
+* Commands (brief)::
+
+
+
+File: dominion.info  Node: Moving around the map, Prev: Getting started, Up: Getting started, Next: Moving your armies
+
+Moving around the map
+=====================
+
+
+You can move to another sector on the map using the [h], [j], [k], [l]
+keys to move up, down, right, left; and the keys [y], [u], [b], [n] to
+move diagonally.  This is similar to the cursor movements in some
+editors (like *vi*), and some UNIX games (such as *rogue*,
+*larn*, *nethack*, *conquer*, ...{}).
+
+Alternatively, you may use the numeric keypad, in which case the
+number keys represent the same direction in which they point on the
+keypad.  Both the ordinary keys and the numeric keypad can be used to
+browse the map and to move armies.  The following diagram shows you
+the directions and keys you can use.
+
+For large movements across the map, you can use the *upper-case*
+letters [H], [J], [K], [L].  These jump 8 sectors over.
+
+One last thing: when you are starting out in the game, you might be
+overwhelmed by the number of commands, options, report screens, and so
+on...{}.  You might also be overwhelmed by the size of this manual,
+and not want to read it all until you have been playing a few turns.
+The way out is to just explore the commands described in the reference
+card.  Except at main level of the game (where you look at your
+nation's map), all the commands have menus for the subcommands, and
+you can usually follow those.  Moreover, we have a context-sensitive
+help system, so at any moment you can type [?] and get that part of
+the manual which regards the command you are currently using.
+
+
+                               NORTH
+
+                                (K)
+                          y,7   k,8   u,9
+                             \   |   /
+                               \ | /
+          WEST      (H) h,4 ---- 0 ---- l,6 (L)       EAST
+                               / | \
+                             /   |   \
+                          b,1   j,2   n,3
+                                (J)
+
+                               SOUTH
+
+
+File: dominion.info  Node: Moving your armies, Prev: Moving around the map, Up: Getting started, Next: Taking sectors
+
+Moving your armies
+==================
+
+
+Armies and navies are manipulated with the [a] menu.  Here are
+*some* of the army commands.  A complete list comes later.
+
+     
+   * *[l]ist* army types will give you a list of army and navy types
+     available to you for drafting.  As your technology improves, more army
+     and navy types will become available.  At the start, you should only
+     see *Cavemen* and *Caravans* in the list.
+     
+   * *[n]ext army*
+   * *[p]revious army*.  These pick the next and previous armies in the
+     current sector, skipping armies that do not belong to you.  The
+     currently "picked" army should be highlighted.
+     
+   * *[N]* and *[P]* are like [n] and [p], but they move the the next
+     army *number*, whether it is on the same sector or not.  These
+     can be used to cycle through all the armies in your nation.
+     
+   * *[m]ove*. after you have selected an army you want to move just type
+     [m] and move the cursor to where you want the army to be.
+     *Warning*: watch your army's *move points* and the
+     *move cost* of each sector you cross: if you run out your army
+     might get stuck where you don't want it!!
+     
+   * *[s]tatus*.  This lets you change your army's status.  The status is
+     the mode your army is in, and affects what your army will do in
+     various situation.  The most basic army statuses are:
+     
+        * *[a]ttack*. When in this mode your army will attack another
+          army in the same sector.  This will happen only if you are at WAR
+          or JIHAD.
+          
+        * *[d]efend*. An army in defend status can not take a sector nor
+          will it attack another army.  If attacked it will defend itself.
+          
+        * *[o]ccupy*. If you want to take a sector that is un-owned or owned
+          by an enemy, you move an army to that sector and set its status to
+          occupy.
+     
+     
+   * *[d]raft*.  To draft an army or navy you must be in a city or
+     capital that you own.  Drafting an army will cost metal and money, so
+     be careful and watch how much you spend.  You will be given the list
+     of available army types, (see [l]ist), and you must just type the
+     abbreviation character for that army type.
+     
+
+
+
+File: dominion.info  Node: Taking sectors, Prev: Moving your armies, Up: Getting started, Next: Setting up your budget
+
+Taking sectors
+==============
+
+
+At the beginning of the game, you should take many sectors: this gives
+a safety buffer around your capital, and allows you to look for
+resources in the new occupied lands.  You take sectors by moving an
+army *of at least 100 soldiers* to that sector and setting it on
+occupy mode.  If the sector belongs to another nation, you will have
+to declare war on them to take the sector from them.  You declare war
+using the [r]eports menu, and choosing [d]iplomacy.
+
+Once you take a sector (it will become yours after the update), you
+can redesignate that sector so it produces what you want.  For
+example, redesignating to a farm will make that sector produce food,
+and so on.  Sector designations are described in great detail later,
+but you should know now that to change a designation you use the
+[Z]oom key to focus on the specific sector, and then you can change
+the designation with the [r]edesignate key *inside* the [Z]oom
+screen.  You will be given a menu of possible designations.
+
+To help you choose a designation for the sectors you take, the sector
+window (to the bottom right of your screen) shows you the *soil*,
+*metal*, *jewels* in that sector.  If the soil value is
+high, then redesignating to a *farm* is a good idea.  If the
+sector has a high metal yield, you might want to make a *metal mine*
+out of it, and so on.
+
+Below is an example of a sector window that shows a sector with jewels
+5, metal 0 and soil 6.  The sector belongs to nation Khazad Dum, has
+coordinates (2, 2) relative to the current player, has 452 inhabitants
+which are of race (D) (Dwarves).
+
+
+                                +----------------------+
+                                |(2,2)                 |
+                                |Khazad Dum-jwl. mine  |
+                                |Brush Plateau         |
+                                |452 people (D)        |
+                                |metal 0     jewels 5  |
+                                | soil 6   movecost 1  |
+                                +----------------------+
+
+
+File: dominion.info  Node: Setting up your budget, Prev: Taking sectors, Up: Getting started, Next: Checking out your info screen
+
+Setting up your budget
+======================
+
+
+It is important that you set up your budget properly.  You do
+this by hitting [r] ([r]eport), and then [b] (for the [b]udget
+report).  In here you should choose your tax rate, and the amount of
+money/metal/jewels you choose to invest in various types of research.
+A note about taxes: if your taxes are too high, your production of
+food, metal and jewels will decrease.
+
+There are default values set for investment in magic and technology,
+and there is a default tax rate.  This is intended to guide new
+players through their first moves.
+
+In the budget report you can also spend a fraction of your
+*reserves* on various types of research.  To do this
+you use the [s]torage option, and spend what you want of your current
+treasury.  This amount will be reset to 0 after each update.
+
+
+File: dominion.info  Node: Checking out your info screen, Prev: Setting up your budget, Up: Getting started, Next: Commands (brief)
+
+Checking out your info screen
+=============================
+
+
+You should check your info screen every thon.  This shows parameters
+of your race and nation, including your skills in magic and
+technology, combat, espionage and so forth.
+
+
+File: dominion.info  Node: Commands (brief), Prev: Checking out your info screen, Up: Getting started, Next: What is in the world
+
+Commands (brief)
+================
+
+
+This is a brief list of dominion commands.  It is actually a verbatim copy
+of the reference card available as on-line help in dominion (you access
+this with the [?] key followed by [r]).
+
+                       Dominion QUICK REFERENCE CARD
+Movement (you are where the `*' is):
+                                   NORTH
+                                    (K)
+                              y,7   k,8   u,9
+                                 \   |   /
+                                   \ | /
+              WEST      (H) h,4 ---- * ---- l,6 (L)       EAST
+                                   / | \
+                                 /   |   \
+                              b,1   j,2   n,3
+                                    (J)
+                                   SOUTH
+Display:
+    [d]isplay options     [F] dump map to file   [w]indow manipulation
+    [^L] redraw screen    [p] jump to a point    [P] jump to your capital
+Administration:
+    [r]eports             [a]rmies               [Z]oom on sector
+    [W]izardry            [t]ransportation       [C]onstruct
+Miscellaneous:
+    [Q]uit (or [q]uit)    [m]ail                 [N]ews
+    [O]ptions
+
+
+
+File: dominion.info  Node: What is in the world, Prev: Commands (brief), Up: Top, Next: Races
+
+What is in the world
+********************
+
+
+
+Here we describe races, terrain, technology, magic, designations,
+communications...{}
+
+
+* Menu:
+
+* Races::
+* Technology::
+* Magic::
+* Designations::
+* Economy and natural resources::
+* Transportation and trade::
+* Communications::
+* Construction::
+* World topology::
+* Terrain::
+
+
+
+File: dominion.info  Node: Races, Prev: What is in the world, Up: What is in the world, Next: Basic races shipped with dominion
+
+Races
+=====
+
+
+There are several races in dominion, and each Game Master can add any
+races s/he pleases by modifying the race descriptor file.
+
+The parameters describing your race are strength, reproduction,
+mortality rate, intelligence, speed, stealth, the race's preferred
+altitude, vegetation, and temperature, aptitude for magic, farming and
+mining.
+
+In addition to these parameters, each race has certain special army
+types available to it.  For example, Orcs can draft armies of type
+"Orc", which have some advantages, and Harpies can draft armies of
+type "Harpies" which can fly.  Ogres have the army type "Ogres",
+which fight very well; and Hobbits can draft "Hobbits", who are
+hidden from their enemies' sight.
+
+The races currently available are Elf, Human, Dwarf, Orc, Merfolk,
+Icefolk, Hobbit, Gnome, Harpy, Ogre, Walrus, Algae, and Squid.  If you have a
+race you would like to play and do not see it listed, talk to your
+game administrator about adding it to the game.  This should not be
+done lightly, because the parameters describing each new race have to
+be tuned to preserve game balance.
+
+Some of the races (Merfolk, Walrus, Algae, and Squid) live under water.  The
+game is almost symmetrical for races that live above and below water,
+though there are some differences.  Races that live above and below
+water can interact (and fight) in several ways, as described below.
+
+Each of the above listed traits effects the races in the following ways:
+
+   * Strength: affects your combat bonus.
+   * Reproduction: the rate at which people are born in your nation.
+   * Mortality: every year this percentage of your population dies.
+   * Intelligence: affects your acquisition of technological skill, and
+     also helps in combat.
+   * Speed: affects your armies' move points.
+   * Stealth: affects your spy and secrecy skills.
+   * Preferred altitude, preferred vegetation, preferred temperature: these
+     affect migration of people, and move cost too.  If your race likes high
+     temperatures, deserts will have less move cost.  If they like high
+     altitude, mountains will have less move cost.
+   * Magic aptitude: this affects how quickly you learn the spells for the
+     nation's chosen magical order, and how many spell points you gain.
+   * Farming: your farms produce this percentage more than their basic
+     productivity.  This will increase during the game, as you acquire new
+     technology.
+   * Mining: your metal and jewel mines produce this percentage more than
+     their basic productivity.  This will increase during the game as you
+     acquire new technology.
+
+
+
+File: dominion.info  Node: Basic races shipped with dominion, Prev: Races, Up: Races, Next: A brief history of each race
+
+Basic races shipped with dominion
+---------------------------------
+
+
+The Race descriptor table, below, shows the parameters for each race.
+
+
+			  Table 1 : Race Types
+------------------------------------------------------------------------
+Race    Str Rep Mort Intel Spd Stl Alt Veg Temp Mag Farm Mine
+------------------------------------------------------------------------
+Master    0  0  0  0   0 0 0  0  0  0  0  0
+Human    80 11  8 50  65 4 2  3  7 30  0  0
+Elf      70  8  5 70  80 8 2  5  7 55 10 -15
+Orc      50 15 10 20  40 3 4  4  4 35  0  5
+Dwarf    95  9  6 60  40 2 5  3  6 30 -5 20
+Hobbit   15 10  7 45  50 9 3  4  7 20  5  5
+Merfolk  30  7  4 75  80 7 -2 -1  4 55 50 -10
+Icefolk  90  9  7 50  70 4 3  0 10 30 50  0
+Gnome    75 10  8 95  40 9 4  3  5 10  0 10
+Harpy    40 12 10 25  60 5 5  4  6 30  0 -5
+Ogre     95  5  3 75  60 5 4  3  6 50  5  5
+Walrus   95  9  7 30  80 3 -1 -1  7 55 50  5
+Algae    15 11  6 50  60 7 -2 -1  3 45 80  0
+Squid    40  9  8 25  110 8 -2 -1  5 40 50 15
+------------------------------------------------------------------------
+
+
+
+
+
+File: dominion.info  Node: A brief history of each race, Prev: Basic races shipped with dominion, Up: Races, Next: Land-water interaction
+
+A brief history of each race
+----------------------------
+
+
+*Elves* are a race of great wisdom and magical skill.  They do
+not die unless killed in battle.
+
+*Humans* are stronger than elves, but less wise, less magical, and
+they have shorter life spans.
+
+*Orcs* are an evil mockery of elves.  They come from elves that were
+captured by the Dark Lord and twisted into horrible shapes.  They
+reproduce very quickly, but are stupid, slow and weak.
+
+*Dwarves* are sons of the earth.  They are very strong, as they were
+made to withstand the world in an evil age.  They love mountains and caves,
+and typically build their kingdoms in great networks of caves.
+
+*Hobbits* are merry little folk.  They meddle little into the affairs
+of men and elves, and are not a warlike people.  They can move very quietly.
+
+*Merfolk* are people who live in the water.  They are strong in magic.
+
+*Icefolk* are creatures of the polar caps and glaciers.  They like
+the cold temperatures.
+
+*Gnomes* are very technologically apt, but deal little with magic.
+
+*Harpies* are stupid and vicious.  Their only strength is that they can
+draft armies of flying Harpies.
+
+*Ogres* are slow but strong.  They are quick to anger but soon forget
+what they were angry about.  They do not reproduce much, but are extremely
+inteligent.
+
+*Walrus* are water creatures with a preference towards colder climates.
+They would rather sit on an iceberg than a warm sunny beach.
+
+*Algae* are water creatures that move little, are quite weak against
+foes, but handy with magic and farming.
+
+*Squid* are very fast water creatures, with decent aptitudes.
+
+
+File: dominion.info  Node: Land-water interaction, Prev: A brief history of each race, Up: Races, Next: Technology
+
+Land-water interaction
+----------------------
+
+
+For the most part, land races operate on land and water races in the
+water.  But each can extend its influence to the other side of the sea
+level in various ways.
+
+Ships, when owned by a land race, will travel on water.  The converse
+is true for a water race: its ships will travel on land.
+
+If a land nation sees some good mines or farms in the water, it can
+occupy that sector using {Swimmers} or {Scuba_divers} army
+units which have the W (Water) flag.  Similarly, a water race
+can occupy land sectors using armies such as {Walkers} which have
+the L (Land) flag.  Notice that any other army or spirit with
+the W and L flags will work fine.
+
+The army types mentioned above all have the f (front line) flag,
+so they can be unloaded from ships onto the desired sector.
+
+Once the sector is occupied you cannot move people into it or they
+will drown (or suffocate).  But you can (at great expense) build a
+bubble over the sector (or cast a change-altitude spell) which will
+allow your people to move into it, even if it is a water (or land)
+sector.  This provides a means for colonizing the oceans (continents).
+
+
+File: dominion.info  Node: Technology, Prev: Land-water interaction, Up: What is in the world, Next: Magic
+
+Technology
+==========
+
+
+A nation starts with very low skills in mining, farming, construction,
+etc...{} These skills can be developed by investing money or metal
+in technology research.  This investment is made in the budget report.
+Increase in technology depends on how much metal and money you invest
+each thon.  Metal will increase technology proportional to the
+*4/3's root* of the amount of metal invested;
+money will increase technology proportional
+to the *square root* of the amount of metal invested
+
+Other benefits of technological R&D are that with each new technology
+you develop, you can gain certain things.  For example, *fire*
+increases mining ability, decreases the mortality rate, and increases
+farming ability.  As well, you can gain the ability to draft
+new types of armies.
+
+
+File: dominion.info  Node: Magic, Prev: Technology, Up: What is in the world, Next: Designations
+
+Magic
+=====
+
+
+Your nation is initiated to one of the magic orders available.
+
+Each order is characterized by the set of *spells* known to that
+order, and a set of *spirits* that can be summoned by mages of
+that order.  When you are initiated as a national leader you know only
+a little of the magic of that order, but you can increase your
+knowledge by investing money and jewels into magical research.  As you
+invest more and more, your magic skill will increase, and you will
+learn more advanced spells, and how to summon more powerful spirits.
+This investment is made with the budget report.
+
+As with technology, your magic skill increase is proportional to the
+jewels invested, and to the square root of the money you invest.
+
+On top of this, some magical orders bring a set of characteristics to
+its initiates.  These are described order by order.
+
+To *use* magic, i.e. to cast spells and summon spirits, you must
+acquire *spell points*, and initiate one or more mages.  You get
+spell points in proportion to the amount of *jewels* you invest
+in magical R&D, but *not* from your money investment.
+
+You need to bring a mage to a certain sector to cast a spell in it or
+summon a spirit there, so you should make sure you initiate some mages
+to work for your nation.  They cost a lot to initiate and maintain,
+but are worthwhile.  Mages are initiated in your temples and
+universities, which are located in either the city or the country.
+
+The [W]izardry command allows you [l]ist available spells and spirits,
+[c]ast spells, [s]ummon spirits, and [i]nitiate mages.
+
+The basic magic orders in dominion are:
+
+     
+   * Order of *Aule*.  Aule is the god of the earth, and is interested
+     in all that happens in the depths of the earth.  He protects miners
+     and workers of metal and stone, and gives them an extra 10% mining
+     skill.
+     
+   * Order of *Avian*.  This order allows you to summon spirits 
+     related to the air.
+     
+   * Order of *Chess*.  This order allows you to summon spirits
+     similar to those on the chessboard in their movements and strength.
+     
+   * Order of *Demonology*, concerned with the conjuring of demons.
+     
+   * Order of *Diana*, mostly concerned with animals and hunting.
+     
+   * Order of *Inferno*.  This order is concerned with power through
+     fire.
+     
+   * Order of *Monsters*, this order has available to it many
+     monstrous creatures.
+     
+   * Order of *Necromancy*, concerned with the invocation of dead and
+     undead spirits.  Nations of this order start with their death rate
+     increased by 2%.
+     
+   * Order of *Neptune*.  Neptune is the god of the oceans, and his
+     order is concerned with the waters.
+     
+   * Order of *Time*.  This order steps back to the age of the
+     dinosaurs.
+     
+   * Order of *Unity*.  This order has spirits that combine different
+     creatures in one body.
+     
+   * Order of *Yavanna*.  Yavanna is the godess of plants, and
+     basically everything that grows and is fertile is under her
+     protection.  Yavanna gives her initiates an extra 50% farming skill.
+     
+   * Order of *Insects*.  This order has spirits from the insect
+     world.  This initiation gives a nation 1% extra reproduction.
+     
+
+
+The Game Master can add other magical orders to the game by inserting
+a list of spirits for that order into a file.
+
+
+File: dominion.info  Node: Designations, Prev: Magic, Up: What is in the world, Next: Economy and natural resources
+
+Designations
+============
+
+
+If you own a sector, you can *redesignate* it.  That is, specify
+what function that sector has.  It costs a certain amount of money
+(and possibly also metal, jewels, ...{}) to redesignate a sector.
+
+Each type of sector can employ a different number of people.  For
+example, a city can employ several thousand people, whereas a farm
+sector can only properly employ a few hundred people.  The *basic
+number* of people that a sector can employ is listed in the table
+below.  This value is then modified by how much your race tends to
+crowd.  If you are an orc, for example, more people can be crammed
+into a single sector, so the formula is:
+	max_employed = sector_max * sqrt(reproduction / 10).
+
+
+
+The possible designations (together with the characters that are
+displayed on the map) are:
+   * Farm (`f') - these produce food.  Without farmers producing food,
+     your people will starve to death.  Farms also generate revenue in the
+     form of taxes.
+   * Metal mine (`m') - supplies your country with metal, proportional to
+     how good the metal mine it is, how many people you have in it, and your
+     mining ability.  Also generates revenue in the form of taxes.
+   * Jewel mine (`j') - supplies your country with jewels, proportional to
+     how good a jewel mine it is, how many people you have in it, and your
+     mining ability.  Also generates revenue in the form of taxes.
+   * City (`c') - generate a lot of revenue in the form of taxes.
+     Cities are also the places in which you can draft armies and construct
+     ships.  Cities also contain universities and temples, so mages can be
+     initiated in them.
+   * Capital (`C') - are like cities, but the administrative bureaucracy
+     of your nation is based in your capital, so if your capital is
+     sacked, many of your nation's riches will be taken.
+   * University (`u') - this is a school of higher education.  Your
+     country's intelligence can be increased if you put a lot of people in
+     universities.  Universities cost to maintain.  Mages can be initiated
+     in universities.
+   * Temple (`+') - a place of worship.  Mages can be initiated in
+     temples.  Also, the fraction of your people in temples increases your
+     magic skill.
+   * Stadium (`s') - your country holds sports events here.  (for now,
+     does nothing)
+   * Trade post (`T') - a caravan or ship can give goods and armies to
+     another nation by dropping them off at a trade post belonging to that
+     other nation.
+   * Embassy (`e') - necessary to establish relations with another
+     country.  (for now, does nothing)
+   * Fort (`!') - forts give bonus to armies camped there (3/turn).
+   * Hospital (`h') - hospitals affect birth and death rates in your
+     nation. (not yet) Hospitals have maintainance costs each turn.
+   * Refinery (`r') - refines your metals.  Increases the productivity
+     of adjacent metal mines.  A metal mine has 12% more production for
+     each surrounding refinery, if that refinery has at least the minimum
+     employment.
+
+
+The *Designation table* describes the properties of various
+designations: what they cost, how much revenue they produce per
+capita, how much they cost to maintain, the minimum employment (not
+used in all cases), and how many people can be employed in that
+sector.
+
+		      Table 2 : Designation table
+------------------------------------------------------------------------
+Designation  mark desig  revenue   maint.   min     max    
+                  cost   per cap. per turn people employed 
+------------------------------------------------------------------------
+None           x   1000     30         0        0     20 
+Farm           f   5000    100         0       10    500 
+Metal mine     m  10000    100         0       10    800 
+Jewel mine     j  10000    100         0       10    800 
+City           c  30000    200         0      300   5000 
+Capital        C  50000    300         0      500   7000 
+University     u  10000     30      2000      200   1000 
+Temple         +   5000      0         0      200   1000 
+Stadium        s   5000    150         0       10    400 
+Trade post     T   5000    150         0       10    300 
+Embassy        e   5000      0         0       50    200 
+Fort           !  10000     50         0       10    200 
+Hospital       h  10000    100      4000       10    300 
+Refinery       r   8000    130         0      100    200 
+------------------------------------------------------------------------
+
+
+
+
+
+File: dominion.info  Node: Economy and natural resources, Prev: Designations, Up: What is in the world, Next: Money
+
+Economy and natural resources
+=============================
+
+
+The pillars of your economy are money and natural resources (soil
+fertility, metal and jewels).
+
+
+File: dominion.info  Node: Money, Prev: Economy and natural resources, Up: Economy and natural resources, Next: Debt
+
+Money
+-----
+
+
+You get money by levying taxes.  You set the tax rate in the budget
+screen.  It is not wise to set a very high tax rate, because that will
+kill the spirit of entrepreneurship in your nation, and production of
+food, metal and jewels will decrease in proportion.
+
+Money is spent for just about everything: redesignating sectors,
+drafting and maintaining armies, research and development, supporting
+universities and hospitals, and many other things.
+
+
+File: dominion.info  Node: Debt, Prev: Money, Up: Money, Next: Soil fertility
+
+Debt
+....
+
+
+
+[NOTE: the section on bonds described here is not yet implemented;
+for now a debt simply means negative money]
+
+If your nation's money balance goes negative, you will be forced to
+issue bonds to your population to finance the debt (this happens
+automatically over the update, so there is no way you can plummet into
+a negative balance).  You must then pay an interest on these bonds.
+
+At any time you can also negotiate for other nations to purchase your
+bonds.  Interest rate on domestic bonds is fixed (15%/thon), but you
+can negotiate the price for bonds issued to other countries.
+
+If you want to finance a big war, and get lots of cash fast, the best
+way to go is probably to issue a lot of bonds to other countries.
+
+(??) The bonds your nation issues must always be backed by your
+reserve of jewels.
+
+
+File: dominion.info  Node: Soil fertility, Prev: Debt, Up: Economy and natural resources, Next: Metal
+
+Soil fertility
+--------------
+
+
+Your nation must produce the food necessary to feed its people.  This is
+done by designating certain sectors to be farms.  These farms will be
+more productive if they are on sectors with a better soil parameter.
+
+Your farming skill also determines how productive your farms will be.
+You can increase your farming skill with research in technology, because
+your nation will discover better tools and methods for farming.
+
+If your food production is insufficient, your reserves will be used.
+If those are not enough, you had better arrange to purchase some, or
+that part of your civilians who did not get enough food will starve.
+Once all your civilians have starved, your armies will start to
+starve.
+
+
+File: dominion.info  Node: Metal, Prev: Soil fertility, Up: Economy and natural resources, Next: Jewels
+
+Metal
+-----
+
+
+Metal represents all metals and construction materials used for
+practical purposes, such as construction and armaments.  It is found
+in metal mines.  The production of each mine is greater if the sector
+has a higher metal parameter, and is also increased by your nation's
+mining skill.  Your mining skill can increase if you invest in
+technology, because your nation will discover better tools for mining
+and prospecting.
+
+You can spend your metal in several ways, including drafting armies,
+technological R&D, constructing fortification and roads...{}
+
+
+File: dominion.info  Node: Jewels, Prev: Metal, Up: Economy and natural resources, Next: Transportation and trade
+
+Jewels
+------
+
+
+In dominion, Jewels represent all kinds of rare resources, such as jewels,
+gold, silver, platinum, pearls, and so on.  Jewels are found in jewel
+mines.  How many jewels you produce in a mine depends on the jewels
+parameter of that sector, and also on your mining ability (see section
+on metal).
+
+Jewels are very important, because they are invested in magical
+research, and are used to get spells.  In fact, your spell points
+depend only on the amount of jewels you invest in magical R&D.
+
+Jewels are also important in that they constitute your nation's
+reserve that backs up its currency and bonds.  When you issue bonds,
+these have to be backed up by jewels, so it is a good idea to save up
+some jewels, and not spend them all. (note: bonds are not yet
+implemented)
+
+(We must find another use for jewels, so nations have more choices to
+make in spending jewels.)
+
+
+File: dominion.info  Node: Transportation and trade, Prev: Jewels, Up: What is in the world, Next: Communications
+
+Transportation and trade
+========================
+
+
+You can trade with other nation, or just transport goods/armies/people
+for your own benefit, using *ships* and *caravans*.
+Caravans travel on land, whereas ships travel in the water.
+
+Ships and caravans are "drafted" as if they were armies, and should
+appear in your [l]ist of available armies in the [a]rmy menu.  The
+construction and maintainance costs of ships and caravans are
+tabulated with those of other army types.  Note that some spirits also
+behave as ships and caravas, in that they have the [c]argo flag.
+Examples of this are the *flying carpet*, the *ghost ship*
+and the *living ship*.
+
+A single cargo hold can only transport a certain amount of goods.  The
+unit of weight is *the weight of a single person*, and a caravan
+can transport 250 person weights.  A bar of metal weighs 0.1, money
+weighs 0.01 for a sheckel, food 0.05, a jewel basket 0.01.  If you
+load soldiers, their weight is equal to the weight of the number of
+people plus the weight of the metal used in drafting an army that
+size.  Any caravan can transport only a single army and a single land
+title.  The land title does not have significant weight.
+
+To load a caravan or navy, you select it (with [a]rmy commands) and
+then use the [t]ransportation command to [l]oad goods, which can be
+[s]hekels (money units), [m]etal, [f]ood, [p]eople, [a]army or
+[t]itle.  To unload it you move the caravan or navy to its destination
+and do the same with [u]nload instead of [l]oad.
+
+You can only load certain goods onto a caravan in certain places.
+Anything can be loaded in a city.  Metal can also be loaded in metal
+mines, jewels in jewel mines and food in farms.  The title to a sector
+*must* be loaded on that sector itself.  People can be loaded
+from any of your own populated sectors.  Armies can be loaded anywhere
+in your land, but out of your territory they can only be loaded if
+they have the front-line flag.
+
+To unload in a foreign land you must be in a trading post, or you can
+unload armies with the front-line flag (for example, Sailors, Marines,
+Scuba divers).  To trade an army in a foreign trading post, you should
+put the army in TRADED status, and then unload it on the trading post.
+Alternatively, since armies move on their own, you can put them on
+TRADED status and just walk them up to the trading post.  When you
+stop that army on the foreign trading post, you will be asked if you
+really want to trade it.  You can also change the army to TRADED
+status once it is already on the trading post.  In all cases you will
+be asked for confirmation of the army trading.
+
+Transporting goods within your country is kind of useless.  In your
+land, goods must be unloaded in trading posts or cities.  Transporting
+people is an effective way of getting them to the better mines and
+farms.  Transporting armies can help mobilize your forces more
+quickly, since you can then unload them and they can still march.
+
+Some armies, such as Sailors and Marines, have "front line" flag
+(see the army types table).  This means that they can be unloaded from
+caravans and ships anywhere: in your land, in un-owned land, and in
+foreign land.  Thus ships and caravans can be used for transportation
+of fighting troops, not just for trade and migration.
+
+
+File: dominion.info  Node: Communications, Prev: Transportation and trade, Up: What is in the world, Next: Construction
+
+Communications
+==============
+
+
+Nations in dominion communicate through *mail* and *news*.  Mail
+allows you to send personal messages to leaders of other nations.
+News is for general announcements, and is read by all nations.
+
+There can be several newsgroups.  One is always reserved for messages
+from the computer, containing general information on what has happened
+over the update.  This newsgroup is usually called "News".  Other
+newsgroups are set up by the Game Master, and any nation leader can
+post to them.  At Stony Brook we usually have a newsgroup called
+"public" which receives many very creative postings from
+participants.
+
+You should read your mail and news whenever you play your turn, to be
+in touch with your neighbours and the rest of the world.  You also get
+mail from the update program after each update, telling you what has
+changed in your nation over the update.
+
+
+File: dominion.info  Node: Construction, Prev: Communications, Up: What is in the world, Next: World topology
+
+Construction
+============
+
+
+You can construct on a sector with the [C]onstruct command.  Your
+construction will cost money and/or metal, and can make that sector
+more valuable.  You can construct:
+   * *[r]oads:* decreases the move cost for you (and anyone else) in this
+     sector.  The cost for building roads doubles for the next level of
+     road construction.  For each level of roads construction, the move
+     cost goes down by 1 (but it never goes below 1).
+   * *[f]ortification:* fortifies the current sector: adds 10 to the
+     fortification level, which gives *your* armies that much bonus
+     when defending that sector.
+   * *[b]ubbles:* these are air/water-tight bubbles.  They are necessary
+     to colonize underwater (if you are an above-water race) and land (if you
+     are an underwater nation).  Once you have a bubble, you can move
+     troops and civillians to that sector.
+
+
+
+File: dominion.info  Node: World topology, Prev: Construction, Up: What is in the world, Next: Terrain
+
+World topology
+==============
+
+
+The world is shaped like a torus (i.e. the surface of a doughnut).
+This is the best approximation of a sphere which can be displayed
+easily on a flat terminal.
+
+Thus, the world wraps; so, for example, if you are playing
+in a 100x100 world, and your nation grows to be 100 sectors 
+wide, you can travel around the world.
+
+
+File: dominion.info  Node: Terrain, Prev: World topology, Up: What is in the world, Next: Diplomacy and war
+%
+Terrain
+=======
+
+
+
+
+File: dominion.info  Node: Diplomacy and war, Prev: Terrain, Up: Top, Next: Diplomatic status
+
+Diplomacy and war
+*****************
+
+
+
+Diplomatic relations with your neighbours are extremely important.
+Your nation can be destroyed if you did not properly set your
+diplomacy: you might make several enemies who could then form a treaty
+to fight you.  This happens quite often.
+
+Your nation starts out with 10 armies of 100 Cavemen in your capital;
+more can be drafted using the [a]rmy menu.  Soldiers are used to
+occupy unowned land, to defend your own territory, and also to conduct
+war against enemy nations.
+
+To occupy an unowned sector, you must have an army of at least 100
+soldiers there, set on occupy mode.  To occupy a sector owned by
+another nation, you have to declare *WAR* or *JIHAD* with
+them.  Sectors can also be occupied by spirits with 100 units or more.
+
+
+* Menu:
+
+* Diplomatic status::
+* Armies::
+* Army types::
+* Spirit types::
+* Army maintainance costs::
+* Movement points::
+* Army statuses::
+* Tactics::
+
+
+
+File: dominion.info  Node: Diplomatic status, Prev: Diplomacy and war, Up: Diplomacy and war, Next: Armies
+
+Diplomatic status
+=================
+
+
+In the [r]eports menu, you can access your [d]iplomacy report.  This
+report shows you your status toward other countries, and their status
+toward you.  You start out *UNMET* with all nations.  Then, as
+your armies come close to their sectors, or vice-versa, the two
+nations will meet and be put in neutral status.
+
+You can change your status to other countries.  A lot of statuses are
+possible, but the most important ones are:
+   * [ALLIED]
+     gives permission to the other nation to pass through your land at a
+     lower move cost.  Also, you can put your armies in GARRISON in allied
+     land, and they will get 1/2 of the GARRISON bonus.
+   * [TREATY]
+     goes beyond ALLIED: if your armies or those of the other nation are
+     involved in a battle, and the other has armies on the same sector, the
+     two will fight together.  Also, if you put your armies in GARRISON in
+     treaty land, they will get the full GARRISON bonus.
+   * [WAR]
+     If any army of yours is on the same sector as an enemy army, and one
+     of the two is on ATTACK or OCCUPY mode, there will be a battle.
+   * [JIHAD]
+     For now, the same as WAR.  In the future, JIHAD should involve some
+     expense, and give a better fighting bonus due to fanatism in combat.
+
+
+You can change your diplomatic status towards any nation you have met.
+They will see the change immediately.  You can only change it by two
+degrees, so that you cannot be ALLIED, march into someone's land, and
+then declare WAR and occupy all their sectors.
+
+
+File: dominion.info  Node: Armies, Prev: Diplomatic status, Up: Diplomacy and war, Next: Army types
+
+Armies
+======
+
+
+The *army types* table lists the various types of armies, their
+costs, bonuses and move rates.
+
+Each army or spirit has a set of *army flags* that affect its
+behaviour.  Some are innate abilities of that army, others can be set
+with magic spells.  The table lists each army's innate flags.  The
+flag abbreviations are:
+   * F: Flying.  Any army with this flag can fly.  Move costs of sectors
+     don't depend on altitude, and thus are much lower.  These armies also
+     ignore PATROLs and INTERCEPTs unless the patrolling army has missiles.
+   * H:  Hidden.  Army with this flag is magically cloaked.
+   * V:  Vampire.  Army with this flag will possess some of the dead
+     on the battlefield who will join ranks with this army.
+   * T:  Transport.  This army is being transported as cargo.
+   * ^:  Missiles.  This army has weapons that are thrown, such as arrows.
+     Archers are a type of army with mssles.  These units, when in PATROL
+     or INTERCEPT status, will slow down flying units too (normally flying
+     units are not slowed down by PATROLs or INTERCEPTs, though they
+     *do* get intercepted once they land).
+   * W:  Water.  An army with this flag must stay in water, or in the land
+     sectors along a coast; even if it belongs to a land nation.  Compare
+     with the L flag below.
+   * f: Front-line army.  Can be loaded/unloaded on/from a ship or caravan on
+     land that does not belong to you.
+   * k:  Kamikaze.  Armies with this flag will fight with very high bonus,
+     but will all die in any battle.
+   * m:  Machine.  These armies are really machines, such as siege engines,
+     war carts and catapults.  They help ordinary armies in combat by
+     destroying fortifications and adding bonus to the armies.
+   * d: Disguised.  You can disguise this army so that it will appear to be
+     of another type to other players.  For example, to disguise a
+     poltergeist as an areal serpent you would change the armies
+     *name* so that it ends with "/areal_serpent".
+   * w:  Wizard.  This flag means that the army can summon spirits
+     and cast spells, like a mage.
+   * s:  Sorcerer.  This flag means that the army can excercise powers
+     of sorcery (not implemented yet).
+   * c:  Cargo.  This army can transport cargo, like ships and caravans.
+   * U:  Underground.  This army can burrow underground, and thus is not
+     slowed down by patrols and intercepts.
+   * L:  Land.  This is the exact inverse of the W flag.  An army with
+     this flag must stay on land, or in water sectors along the coast; even
+     if it belongs to a water nation.  Notice that if you have both the
+     L and W flags, you can move that army onto *any* sector on the
+     map.
+   * I:  Inverse altitude.  This flag says that the army will have either
+     the L or the W flag, depending on the race of the army's owner.  If
+     the army belongs to a *land* race, then it will have a W flag,
+     and vice-versa.  This flag is used mostly for things like ships,
+     which travel in the "inverse" altitude medium.
+   * *: Race specific.  These armies are available only to certain
+     races.
+
+
+
+File: dominion.info  Node: Army types, Prev: Armies, Up: Diplomacy and war, Next: Spirit types
+
+Army types
+==========
+
+
+
+The *Army types* table below describes in detail all army types
+available for drafting.
+
+
+		       Table 3 : Army types table
+------------------------------------------------------------------------
+Type       char move bonus draft draft draft maint maint maint flags 
+                rate       money metal jewel money metal jewel       
+------------------------------------------------------------------------
+Cavemen       *  0.5  -60    60     0     0    10     0     0  
+Spearmen      /  0.8  -10    80    20     0    10     0     0  
+Infantry      i  1.0    0   100    30     0    10     0     0  
+Caravan       C  1.0    0  1000  1000     0   200    40     0  c
+Archers       )  1.0    5   100    40     0    10     0     0  ^
+Swimmers      o  1.0  -60   150    50     0    15     5     0  Wf
+Walkers       #  1.0  -60   150    50     0    15     5     0  L
+Phalanx       p  1.0   20   150    50     0    12     0     0  
+Sailors       ~  0.0  -10   150    50     0    15     0     0  f
+Chariots      0  1.5   10   180    60     0    14     5     0  
+Canoes        u  2.0  -80  1000  2000     0   200   100     0  cI
+Legion        l  1.0   40   200    70     0    16     0     0  
+Cavalry       c  2.0   20   200    80     0    20     0     0  
+Elite         e  1.3   10     0   100     0     0    25     0  
+Sailboats     }  2.5  -50  1500  3000     0   300   150     0  cI
+Marines       m  1.0   60   300   200     0    25     0     0  f
+War_carts     w  1.0   10   500   200     0   200    20     0  m
+Galleys       g  3.5  -20  2000  4000     0   400   200     0  cI
+Berzerkers    b  1.0   50    30     0     0     5     0     0  k
+Merc          M  1.2   60   200     0     0   200     0     0  
+Catapults     @  0.5   20   800   400     0   300    30     0  m
+Quadriremes   q  4.5    0  3000  5000     0   500   250     0  cI
+Scuba_divers  S  1.2  -30   300   200     0    25    25     0  fI
+Kamikaze      k  1.5  200    50    25     0    50     0     0  k
+Wagons        W  1.5    0  1500  1500     0   300    60     0  c
+Crossbowmen   ]  1.0    5    50    60     0     5     5     0  ^
+Ninja         N  3.0   75  2000     0  2000   500     0   500  H
+Mage          !  2.0    0     0     0  5000     0     0  1000  w
+Hunters       h  1.5  -10    50     0     0    10     0     0  
+Orcs          O  1.0    0    60    30     0    10     0     0  
+Harpies       y  1.0   10   100    30     0    10     0     0  F
+Hobbits       H  1.0    0   100    30     0    10     0     0  H
+Ogres         G  1.0   50   100    30     0    10     0     0  
+------------------------------------------------------------------------
+
+
+
+
+
+File: dominion.info  Node: Spirit types, Prev: Army types, Up: Diplomacy and war, Next: Army maintainance costs
+
+Spirit types
+============
+
+
+The *Spirit types* tables below list the spirit types available in
+dominion.  Summoning costs (in spell points) are not listed, because
+they can be different if a spirit is available to more than one magic
+order.  The flags for each spirit are described in the section on
+*Armies* above.
+
+% Made with Titus Brown's mktables
+
+
+		  Table 4 : Spirit types table (Diana)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+                wolf                30   1.5     0    1
+              swarm               50   1.3   300    3  Fk
+              mole                70   1.0     0    3  UL
+                snake              100   0.8     0    3
+               shark              100   1.5    10    3  W
+               hawk               200   2.0     0    5  F
+                bear               300   1.4     0    5
+               lion               500   1.5     0    6  L
+               terrasque         2000   0.5     0   13  L
+------------------------------------------------------------------------
+                                    
+
+
+
+
+	       Table 5 : Spirit types table (Necromancy)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+              ghost_ship           1   2.5     0    1  HcI
+                skeleton            40   0.8     0    1
+               wraith              30   1.5     0    2  H
+               zombie              70   0.8     0    3  V
+               poltergeist        150   0.1     0    3  d
+               mummy               80   0.8    30    3  U
+              ghost_ship           1   2.5     0    5  HcI
+               lacedon            500   1.0     0    7  W
+               lich              2000   2.0   -20   14  w
+               vampire           1500   0.8    30   15  V
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		 Table 6 : Spirit types table (Yavanna)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+                dryad               30   1.0     0    1
+               tree_spirit         50   1.5     0    2  F
+                wood_beast          70   1.0     0    2
+                magic_trees        150   1.0     0    3
+               yellow_musk        200   0.7     0    4  V
+                ent                250   0.8     0    4
+               swamp_beast        500   1.0    10    6  W
+                shambling_mound   1200   0.8    10   10
+                forest            2000   0.7     0   14
+------------------------------------------------------------------------
+                                    
+
+
+
+
+	       Table 7 : Spirit types table (Demonology)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+                imp                 30   2.0     0    2
+                lesser_demon        70   1.7     0    3
+                hellhound          150   1.7     0    4
+               tormented_soul     300   1.2   100    5  k
+                devil              250   1.0     0    4
+               major_demon        500   2.0     0    8  F
+                balrog            1500   1.5    50   15
+               demon_lord        2500   2.0     0   19  w
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		Table 8 : Spirit types table (Monsters)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+                spider              30   0.8     0    1
+               yeti                70   1.0     0    2  L
+                ettin              120   1.5     0    3
+                cyclops            150   0.8     0    3
+                hydra              250   1.2     0    4
+               crimson_death      500   2.0     0    8  F
+               sea_dragon        1000   1.2     0    9  W
+               green_dragon      1500   2.0     0   11  L
+               red_dragon        2500   1.5     0   17  F
+              gold_dragon       3500   2.0     0   24  Fw
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		 Table 9 : Spirit types table (Neptune)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+              living_ship          4   2.5     0    1  cI
+               pirana              30   1.2     0    1  W
+               water_nymph         50   1.2     0    2  W
+               whale               80   1.0     0    2  W
+               shark              100   1.5    10    3  W
+              sea_serpent        150   1.2     0    4  WL
+               craken             250   1.0     0    4  W
+               sea_giant          500   0.8     0    5  W
+               water_elemental   2000   2.0     0   15  W
+               leviathan         3000   0.9    10   18  W
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		  Table 10 : Spirit types table (Aule)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+               gargoyle            30   1.0     0    2  F
+              mole                70   1.0     0    3  UL
+              dust_devil         150   1.0     0    4  FL
+              umber_hulk         250   1.7     0    5  UL
+                stone_giant        500   0.7     0    6
+               earth_elemental   2000   2.0     0   16  U
+                mountain          3000   0.3    60   23
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		 Table 11 : Spirit types table (Chess)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+                pawn                30   0.5     0    1
+               knight             120   1.0    10    4  H
+               bishop             150   2.0     0    5  F
+                rook               250   3.0    30    6
+                queen              500   4.0    50    9
+                king              1000   0.4     0    8
+                master            2000   1.0    10   11
+               grandmaster       3000   1.3    20   14  w
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		Table 12 : Spirit types table (Inferno)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+               efreet              70   1.5     0    2  L
+              phoenix             30   2.0     0    3  FL
+               fire_giant         250   1.0     0    4  L
+                fire_drake         500   1.5     0    6
+               lava_beast        1000   1.0     0   10  U
+               fire_elemental    2000   2.0     0   15  L
+               conflagration     3000   1.5     0   18  L
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		 Table 13 : Spirit types table (Avian)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+              flying_carpet        1   1.5     0    1  Fc
+               roc                 30   1.5     0    1  F
+               eagle               70   1.5     0    2  F
+               cloud_giant        150   1.0     0    3  F
+               wyvern             250   1.0     0    4  F
+               areal_serpent      500   1.8     0    7  F
+               air_elemental     2000   2.0     0   15  F
+               tempest           3000   2.0     0   18  F
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		 Table 14 : Spirit types table (Unity)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+                naga                30   1.0     0    1
+                centaur             70   2.0     0    3
+              werewolf           100   1.5     0    4  Vd
+               minotaur           150   1.0     0    3  L
+                owl_bear           250   1.0     0    4
+               gryphon            350   2.0     0    7  F
+               sea_lion           600   1.5     0    7  W
+               chimera           1000   1.5     0   10  F
+              sphynx            2000   0.8     0   17  Fw
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		  Table 15 : Spirit types table (Time)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+                diplodocus          30   1.3     0    1
+                brontosaurus        70   0.7     0    2
+               pleisiosaurus       50   1.5     0    2  W
+               pterodactyl        150   1.5     0    4  F
+                stegosaurus        250   1.0     0    4
+               triceratops        500   0.8     0    6  L
+                tyrannosaurus     1500   1.5     0   12
+              brachiosaurus     3000   0.5     0   18  WL
+------------------------------------------------------------------------
+                                    
+
+
+
+
+		Table 16 : Spirit types table (Insects)
+------------------------------------------------------------------------
+           Name              Size   Move   Bonus  Spell Flags
+                           rate          Pts
+------------------------------------------------------------------------
+              ant                 30   1.0     0    2  UL
+              swarm               50   1.3   300    3  Fk
+              flying_carpet        1   1.5     0    3  Fc
+               moth               150   1.5     0    4  F
+               bee                250   1.2    30    6  F
+              grasshopper        350   1.0     0    6  HL
+              mosquito           500   0.5     0    6  FV
+                infestation        600   0.0    50    6
+                roach             1000   0.8    20   10
+               lobster           1500   1.0     0   12  W
+                creeping_doom     2500   0.8    20   18
+------------------------------------------------------------------------
+                                    
+
+
+
+
+
+
+
+File: dominion.info  Node: Army maintainance costs, Prev: Spirit types, Up: Diplomacy and war, Next: Movement points
+
+Army maintainance costs
+=======================
+
+
+Each army has a maintainance cost which is given by the salaries of
+the soldiers plus a fixed per-army overhead of 2000 sk.
+
+
+File: dominion.info  Node: Movement points, Prev: Army maintainance costs, Up: Diplomacy and war, Next: Army statuses
+
+Movement points
+===============
+
+
+Your armies can move only so much before they must stop and rest.  How
+much they can move is expressed in the army's *move points*, and
+the *move cost* of the sectors they must cross.
+
+For example, if an army has 13 move points, and it goes through
+sectors with move costs of 4, 3, 2, 2 and 3, it will not have enough
+move points left for the last sector (it will have 2 move points left,
+and that last sector has a move cost of 3).
+
+
+File: dominion.info  Node: Army statuses, Prev: Movement points, Up: Diplomacy and war, Next: Tactics
+
+Army statuses
+=============
+
+
+   * *[i]ntercept* This army will intercept a nearby army.  Intercept
+     raises the move cost in the area, and then (over the update) the army
+     will move to any adjacent square where an enemy army might be located.
+     This is quite powerful, since you don't have to defend each square;
+     but you should be careful because intercepts can be decoyed.
+     
+     Intercept will also move the army to intercept a flying enemy army,
+     once it has landed.  But the increased move cost will not apply to flying
+     enemy armies *unless* the intercepting army wields missiles (for
+     example, archers).  See the description of army flags.
+     
+   * *[p]atrol* This army will patrol the area, raising the move cost
+     for enemy armies.  If the enemy army is flying, the move cost will
+     only be raised if the patrolling army has missiles (for example, archers).
+     
+   * *[g]garrison* This army garrisons the sector, getting an
+     extra 10 bonus on your own land.  If the sector belongs to a nation at
+     TREATY with you, then you also get bonus 10.  If it is ALLIED land,
+     you get a bonus of 5.
+
+
+
+File: dominion.info  Node: Tactics, Prev: Army statuses, Up: Diplomacy and war, Next: Detailed description of commands
+
+
+
+File: dominion.info  Node: Detailed description of commands, Prev: Tactics, Up: Top, Next: Options menu
+
+Detailed description of commands
+********************************
+
+
+
+
+* Menu:
+
+* Options menu::
+* Display options::
+* Movement::
+* Reports::
+* Wizardry::
+
+
+
+File: dominion.info  Node: Options menu, Prev: Detailed description of commands, Up: Detailed description of commands, Next: Display options
+
+Options menu
+============
+
+
+You can set some options that affect the way the game appears to you.
+For now the only ones implemented are:
+   * *e[x]pert* mode.  This toggles expert mode on and off.  Expert mode
+     allows an experience player to do things much more quickly by showing
+     most menus on the status line, instead of drawing big windows.
+   * *[f]orwarding mail*.  This allows a you to get mail forwarded
+     to your account instead of reading mail inside dominion.
+   * *[c]ivilian movement*.  This toggles between the three available
+     types of migration that your government allows: *Free*,
+     *Restricted* and *None*.
+   * *[m]ail program*.  This allows you to choose a mail program with
+     which to read your dominion mail.  Examples are "elm", "mush", "Mail",
+     "mailx".  If you type nothing, you will get the builtin bare-bones mail
+     program.
+
+
+
+File: dominion.info  Node: Display options, Prev: Options menu, Up: Detailed description of commands, Next: Movement
+
+Display options
+===============
+
+
+The default way of viewing the screen shows the designation of your
+own sectors, altitude markings for unowned sectors, and nation marks
+for other nations' sectors.  But there are a lot of different ways of
+looking at the map, and of highlighting sectors on it.  The [d]isplay
+command will list all these for you.
+
+If you are a land race, water sectors are usually marked as a '~', but
+this can be toggled with the *[W]ater toggle* option: if you
+choose this mode, then land sectors will appear as a '.', and water
+sectors will be shown in detail.
+
+
+File: dominion.info  Node: Movement, Prev: Display options, Up: Detailed description of commands, Next: Reports
+
+Movement
+========
+
+
+The movement commands are shown in the diagram at the beginning of this
+manual.  They are quite straightforward, and only behave differently
+when you reach the edge of the screen.  In this case, the screen is
+shifted over, so your cursor does not go off.  The screen can be
+forcibly centered around the cursor using the [d]isplay command [C].
+
+You can also jump directly to a sector with the [p] command.  You will
+be prompted for the coordinates.  You can jump back to your capital
+with the [P] command.
+
+
+File: dominion.info  Node: Reports, Prev: Movement, Up: Detailed description of commands, Next: Information report
+
+Reports
+=======
+
+
+Here is a detailed description of each report in dominion. To acess
+them type [r] and then the letter of the report you want.  You can
+switch from one report to another by hitting the key that corresponds
+to the report you want.  The reports you can switch to ae listed at
+the bottom of the report you are looking at.
+
+
+File: dominion.info  Node: Information report, Prev: Reports, Up: Reports, Next: Budget report
+
+Information report
+------------------
+
+
+To access this report you type [r] followed by [i].
+
+This report gives complete information about your nation.  This is a
+description of each parameter printed.
+
+   * Nation name: the name of your nation (wow!!).
+   * Nation id: your nation id, used mostly internally.
+   * Leader: the name of your nation's leader.  
+   * Capital: the location of your capital.  This is always (0,0), since
+     coordinates are given relative to your capital, unless you are the game
+     master.
+   * Race: the race you belong to.
+   * Mark: your nation mark.  Other nations will see this mark on their screen,
+     and you will too if you display by nation mark.
+   * Secotors: The number of sectors owned by your nation.
+   * Treasury, Jewels, Metal, Food: Your current wealth.
+   * Birthrate: The percentage by which your population increases every thon.
+   * Mortality: The percentage of people who die in your nation every thon.
+   * Inteligence:
+   * Magic Apt:
+   * Speed: Your move rate is proportional to this.
+   * Initiated to the magical order:  This says what magic order you belong to.
+   * Magic Skill: How proficient you are in your use of magic.
+   * Spell points: Tells you how many you have and how many are spent for 
+     maintenance of spirits.
+   * Technology skill: How technologically advanced your country is.
+   * Farming skill:  The higher this is the more food you produce per farmer.
+   * Mining skill: This is your ability to 'harvest' jewels and metal.
+   * Spy skill: This expresses how good your intelligence service is.
+   * Secrecy: This makes you immune to espionage by other nations.
+   * Civilians: This is the number of civilans in your country.
+   * Soldiers: This is the number of soldiers in your country.  This
+     includes spirit forces, mages, caravans, ships...
+   * Armies: This is the number of armies you have including spirit units
+     and mages.
+   * Attack bonus, Defense bonus: If you add this percentage to the number
+     of soldiers in the army, you get the effective force your army fights
+     with.
+   * Move points:  This is how far your army can move each turn.  
+
+
+From here you can change your password [p] or change your leader name
+[l].  The key letter [t] allows you to change your nation to an NPC,
+and allows you to choose if your nation should receive update mail
+while it is being run by the computer.  Also listed are the key
+letters for other reports you can view.
+
+Changing your nation to an NPC is a risky move: the computer will play
+a good game, but it will not honor your long-term plans.
+
+
+File: dominion.info  Node: Budget report, Prev: Information report, Up: Reports, Next: Production report
+
+Budget report
+-------------
+
+
+To access this report you type [r] followed by [b].  
+
+The budget report gives you detailed breakdown of how you are spending your 
+money and your natural resources.  
+
+Within the budget report you can adjust what percent of your money
+and/or natural resources you are spending on technology, the study of
+magic and reconnaisance. You also can adjust your tax rate from this
+menu.
+
+This screen also shows how much money you are spending on military
+maintenance and other costs inccurred. The only way military
+maintenance can be lowered is to disband armies. Other costs include
+but are not limited to the cost of drafting an army and the cost of
+redesignating sectors.
+
+The Metal and Jewels Breakdown, aside from listing the amounts spent
+on research and development, show how much of each natural resource is
+spent.  Other metal expenses consist of but are not limited to the
+construction of citites and the drafting of armies. Other Jewels are
+used as a maintenance fee for mages.
+
+The commands within this screen are:
+
+   * {[t]} which adjusts your tax rate
+   * {[c]} which adjusts your charity rate
+   * {[T]} which is technology resarch and development, has a
+     submenu that consists of the choices metal and money.
+        * {[m]} sets the amount of metal you wish to use in R&D 
+        * {[M]} sets the amount of money
+     
+   * {[M]} puts you into the sub-section for Magic R&D where
+        * {[j]} changes the amount of jewels you use for Magic R&D
+        * {[M]} adjusts the amount of money you spend for Magic R&D
+     
+   * {[S]} this invests money in your *spy department*
+   * {[s]} this allows you to spend money/metal/jewels from your storage.
+     The way you can spend it is similar to how you spend your revenue, but
+     it is a once-only expense, and is cleared after each update.
+
+
+*A NOTE OF CAUTION:*
+
+Watch how much money you are spending carefully, You might be
+bankrupting your nation without realizing it!  You to can run your
+nation at a deficit...{} but be warned:  if you have no money, you
+canot draft, construct or redesignate.  If someone attacks you and
+you need armies quickly, you will be in trouble.
+
+You might also want to keep you taxes on the low side...{} the
+higher the taxes, the less the people produce.  In fact, beyond a
+certain tax rate, you will not even get much tax revenue out of your
+people because they will produce so little, and they will want to
+cheat on taxes.
+
+
+File: dominion.info  Node: Production report, Prev: Budget report, Up: Reports, Next: Nations report
+
+Production report
+-----------------
+
+
+The production report tells you how many people are employed and
+unemployed in each area of your economy.  It also shows you the
+average productivity of each employee.  The "service sector"
+means all people who are not employed in productive endevours (mining
+and farming).
+
+
+File: dominion.info  Node: Nations report, Prev: Production report, Up: Reports, Next: Diplomacy report
+
+Nations report
+--------------
+
+
+The nations report, which can be seen by typing [r] followed by [n],
+gives you a report on all the nations.
+
+You are told the size of the world and how many nations are in it. It also 
+gives a detail of each nation that lists the nation id, nation name, nation 
+mark, leader name, and race.
+
+Within this report is also the spy option, [s].  You will then be
+prompted for a nation id, and then you will be presented with a screen
+that allows you to bribe officials in that nation for information.
+Here is how it works:
+
+You pay a certain amount of jewels in bribes to another nation.  You
+can get information about their [p]opulation, [e]conomy, [m]ilitary,
+ma[g]ic, [t]echnology and [C]apital location.  You can also steal
+[T]echnology (not yet implemented).
+
+The success of your spying will depend on your spy level, your
+opponent's secrecy, your and your opponent's stealth, and the amount
+of jewels you spend in bribes.  You will receive an answer which is
+not exactly accurate, but gets better if you spend more, or have a
+better spy value, and so on.
+
+
+File: dominion.info  Node: Diplomacy report, Prev: Nations report, Up: Reports, Next: Wizardry
+
+Diplomacy report
+----------------
+
+
+Diplomacy with other nations is extremely important.  You should set a
+status with each nation you have met.  This is done in the
+*diplomacy* report.
+
+You cannot make a great change in diplomacy status in one turn: you
+can at most jump two levels of diplomacy in one turn, like going from
+ALLIED to RECOGNIZED.  The next turn you can go from RECOGNIZED to
+UNRECOGNIZED, and the turn after that you can go do WAR.  This ensures
+that any nation will see the diplomatic situation deteriorate
+progressively before war is declared on them.
+
+
+File: dominion.info  Node: Wizardry, Prev: Diplomacy report, Up: Detailed description of commands, Next: Mages
+
+Wizardry
+========
+
+
+Type [W] to enter the wizardry menu.
+
+The wizardry command allows you to do *initiate a mage*,
+*cast a spell* and *summon a spirit*.  Spells are cast and
+spirits are summoned in a given sector, and you must have a mage in
+that sector to do so.
+
+Hit the [i] command to initiate a mage.  Mages move twice as fast as
+normal armies, so they can reach a battlefield quickly to do their
+work.
+
+If you have a mage already selected (see the [a]rmy menu), then you
+can use use [c] to [c]ast a spell or [s] to [s]ummon a spirit.  The
+spell is cast on an object (army, or sector, or whatever, according to
+which spell it is) in the same sector as the mage, and the spirit is
+created in the same sector as the mage.  Spirits must be summoned in
+your own land.
+
+Most spells will hang around until their duration is over, or until
+you delete them, or until the army to which they apply does not exist
+any more.  You can see which spells you have hanging with the [h]
+command, and that gives you the option of deleting hanging spells too.
+Spirits last until they are killed, and behave just like armies.
+
+
+File: dominion.info  Node: Mages, Prev: Wizardry, Up: Wizardry, Next: Spells
+
+Mages
+-----
+
+
+Mages are necessary for casting spells and summoning spirits.  They
+must be initiated inside a capital, city, temple or university.  They
+cost 5000 jewels to initiate, and 1000 jewels in maintainance each
+thon.
+
+Mages are moved around as if they were an army, and have twice the
+nation's basic move rate.
+
+Some spirits have the [w]izardry flag, and they behave like mages.
+
+
+File: dominion.info  Node: Spells, Prev: Mages, Up: Wizardry, Next: Spirits
+
+Spells
+------
+
+
+Here is a description of several spells available in dominion.  Keep
+in mind that some spells may be available to several orders, and their
+cost and duration will be different for the different orders.  For
+example, both Neptune and Time have the water_walk spell, but for
+neptune it costs only 1 spell point, whereas for Time it costs 2.
+
+Both the cost and the duration of the spell are indicated when you
+list your available spells.  The cost is in spell points.
+
+If the spell is applied to a sector, then that is all you spend.
+
+A spell applied to an army will usually set a special flag for that
+army, and will cost a given amount per each 100 men.  Army flags are
+described in the section on armies.
+
+Notice that some armies and spirits come into the world with some of
+these magical properties already set, so you do not need to set them
+with a spell.
+
+   * *caltitude*
+     This spell allows you to raise or lower the altitude of a sector.
+     This means that you could plunge it into the sea, or you could place
+     it on a mountain peak.
+   * *fertility*
+     This spell allows you to raise or lower the soil fertility of a
+     sector.
+   * *cmetal*
+     This spell allows you to raise or lower the metal productivity of a
+     sector.
+   * *cjewels*
+     This spell allows you to raise or lower the jewel productivity of a
+     sector.
+   * *fireburst*
+     This spell devastates the chosen sector, redesignates it to
+     *none*, sets the soil productivity to zero, and in the future
+     should do other nasty stuff.
+   * *inferno*
+     This spell will kill all population in the sector, and make it
+     completely impenetrable to any army for its duration.  You can only
+     cast *inferno* on your own sectors.  It is a very effective
+     way to block enemy armies.
+   * *hide_sector*
+     This spell completely hides the current sector from any other nation.
+     The sector will just appear as a blank spot on the map.
+   * *hide_army*
+     This spell sets the HIDDEN flag on an army, so that others cannot see
+     this army.
+   * *fly_army*
+     This sets the FLYING flag on an army.  The army will be able to fly.
+   * *vampire_army*
+     This sets the VAMPIRE flag on an army.  This means that in battle, 1/4
+     of the troops that die will join the ranks of this army.  The army
+     will not be allowed to grow to more than a certain multiple of its
+     original size.
+   * *burrow_army*
+     This sets the UNDERGROUND flag on an army.  This means that the army is 
+     traveling underground and is thus immune to intercepts.
+   * *water_walk*
+     This sets the WATER flag on an army.  The army will be able to cross
+     water sectors.
+   * *mag_bonus*
+     This gives magical enhancement to an army.  The army will fight with an
+     extra 30% bonus.
+   * *merge*
+     This spell allows you to merge civilians into spirits (up to twice the
+     spirits' basic strength), or to take spirits and merge them into the
+     civilian population of a sector.
+   * *haste_army*
+     This spell doubles the army's current move rate.
+
+
+
+File: dominion.info  Node: Spirits, Prev: Spells, Up: Wizardry, Next: The update
+
+Spirits
+-------
+
+
+Spirits are like armies, in that they can fight, and they can occupy
+sectors (if they are big enough), and their status and movement is
+manipulated with the [a]rmy command.
+
+They are also different in many ways.  To obtain them, you don't draft
+them, but your mage summons them with spell points.  They are not
+maintained by money, but by more spell points (typically 1/3 of the
+spell points that were needed to summon them in the first place).
+
+Spirit types are described above together with army types.
+
+
+File: dominion.info  Node: The update, Prev: Spirits, Up: Top, Next: Migration
+
+The update
+**********
+
+
+
+It can be useful to understand exactly what happens during the update.
+Here are the steps in the order in which the computer performs them.
+This list might not be complete, but it should give you an idea of how
+the update works.
+
+     
+  1. NPC diplomacy is updated
+  2. Hanging spells are loaded
+  3. All moves by all nations are incorporated, and NPC moves are made
+  4. Technology is updated
+  5. Spy is updated
+  6. Magic is updated
+  7. Revenue is calculated of money, metal, jewels and food
+  8. Civilian migration occurs
+  9. Battles are resolved
+ 10. Sector capture is handled
+ 11. Diplomacy is updated (nations become "met")
+ 12. Armies are reset.  Mages are disbanded if maintaince jewels are missing.
+     
+
+
+
+File: dominion.info  Node: Migration, Prev: The update, Up: The update, Next: Authors
+
+Migration
+=========
+
+
+
+Civilian migration happens automatically.  The people move according to
+the laws of the country.  As a leader you can set those laws with the
+[o]ptions screen:  you can set migration to be *Free* (the default),
+*Restricted* or *None*.
+
+   * Free
+     movement.  People look for the sectors that have the most
+     available jobs, because that's where they will get the best pay/best
+     job.  Some attraction is also excersized by how pleasant a sector's
+     living conditions are, but in general a constant ratio of employment
+     is preserved locally.
+   * Restricted
+     movement.  The govevernment (you) has gotten sick of all theese
+     civilians wandering around so much.  So civilians will not be allowed
+     to leave their present place of residence unless they can prove they
+     are unemployed.  If so then they will move to the sectors surrounding
+     them, partially by number of jobs available, partially by the
+     desirability of the sectors available.  However all sectors in range
+     will be put to full employement if possible.  If there is nowhere to
+     go they will wander aimlessly in search of a place to find a job,
+     jumping with the latest rumor of employment.  However even in the best
+     circumstance, due to a slow bureocracy there will always be a few
+     extra people left in the sector than can be employed.
+   * None.
+     No movement.  The government (you again) has decreed that there will
+     be no civillian movement.  Where they are is where you stay, and where
+     where they are born is where they will die.  Unless the army comes to
+     get them in caravans/ships, they will stay put.
+
+
+
+File: dominion.info  Node: Authors, Prev: Migration, Up: Top, Next: Top
+
+Authors
+*******
+
+
+Version 1.02 of Dominion is the first with this name.  It used to be
+called *Stony Brook World* (SBW), until too many people suggested
+a catchier name.
+
+Here is a list of the people who actually wrote code for sbw/dominion
+that is in the current release.  The order is that in which they wrote
+their first piece of code.
+
+Mark Galassi (rosalia@dirac.physics.sunysb.edu) User interface (in
+curses), basic data structures, world generator, economy, technology,
+magic, basic army work, manual and formatting of manual with
+LaTeXinfo, miscellaneous.  Currently maintains dominion.
+
+Michael Fischer (greendog@max.physics.sunysb.edu) Update program, trade
+board, developed exec file format, miscellaneous.
+
+Doug Novellano (doug@max.physics.sunysb.edu) Mail and News systems.
+
+Keith Messing (keith@max.physics.sunysb.edu) Diplomacy system.
+
+Alan Saporta (gandalf@max.physics.sunysb.edu) Work on some exec routines,
+many suggestions of directions for the game.
+
+Joanne Rosenshein (raven@max.physics.sunysb.edu) Initial draft of the
+manual, many suggestions of directions for the game.
+
+Stephen Bae (sbae@max.physics.sunysb.edu) Basic world memory allocation.
+
+Chris Coligado (noel@max.physics.sunysb.edu) Army and battle code.
+
+C. Titus Brown (brown@dirac.physics.sunysb.edu) Adding nations and
+improvements on the reports; revised army menu and transportation
+menu.  Lots of miscellaneous stuff.
+
+Charles Ofria (charles@max.physics.sunysb.edu) Designed the "npcs"
+file, most magic orders and many races and techno powers; coded some
+spells.
+
+There are also some contributions from people not in Stony Brook:
+
+Stephen Underwood (su11+@andrew.cmu.edu) Fractal terrain generator and
+contributions in very many areas, including the standalone mail
+reader.
+
+Paolo Montrasio (montra@ghost.unimi.it) .dominionrc parser (for
+a later release), and working on design for distributed game.
+
+Kevin Hart (hart@susan.cs.andrews.edu) NPC system.
+
+Many others have made very important creative suggestions to the game,
+though they were not involved in the actual coding.  Here are some
+names that come to mind.  Please send us mail if we have forgotten
+any.  Tony Matranga, Tim Poplaski, Chris Adami, and everyone else who
+participated in the FALL SBW and SPRING DOMINION games at Stony Brook
+in the fall 1990 and spring 1991 semesters.
+
+If you are interested in playing in any future games at Stony Brook,
+please mail "rosalia@max.physics.sunysb.edu."
+
+
+Tag table:
+Node: Top101
+Node: Overview1144
+Node: Getting started2764
+Node: Moving around the map4042
+Node: Moving your armies6071
+Node: Taking sectors8445
+Node: Setting up your budget10633
+Node: Checking out your info screen11597
+Node: Commands (brief)11968
+Node: What is in the world13284
+Node: Races13707
+Node: Basic races shipped with dominion16442
+Node: A brief history of each race17642
+Node: Land-water interaction19387
+Node: Technology20664
+Node: Magic21570
+Node: Designations25023
+Node: Economy and natural resources29656
+Node: Money29934
+Node: Debt30517
+Node: Soil fertility31418
+Node: Metal32256
+Node: Jewels32931
+Node: Transportation and trade33930
+Node: Communications37324
+Node: Construction38337
+Node: World topology39355
+Node: Terrain39814
+Node: Diplomacy and war39945
+Node: Diplomatic status40974
+Node: Armies42637
+Node: Army types45877
+Node: Spirit types48628
+Node: Army maintainance costs60966
+Node: Movement points61261
+Node: Army statuses61850
+Node: Tactics63107
+Node: Detailed description of commands63230
+Node: Options menu63493
+Node: Display options64519
+Node: Movement65222
+Node: Reports65863
+Node: Information report66318
+Node: Budget report69011
+Node: Production report71578
+Node: Nations report71995
+Node: Diplomacy report73191
+Node: Wizardry73861
+Node: Mages75085
+Node: Spells75553
+Node: Spirits78707
+Node: The update79315
+Node: Migration80142
+Node: Authors81903
+
+End tag table

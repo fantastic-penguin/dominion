@@ -1,0 +1,27 @@
+# this file describes magic powers available to magical order of Inferno,
+# which is concerned mostly with fire.
+#
+# the format for spirits is:
+#	name level cost
+# and for spells:
+#	name level cost duration
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.  `duration'
+# tells how long a spell will last.
+#
+summon_efreet 50 2
+summon_phoenix 90 3
+summon_fire_giant 400 4
+summon_fire_drake 800 6
+summon_lava_beast 1000 10
+summon_fire_elemental 2000 15
+summon_conflagration 3000 18
+#
+hide_army 200 1 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+fly_army 400 2 2
+fireburst 500 2 4
+#
+inferno 600 4 4

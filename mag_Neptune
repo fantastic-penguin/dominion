@@ -1,0 +1,30 @@
+# this file describes magic powers available to magical
+# order of Neptune, which is mostly concerned with things of the
+# water.
+#
+# the format for spirits is:
+#	name level cost
+# and for spells:
+#	name level cost duration
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.  `duration'
+# tells how long a spell will last.
+#
+summon_living_ship 40 1
+summon_pirana 50 1
+summon_water_nymph 70 2
+summon_whale 100 2
+summon_shark 115 3
+summon_sea_serpent 200 4
+summon_craken 400 4
+summon_sea_giant 600 5
+summon_water_elemental 2000 15
+summon_leviathan 3000 18
+#
+hide_army 200 1 2
+water_walk 200 1 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+fly_army 400 2 2
+caltitude 400 4 6

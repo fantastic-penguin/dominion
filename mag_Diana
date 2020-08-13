@@ -1,0 +1,32 @@
+# this file describes magic powers available to magical order of Diana,
+# which is mostly concerned with animals and hunting.
+#
+# the format is:
+# name level cost
+# begin
+#   series of exec lines
+# end
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.
+#
+EXEC:NEW_ARMY_TYPE:Hunters
+# terraform 100 20
+summon_wolf 90 1
+summon_swarm 200 3
+summon_mole 200 3
+summon_snake 200 3
+summon_shark 300 3
+summon_hawk 500 5
+summon_bear 800 5
+summon_lion 900 6
+summon_terrasque 2000 13
+#
+hide_army 200 1 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+fly_army 400 2 2
+water_walk 400 2 2
+caltitude 800 8 6
+#
+fertility 1000 4 6

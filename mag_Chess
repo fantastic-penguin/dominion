@@ -1,0 +1,30 @@
+# this file describes magic powers available to magical order of Chess,
+# which is of a highly mystical nature.
+#
+# the format for spirits is:
+#	name level cost
+# and for spells:
+#	name level cost duration
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.  `duration'
+# tells how long a spell will last.
+#
+summon_pawn 40 1
+summon_knight 90 4
+summon_bishop 120 5
+summon_rook 200 6
+summon_queen 600 9
+summon_king 1000 8
+summon_master 1500 11
+summon_grandmaster 2000 14
+#
+hide_sector 125 1 8
+hide_army 200 1 2
+mag_bonus 300 1 2
+fly_army 400 2 2
+water_walk 400 2 2
+haste_army 600 3 2
+#
+castle 150 2 0
+stalemate 500 1 4

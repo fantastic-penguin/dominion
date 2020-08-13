@@ -1,0 +1,32 @@
+# this file describes magic powers available to magical order of Aule,
+# which is concerned mostly with things of the earth and with mining.
+#
+# the format for spirits is:
+#	name level cost
+# and for spells:
+#	name level cost duration
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.  `duration'
+# tells how long a spell will last.
+#
+EXEC:CMINE:10
+#
+summon_gargoyle 50 2
+summon_mole 90 3
+summon_dust_devil 150 4
+summon_umber_hulk 250 5
+summon_stone_giant 400 6
+summon_earth_elemental 2000 16
+summon_mountain 3000 23
+#
+hide_army 200 1 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+burrow_army 350 1 2
+fly_army 400 2 2
+water_walk 800 2 2
+#
+cmetal 300 2 12
+cjewels 300 2 10
+caltitude 400 4 10

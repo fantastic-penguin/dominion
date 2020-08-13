@@ -1,0 +1,32 @@
+# this file describes magic powers available to magical
+# order of Insects.
+#
+# the format for spirits is:
+#	name level cost
+# and for spells:
+#	name level cost duration
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.  `duration'
+# tells how long a spell will last.
+#
+EXEC:CREPRO:1
+#
+summon_ant 40 2
+summon_swarm 80 3
+summon_fly 100 3
+summon_moth 150 4
+summon_bee 500 6
+summon_grasshopper 600 6
+summon_mosquito 1000 6
+summon_infestation 1250 6
+summon_roach 1500 10
+summon_lobster 2400 12
+summon_creeping_doom 4000 18
+#
+hide_army 200 2 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+fly_army 400 1 2
+vampire_army 550 4 10
+caltitude 800 8 6

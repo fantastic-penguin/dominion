@@ -1,0 +1,98 @@
+\documentstyle[12pt]{report}
+\pagestyle{headings}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\title{Dominion Gamemaster's Manual}
+
+\author{Mark Galassi}
+
+\date{\today}
+
+\maketitle
+
+\pagestyle{headings}
+
+\tableofcontents
+
+\chapter{Overview}
+This document gives some hint to the Game Master on how to run a game
+of {\bf Dominion}.  It is {\em extremely} incomplete.
+
+\chapter{Making a world}
+
+Look at the README file to see how to compile dominion.
+
+Once you have run ``make new-world'', everything should be set up.
+You might want to make sure that the ownership of the files in LIBDIR
+is correct, and that the prgram {\em dominion} is setuid to that
+owner (using the {\em chmod} command).
+
+The world is made with one nation already in it.  This nation is
+called {\em Gamemaster}, of race {\em Creator} and magic order {\em
+Master}.  The Gamemaster nation is not really to be played as a
+nation, since it does not have any sectors, or any other desireable
+properties.  But it has the most totally bodacious [E] command which
+will be described below.
+
+\chapter{Adding a nation}
+
+You run the program dom\_add.  You have to run this with the userid of
+the owner of the game.  You will be prompted interactively for all the
+paramters of this nation.  Then the nation will be added to the world
+and they can play.  Nations should be added when nobody is playing,
+and while you are adding anyone in the game will be kicked out.
+
+\chapter{News and mail}
+
+You will be prompted to set up some newsgroups for the game.  There is
+always a newsgroup called {\em News} in which general information is
+posted about the update, battles, and so on.  You should create
+another newsgroup which can be posted to by all nations.  This gives
+the players a public forum which can induce some great role-playing.
+
+Mail is sent from one player to the other within the game.  A player
+can set a {\em forwarding address} with the [O]ptions menu.  The mail
+will be sent to the electronic mail address they specify.
+
+News can also be forwarded: the Gamemaster creates a file called
+``news.post'' which contains a list of electronic mail addresses.
+This file should reside in the main dominion LIBDIR.  Any news article
+will be mailed to everyone in that list when it gets posted.
+
+\chapter{Special Gamemaster commands}
+
+The Gamemaster can do special things to the game in two ways: by {\bf
+editing the ``exec files''} and by using the {\bf Edit Sector} and {\bf
+Edit Nation} commands.
+
+Editing the ``exec files'' requires some knowledge of how the game
+works internally, though some people who have not seen the source code
+have been able to work on this.
+
+The [E]dit command to edit a [s]ector or a [n]ation is menu-driven, so
+you can experiment with it.  It allows you to change their storage of
+food, metal, jewels, spell points and so on.  It also allows you to
+change the population of a sector, or to add to a nation's magic and
+technological skill.
+
+You should be careful using these Game Master commands, since some of
+them have not yet been tested in all possible contexts.  You should be
+most careful about changing the ownership of a sector.  For now it has
+been tested only for changing sector ownership from {\em unowned} to
+being owned by a given nation.  Changing ownership from one nation to
+another has not been tested.  In fact, I suspect it will not work.
+
+\chapter{Using the Master race and order}
+
+The magic order Master can be used to create special nations run by
+the Game Master, since it gets all spells and spirits for free.  This
+way you can do some active ``Gamemaster'' play, if you so wish.
+
+You should not give the magic order Master to any ordinary player.
+
+more here....
+
+\end{document}

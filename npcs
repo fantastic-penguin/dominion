@@ -1,0 +1,29 @@
+# Format of NPC descriptions
+# Nation :Leader :Race:Mark:Order :Aggr:Expan:Iso
+26
+Asterix	 :Sariture	:E:a:Chess	:40:8:5
+Brukhan	 :Derikus	:S:b:Unity	:60:4:5
+Cerelias :Erisp_Dalidus	:A:c:Diana	:35:5:5
+Dusitari :Gruite	:D:d:Unity	:55:6:5
+Erigat	 :Anvlak	:o:e:Inferno	:65:8:5
+Fusigade :Lurivar	:S:f:Chess	:50:6:5
+Grenzell :Tarni		:h:g:Time	:30:3:5
+Hezra	 :Zerilla	:y:h:Insects	:75:5:5
+Icbrek	 :Ynavo_Pgirish	:I:i:Demonology	:70:4:5
+Jezertok :Grash		:O:j:Monsters	:95:3:5
+Krell	 :Zucchini	:A:k:Yavanna	:40:6:5
+Lhuvadan :Freziqua	:H:l:Avian	:25:9:5
+Murdika	 :Thrarish	:D:m:Aule	:50:4:5
+Nerisent :Namdas	:I:n:Yavanna	:20:5:5
+Oriesca	 :Bresk_Tinkerson :G:o:Aule	:40:3:5
+Pnafari	 :Screrc	:y:p:Avian	:65:7:5
+Quavish	 :Wavariaus	:W:q:Insects	:80:6:5
+Rushard	 :Herni_Vaserus	:M:r:Demonology	:70:7:5
+Syntharc :Fondin	:E:s:Inferno	:55:5:5
+Tuvric	 :Walvrus	:W:t:Neptune	:65:5:5
+Utoprus	 :Savyur	:h:u:Diana	:15:1:5
+Vertuhl	 :Vortalk	:H:v:Time	:55:6:5
+Wendivar :Turugu	:o:w:Necromancy	:65:7:5
+Xeribar	 :Xerine	:G:x:Monsters	:60:4:5
+Yeperion :Hergi_Bendfin	:M:y:Neptune	:40:6:5
+Zuruiten :Jezikus	:O:z:Necromancy	:65:5:5

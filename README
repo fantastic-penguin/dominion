@@ -1,0 +1,246 @@
+WHAT IS THIS?
+-------------
+
+This is release of Dominion (version 1.06), a world simulation and
+conquest game.  Dominion runs on every version of UNIX on which we
+have tested it.
+
+The dominion source code is available by anonymous ftp on
+max.physics.sunysb.edu [129.49.21.100], in the directory
+pub/dominion-version.  For example, to get version 1.06 you would
+type:
+
+	ftp -i max.physics.sunysb.edu		(or ftp -i 129.49.21.100)
+	<log in as "anonymous", with any password you want>
+	cd pub/dominion-1.06
+	ls
+	binary
+	mget DOM*
+
+The files you will retrieve are "shell archives", so after
+uncompressing, you un-bundle them with the Bourne shell.
+
+Send bug reports to:
+	rosalia@max.physics.sunysb.edu
+
+Send flames to /dev/tty :-).
+
+Don't forget that this is copylefted free software.  Read the file COPYING.
+
+
+HOW DO YOU COMPILE DOMINION?
+----------------------------
+
+Once you have unpacked all the files, you might be lucky and just be
+able to type "make all" and "make new-world".  Even better would be
+"gmake" and "gmake new-world" if you have GNU Make.  If not:
+
+You should browse the Makefile, and modify the top part of it.  There are
+some customization options:
+
+0.  if you don't have GNU make, remove the 2 lines that refer to RCS.
+    otherwise, you can always type "make" with some target, such
+    as "make all" or "make install" or "make new-world".
+
+1.  if you have Berkeley UNIX, or sunOS, you should put -DBSD in the
+    CFLAGS, rather than -DSYSV.  We have noticed that on mach (NeXT)
+    and ULTRIX (VAX, DEC 5000) we need -DBSD, whereas AIX and System V
+    will compile with -DSYSV.
+
+2.  you should also set the LIBDIR (essential), THIS_GAME_LIBDIR
+    (typically equal to LIBDIR), and BINDIR (not so essential).  You
+    should also set the DEBUGFLAGS to "-O" if you want your compiler to
+    optimize.  when dominion is shipped, the "-g" flag is specified.
+
+3.  get the name of a basic mail program on your system, and set the
+    Makefile variable DEFAULT_MAIL to be that.  This can be overruled
+    with the DOMINION_MAIL environment variable, or in the dominion
+    [O]ptions menu.
+
+4.  do the same as step 3, with a basic visual editor:  the Makefile
+    variable DEFAULT_EDITOR should be the editor most people
+    use.  This can be overruled with the VISUAL environment variable,
+    or in the dominion [O]ptions menu.
+
+5.  There are some other Makefile variables that you might want to
+    change, though they are not essential.  Some of the things we
+    have in the Makefile are for software development.
+
+    If you do not have LaTeXinfo, or you just want to use the manual
+    as we shipt it, you should comment out the lines that generate
+    dominion-man.info.  If you have LaTeXinfo, then you should set
+    EMACS to be the name of GNU emacs on your system, and
+    LTI_START to the name of the file with your LaTeXinfo lisp
+    code.
+
+    There is a newsgroup in which general things are posted.  This is
+    called "News" by default, but it can be changed with the NEWS_GROUP
+    variable in Makefile.
+
+6.  Run "make all", and it will make 5 programs:
+      "dom_make", "dom_add", "dominion", "dom_update" and "dom_print".
+
+7.  Make sure that the file "dominion.info" is there.  We provide
+    a copy of it with the distribution, in case you don't have the
+    emacs lisp code needed to generate this file from "dominion.tex".
+    This emacs lisp code comes with the LaTeXinfo package.
+
+8.  Run "make new-world" to make a new world, then run "dom_add" to add
+    a nation, then run "dominion" to play that nation, and
+    "dom_update" to update the world after you run a turn etc...  It
+    is convenient to run "make new-world" instead of manually typing
+    "dom_make", since "make new-world" will copy all the relevant files
+    to the LIBDIR.
+
+9.  If you want to play with NPCs (nations run by the computer),
+    type "dom_add -f npcs", where "npcs" is the name of the file
+    with all information on these Non Player Countries.  From version
+    1.05 on, the computer playes a pretty good game for the NPCs:
+    they will definitely be a challenge!!  If you want to put in
+    your own file for NPCs, just copy it to $LIBDIR/misc.
+
+    The "npcs" file we distribute has 26 NPCs in it.  If you are
+    running a small world, you might want to comment some of them
+    out: do so by editing the file $LIBDIR/misc/npcs putting a '#'
+    at the beginning of the line for each NPC you don't want.
+
+10. If you don't like some of the hard-coded parameters, you can
+    change them by editing the "dominion.h" and "costs.h" files.
+    Other parameters are defined in "techno_levels", "army_types",
+    "spirit_types", "npcs", and any file that starts with "mag_".
+    If you change "dominion.h" or "costs.h", re-compile.  If you
+    have modified the other files, just run "make lib-files".
+
+11. To make a hardcopy of the manual dominion.tex, you must run LaTeX
+    with the LaTeXinfo document style.  If you do not have this, you
+    can get a copy of the two files "latexinfo.sty" and "tabular.sty"
+    by anonymous ftp from
+        max.physics.sunysb.edu [129.49.21.100]
+    in the directory pub/dominion.  If you don't want to bother running
+    LaTeX, you can find (in the same ftp directory) the files
+    dominion.dvi.Z and dominion.PS.Z, and if you need it we can provide
+    files ready for other laser printers.
+
+12. We also supply a Game Master manual in the file "gm.tex".  This is
+    formatted with ordinary LaTeX, and you can just use latex to format
+    it and print it out.  This manual is just an initial sketch.
+
+WHAT IS IT ALL ABOUT?
+---------------------
+
+This is a world simulation game developed by students at SUNY at Stony
+Brook.  The intention is to write a game which offers the role playing
+potential and complexity of relations found in conquer (written by Ed
+Barlow, then picked up by Adam Bryant).  The plan is to extend the
+game by offering general descriptions of many features (such as races,
+magic spells, armies, spirits and technology powers).  For example,
+the races of the world are not limited to 4 hard-coded races, but are
+described in a file which can be modified at any point in the game by
+the Game Master.  The same goes for army and spirit types.
+
+Dominion is *not* another version of conquer; things work quite
+differently, and we have *never* looked at the conquer source.  Still,
+we acknowledge this most creative game which gave us our inspiration.
+In September 1990, the author of conquer version 5 has heard of many
+of the features of dominion, and has included them in conquer version
+5.  He has acknowledged that these ideas come from Dominion.
+
+The Game Master is given a nation, but this nation is sort of
+"fragile", since it has no sectors, and such stuff.  We will make it
+more solid, but meanwhile it is to be used mostly for its [E] command,
+which allows the Game Master (who logs into the game as "Gamemaster")
+to change the properties of a sector or of a nation.
+
+Dominion development started in the spring of 1990, when we were
+running a game of conquer at Stony Brook.  After the data file kept
+crashing, and a whole lot of inconsistencies were discovered, and we
+found that the source was too complex to be fixed, we decided to write
+our own replacement.  Ed Barlow did a great job with conquer, and it
+is a great game, but it was his first C program, and people who added
+to it kept the endless case statements, and the special cases, and
+worked on new features rather than re-writing.  The original name of
+Dominion was Stony Brook World (sbw), but it has been named Dominion
+since version 1.02.
+
+One goal of dominion is that the ruler of a nation should always have
+many choices available on how to invest resources, each one presenting
+strong but distinct advantages.  Conquer contains both a good and a
+bad example of this: you can invest metal in cities, ships or armies.
+Either way you get advantages, and you have to choose.  On the other
+hand, jewels are really not used for much else than getting magic
+powers.  You can also use them to support monsters, but that is a
+different order of magnitude, and few players get the monsters.  In
+dominion, there should be several decisions you can make to invest all
+your resources.
+
+Kevin Hart has been working on the NPC code which allows the computer
+to play various nations.  Starting with version 1.05, the
+computer-played NPCs have begun posing a real challenge in the game.
+
+
+ABOUT THE DEVELOPERS
+--------------------
+
+People who have written code or documentation so far are:
+
+Mark Galassi (rosalia@dirac.physics.sunysb.edu)
+Mike Fischer (greendog@max.physics.sunysb.edu)
+Doug Novellano (doug@max.physics.sunysb.edu)
+Keith Messing (keith@max.physics.sunysb.edu)
+Alan Saporta (gandalf@max.physics.sunysb.edu)
+Joanne Rosenshein (raven@max.physics.sunysb.edu)
+Stephen Bae (sbae@max.physics.sunysb.edu)
+Chris Coligado (noel@max.physics.sunysb.edu)
+Stephen Underwood (su11+@andrew.cmu.edu)
+Kevin Hart (hart@cs.andrews.edu)
+C. Titus Brown (brown@dirac.physics.sunysb.edu)
+Charles Ofria (charles@max.physics.sunysb.edu)
+
+We keep in touch electronically and meeting in the Stony Brook
+Institute for Theoretical Physics.  We also meet once a week for 1
+hour, and some times have parties on Saturdays.  The tuesday meetings
+are strictly for discussing code, the saturday parties are for
+fantasizing about what we would like to do.
+
+There is also a creative team of D&D and war-game players who are
+giving suggestions on how magic, technology and battle should work.
+We also hope to use some simple econometric models to calculate
+parameters of the economy.
+
+
+ABOUT THE CODE
+--------------
+
+There are 5 programs: dom_make, dom_add, dominion dom_update and
+dom_print.  These all share some files, such as misc.c, nation.c and
+file.c.
+
+It would be nice to get, some day, some real graphical interfaces for
+widely available personal computers (Amiga, Atari ST, Macintosh, IBM
+PC) and windowing systems such as X and NeWS.  But for now we only
+have the curses interface, and this is supported as the common
+denominator.  There exist, of course, curses implementations for all
+sorts of personal computers.
+
+
+ABOUT SUPPORT AND MAINTAINANCE
+------------------------------
+
+We will definitely try to fix any bugs that are reported.  When
+reporting a bug you should mention on which version of UNIX you found
+it, and be precise.  A fix would be nice.
+
+As for new ideas, we intend to move slowly in that area because
+accepting innovations indiscriminately can be harmful in the long run.
+Any idea which does not make the game more complicated is welcome, and
+will be considered.  If you make your own modifications to the game,
+remember to do so in accordance with the GNU General Public Licence
+(see the file COPYING).
+
+
+WHAT HAS BEEN DONE SO FAR?
+--------------------------
+
+We feel that the game is complete as it is, though lots of things
+could be improved.  There is a file called TASKS with a list of
+jobs for the enterprising hacker who wants to help with Dominion.

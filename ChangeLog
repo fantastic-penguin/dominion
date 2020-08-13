@@ -1,0 +1,124 @@
+Thu Jan 30 16:00:06 1992  Mark Galassi  (rosalia at max)
+
+	* root.c: now root windows are cleared when created on BSD
+	systems.
+
+	* cur_stuff.c: fixed problem with return value of wget_number()
+	function and friends.
+
+	* spells.c: fixed a bug with the merge spell which allowed you to
+	steal other nations' population by merging on hostile sectors.
+
+	* mail.c and commands.c: fixed problem with permissions/uids
+	etc...  now sending mail works both when forwarding and when
+	sending locally.
+
+Tue Jan 28 22:58:44 1992  Douglas J. Novellano  (doug at max)
+
+	* c_news.c: write_newsrc(): Fixed (?) the .tmprc.n error bug.
+	               Changed mv system call to cp and rm.
+
+Mon Jan 27 04:30:09 1992  C. Titus Brown  (brown at dirac)
+
+	* commands.c: Fixed aforementioned bug
+
+	* c_news.c: Fixed the previously mentioned major bug
+
+	* mail.c: Fixed the major bug with the init_screen and edit()
+
+	* int_mail.c: Now, when the mail reader deletes all the messages
+		      in the mailbox, the change is kept
+		      (formerly, it tried to copy the deleted file)
+
+	* int_mail.c: Fixed the major bug with the init_screen and
+		      edit().
+
+Sat Jan 25 18:59:55 1992  C. Titus Brown  (brown at dirac)
+
+	* army.c: added routine "statline2_prompt" to all the relevant places
+
+	* army.c: fixed problem with army status' running over into bonus'
+		  in zoom_army.
+
+	* misc.c: added routine "statline2_prompt" 
+
+Fri Jan 24 02:30:43 1992  C. Titus Brown  (brown at dirac)
+
+	* mktables.c: checked in (not in makefile)
+
+	* dominion.tex: added in new army_types table (see mktable)
+
+	* ext.c: changed description for army_examine, spelling, etc.
+
+Thu Jan 23 23:36:33 1992  C. Titus Brown  (brown at dirac)
+
+	* nation.c: new_army_type now checks to see if the army_type
+		    being added already is there.
+
+        * armylib.c: add_army_type now checks to see if the army_type
+		     being added is already there.
+
+Thu Jan 23 18:03:05 1992  Michael D Fischer  (greendog at max)
+
+	* ext.c: changed some <a>rmy <e>xamine descriptions
+
+Thu Jan 23 15:46:41 1992  Stephen H. Underwood  (heechee at max)
+
+	* misc.h: removed extern declarations of index/strchr
+
+	* army.c: added typecast to remove warning.
+
+Fri Jan 17 13:50:42 1992  Stephen H. Underwood  (heechee at max)
+
+	* army.h, spelllib.c: Fixed the problem with spells & merge
+	so it is not possible to split or merge armies or spritis
+	which are currently being affected by a spell.
+
+Tue Jan 14 16:40:01 1992  Stephen H. Underwood  (heechee at max)
+
+	* dominion.h, cur_stuff.c, Makefile: Added supporrt for PMAX, 
+	fixing bug in the curses desplay for ultrix
+
+	* dominion.c, printmap.c: Added support for ANDREW style
+	authenticaion (since setuid/setgid doesn't function on AFS)
+
+	* army.c, ext.c, menus.c, nation.c, addnation.c, file.c,
+	amry.h, update.c, mail.c, user.c, spelllib.c
+	Remove the slew of meaningless comments I left lying around.
+
+Mon Jan 13 23:04:10 EST 1992 Stephen Underwood (heechee at max)
+
+	* army.c: removed direct reference to strchr that would not
+	compile under BSD.  
+
+	* misc.h: Made sure that strchr or index were defined correctly
+	as a proper fix to the above problems.
+
+Fri Jan 10 15:58:17 1992  Michael D Fischer  (greendog at max)
+
+	* printmap.c: Changed scaling from c-code to ps-code, and
+	added axes to borders of map.
+
+Tue Jan  7 22:36:35 1992  Michael D Fischer  (greendog at max)
+
+	* printmap.c: Changes back to real userid to be able to write
+	to user's directory.  Also a few minor changes.
+
+Tue Jan  7 14:09:51 1992  Mark Galassi  (rosalia at max)
+
+	* Addnation: now doesn't infinite-loop if there is no
+	space of a new nation.  Behaves well on this count.
+
+Fri Dec 13 08:11:54 1991  Mark Galassi  (rosalia at max)
+
+	* Makefile: added the ChangeLog in the distribution
+
+	* Makefile: now compiling as version 1.06beta
+
+	* cinfo.c: fixed bug that find_info_file() was not returning
+	the file pointer as it should have been. this caused core
+	dumps on suns, and worked by miracle on MIPS/SGI.
+
+	* armylib.c: fixed (finally) bug in army_is_in_sector() which
+	caused all sorts of trouble with armies not being properly
+	inserted into sectors.

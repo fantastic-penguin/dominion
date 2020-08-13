@@ -1,0 +1,23 @@
+# this file has a list of available magic orders.
+# if an order has a given name, then the file containing
+# a description of that order will be called mag_name
+#
+# This file begins with the number of magical orders, and
+# then a list of the orders.  I should introduce, for each
+# order, a list of exec lines that come automatically to
+# each initiate of that order.
+14
+Master
+Diana
+Necromancy
+Yavanna
+Demonology
+Monsters
+Neptune
+Aule
+Chess
+Inferno
+Avian
+Unity
+Time
+Insects

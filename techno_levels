@@ -1,0 +1,341 @@
+# this file describes all possible technologies, and the
+# technology level at which a nation gets them.
+#
+# the format is:
+# name level
+# begin
+#   series of exec lines
+# end
+#
+basic 0
+begin
+  NEW_ARMY_TYPE:Cavemen
+  NEW_ARMY_TYPE:Caravan
+  NEW_ARMY_TYPE:Mage
+end
+stone_tools 1
+begin
+  NEW_ARMY_TYPE:Spearmen
+end
+fire 10
+begin
+  CMINE:5
+  CMORTALITY:-1
+  CFARM:5
+end
+torches 15
+begin
+  CMINE:5
+  CCOMBAT:2
+end
+numbers 20
+begin
+  CINTEL:5
+end
+ceramics 30
+begin
+  CFARM:15
+end
+boomerang 40
+begin
+  CCOMBAT:2
+end
+clothes 50
+begin
+  CMORTALITY:-1
+  CCOMBAT:2
+end
+training 70
+begin
+  NEW_ARMY_TYPE:Infantry
+end
+archery 90
+begin
+  CCOMBAT:5
+  CFARM:10
+  NEW_ARMY_TYPE:Archers
+end
+bricks 120
+begin
+#  CCONSTRUCT:30
+  CMORTALITY:-1
+end
+canoes 150
+begin
+  CFARM:10
+  NEW_ARMY_TYPE:Canoes
+end
+snorkels 160
+begin
+  NEW_ARMY_TYPE:Swimmers
+  NEW_ARMY_TYPE:Walkers
+end
+copper 190
+begin
+  CCOMBAT:8
+end
+bronze 220
+begin
+  CCOMBAT:1
+  NEW_ARMY_TYPE:Phalanx
+end
+harpoons 260
+begin
+  NEW_ARMY_TYPE:Sailors
+  CFARM:3
+end
+map 300
+begin
+  CSPEED:10
+  CMAPPING:10
+end
+rope 340
+begin
+#  CCONSTRUCT:10
+end
+domesticated_dogs 340
+begin
+  CFARM:3
+end
+columns 380
+begin
+#  CCONSTRUCT:5
+end
+staple_crops 420
+begin
+  CFARM:15
+end
+trade_units 460
+begin
+#  NEW_DESIG:trade post
+#  CECO_SPEED:5
+end
+plumbing 500
+begin
+  CMORTALITY:-1
+end
+plough 550
+begin
+  CFARM:20
+end
+coins 600
+begin
+#  CECO_SPEED:10
+end
+compass 650
+begin
+  CMAPPING:10
+end
+wheels 700
+begin
+  CSPEED:30
+  NEW_ARMY_TYPE:Chariots
+end
+canals 750
+begin
+  NEW_CONSTRUCT:canal
+end
+iron 800
+begin
+  CCOMBAT:3
+#  CCONSTRUCT:5
+  CMINE:5
+  NEW_ARMY_TYPE:Legion
+end
+horses 850
+begin
+  CSPEED:20
+  CFARM:5
+  NEW_ARMY_TYPE:Cavalry
+  NEW_ARMY_TYPE:Elite
+end
+sails 900
+begin
+  NEW_ARMY_TYPE:Sailboats
+end
+bridges 950
+begin
+  NEW_CONSTRUCT:bridges
+end
+concrete 1000
+begin
+  NEW_CONSTRUCT:roads
+end
+boarding_hooks 1050
+begin
+  NEW_ARMY_TYPE:Marines
+end
+parchment 1100
+begin
+  CINTEL:5
+  CMAG_APT:5
+  CMAPPING:10
+end
+writing 1150
+begin
+  CINTEL:5
+  CMAG_APT:5
+end
+stonehenge 1200
+begin
+  CMAG_APT:10
+#  NEW_DESIG:temple
+end
+surgery 1250
+begin
+  CMORTALITY:-1
+end
+standard_units 1300
+begin
+#  CECO_SPEED:5
+end
+wagons 1350
+begin
+  NEW_ARMY_TYPE:Wagons
+end
+tunneling 1400
+begin
+  CMINE:10
+end
+contraceptives 1475
+begin
+  CREPRO:-1
+end
+sewage 1550
+begin
+  CMORTALITY:-1
+end
+bellows 1625
+begin
+#  NEW_DESIG:refinery
+end
+health_diet 1700
+begin
+  CMORTALITY:-1
+end
+beer 1775
+begin
+  CCOMBAT:1
+end
+war_carts 1850
+begin
+  NEW_ARMY_TYPE:War_carts
+end
+large_ships 1925
+begin
+  NEW_ARMY_TYPE:Galleys
+end
+steel 2000
+begin
+  CMINE:10
+  CCOMBAT:5
+end
+philosopher 2100
+begin
+  CINTEL:15
+  CSTRENGTH:-10
+end
+brainwash 2200
+begin
+  NEW_ARMY_TYPE:Berzerkers
+  CINTEL:-5
+end
+telegraph 2300
+begin
+  CSPEED:10
+end
+pulley 2400
+begin
+#  CCONSTRUCT:10
+  CSTRENGTH:10
+end
+mercenaries 2500
+begin
+  NEW_ARMY_TYPE:Merc
+end
+catapults 2600
+begin
+  NEW_ARMY_TYPE:Catapults
+end
+quadriremes 2700
+begin
+  NEW_ARMY_TYPE:Quadriremes
+  NEW_ARMY_TYPE:Scuba_divers
+end
+hospitals 2800
+begin
+  CREPRO:1
+end
+fortification 2900
+begin
+  NEW_CONSTRUCT:fortification
+end
+aqueducts 3000
+begin
+  CMORTALITY:-1
+end
+lighthouse 3200
+begin
+#  NEW_DESIG:lighthouse
+end
+lever 3400
+begin
+  CSTRENGTH:10
+end
+water_wheel 3600
+begin
+  CFARM:8
+end
+water_mill 3800
+begin
+  CFARM:8
+end
+harbour 4000
+begin
+#  NEW_DESIG:harbour
+end
+wheelbarrow 4200
+begin
+  CFARM:10
+end
+kamikaze 4400
+begin
+  NEW_ARMY_TYPE:Kamikaze
+end
+gears 4600
+begin
+  CSPEED:10
+end
+abacus 4800
+begin
+  CINTEL:5
+end
+deception 5000
+begin
+  CCOMBAT:2
+  NEW_ARMY_TYPE:Ninja
+end
+books 5300
+begin
+  CINTEL:5
+  CMAG_APT:5
+end
+ice_houses 5600
+begin
+  CFARM:8
+end
+crossbow 5900
+begin
+  CCOMBAT:5
+  NEW_ARMY_TYPE:Crossbowmen
+end
+support_beams 6200
+begin
+#  CCONSTRUCT:10
+  CMINE:20
+end
+canned_food 6500
+begin
+  CFARM:15
+  CSPEED:10
+end

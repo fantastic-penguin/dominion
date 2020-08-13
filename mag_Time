@@ -1,0 +1,26 @@
+# this file describes magic powers available to magical order of Time,
+# which is concerned mostly with the past.
+#
+# the format is:
+# name level cost
+# begin
+#   series of exec lines
+# end
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.
+#
+summon_diplodocus 50 1
+summon_brontosaurus 80 2
+summon_pleisiosaurus 90 2
+summon_pterodactyl 150 4
+summon_stegosaurus 400 4
+summon_triceratops 800 6
+summon_tyrannosaurus 2000 12
+summon_brachiosaurus 3000 18
+#
+hide_army 200 1 2
+haste_army 220 1 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+water_walk 400 2 2

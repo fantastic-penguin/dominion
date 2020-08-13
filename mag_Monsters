@@ -1,0 +1,32 @@
+# this file describes magic powers available to magical
+# order of Monstrosity.
+#
+# the format is:
+# name level cost
+# begin
+#   series of exec lines
+# end
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.
+#
+summon_spider 50 1
+summon_yeti 90 2
+summon_ettin 170 3
+summon_cyclops 200 3
+summon_hydra 500 4
+summon_crimson_death 800 8
+summon_sea_dragon 1300 9
+summon_green_dragon 1700 11
+summon_red_dragon 2300 17
+summon_gold_dragon 3000 24
+#
+hide_army 200 1 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+fly_army 400 2 2
+water_walk 500 2 2
+haste_army 600 3 2
+caltitude 800 8 6
+vampire_army 900 3 8
+fireburst 1000 4 4

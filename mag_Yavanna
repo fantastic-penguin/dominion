@@ -1,0 +1,30 @@
+# this file describes magic powers available to magical order of Yavanna.
+# The order of Yavanna emphasizes things that grow form the earth.
+#
+# the format for spirits is:
+#	name level cost
+# and for spells:
+#	name level cost duration
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.  `duration'
+# tells how long a spell will last.
+#
+EXEC:CFARM:60
+#
+summon_dryad 50 1
+summon_tree_spirit 60 2
+summon_wood_beast 80 2
+summon_magic_trees 150 3
+summon_yellow_musk 180 4
+summon_ent 250 4
+summon_swamp_beast 500 6
+summon_shambling_mound 1200 10
+summon_forest 2000 14
+#
+hide_army 200 1 2
+hide_sector 250 1 8
+fertility 250 1 10
+mag_bonus 300 1 2
+fly_army 400 2 2
+caltitude 800 8 6

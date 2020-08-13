@@ -1,0 +1,42 @@
+# format of file (similar to races file):
+# number of army types defined
+# name:char:move_factor:bonus:money_draft:met_draft:jewel_draft:spellpt_draft:money_maint:metal_maint:jewel_maint:spellpt_maint:flags
+# Note that the spellpt_maint is per 1,000,000 soldiers
+#
+# see the file "army.h" for the meaning of the flags
+#
+33
+Cavemen     : * :0.5:-60: 60:   0: 0: 10:  0: 0:    0:Cc
+Spearmen    : / :0.8:-10: 80:  20: 0: 10:  0: 0:    0:Cc
+Infantry    : i :1.0: 0: 100:  30: 0: 10:  0: 0:    0:Cc
+Caravan     : C :1.0: 0:1000:1000: 0:200: 40: 0: 4096:Cc
+Archers     : ) :1.0: 5: 100:  40: 0: 10:  0: 0:   16:Cc
+Swimmers    : o :1.0:-60:150:  50: 0: 15:  5: 0:   96:Cc
+Walkers     : # :1.0:-60:150:  50: 0: 15:  5: 0:16384:Cc
+Phalanx     : p :1.0:20: 150:  50: 0: 12:  0: 0:    0:Cc
+Sailors     : ~ :0.0:-10:150:  50: 0: 15:  0: 0:   64:Cc
+Chariots    : 0 :1.5:10: 180:  60: 0: 14:  5: 0:    0:Cc
+Canoes      : u :2.0:-80:1000:2000:0:200:100: 0:36864:Cc
+Legion      : l :1.0:40: 200:  70: 0: 16:  0: 0:    0:Cc
+Cavalry     : c :2.0:20: 200:  80: 0: 20:  0: 0:    0:Cc
+Elite       : e :1.3:10:   0: 100: 0:  0: 25: 0:    0:Cc
+Sailboats   : } :2.5:-50:1500:3000:0:300:150: 0:36864:Cc
+Marines     : m :1.0:60: 300: 200: 0: 25:  0: 0:   64:Cc
+War_carts   : w :1.0:10: 500: 200: 0:200: 20: 0:  256:Cc
+Galleys     : g :3.5:-20:2000:4000:0:400:200: 0:36864:Cc
+Berzerkers  : b :1.0:50:  30:   0: 0:  5:  0: 0:  128:Cc
+Merc        : M :1.2:60: 200:   0: 0:200:  0: 0:    0:Cc
+Catapults   : @ :0.5:20: 800: 400: 0:300: 30: 0:  256:Cc
+Quadriremes : q :4.5: 0:3000:5000: 0:500:250: 0:36864:Cc
+Scuba_divers : S :1.2:-30:300:200: 0: 25: 25: 0:32832:Cc
+Kamikaze    : k :1.5:200: 50:  25: 0: 50:  0: 0:  128:Cc
+Wagons      : W :1.5: 0:1500:1500: 0:300: 60: 0: 4096:Cc
+Crossbowmen : ] :1.0: 5:  50:  60: 0:  5:  5: 0:   16:Cc
+Ninja       : N :3.0:75:2000: 0:2000:500: 0:500:    2:Cc
+Mage        : ! :2.0: 0:   0: 0:5000:  0:0:1000: 1024:Cc+
+#
+Hunters     : h :1.5:-10: 50:   0: 0: 10:  0: 0:    0:Ccf
+Orcs        : O :1.0: 0:  60:  30: 0: 10:  0: 0:    0:Cc
+Harpies     : y :1.0:10: 100:  30: 0: 10:  0: 0:    1:Cc
+Hobbits     : H :1.0: 0: 100:  30: 0: 10:  0: 0:    2:Ccf
+Ogres       : G :1.0:50: 100:  30: 0: 10:  0: 0:    0:Cc

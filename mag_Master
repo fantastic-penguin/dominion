@@ -1,0 +1,29 @@
+# this file describes magic powers available to magical order of Master,
+# which has all magic available at no cost.
+#
+# the format is:
+# name level cost		(for spirits)
+# name level cost duration	(for spells)
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.
+#
+summon_gargoyle 0 0
+summon_giant_mole 0 0
+summon_umber_hulk 0 0
+hide_army 0 0 -1
+hide_sector 0 0 -1
+cmetal 0 0 -1
+cjewels 0 0 -1
+mag_bonus 0 0 -1
+fly_army 0 0 -1
+caltitude 0 0 -1
+summon_stone_giant 0 0
+summon_earth_elemental 0 0
+summon_mountain 0 0
+summon_roc 0 0
+summon_eagle 0 0
+summon_cloud_giant 0 0
+summon_wyvern 0 0
+summon_areal_serpent 0 0
+summon_air_elemental 0 0

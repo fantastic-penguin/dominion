@@ -1,0 +1,134 @@
+# format of file (similar to races and army types file):
+# number of spirit types defined
+# type:char:size:move_factor:bonus:spellpt_draft:jewel_draft:jewel_maint:flags
+# where the flags are defined as bit locations in army.h (1 for fly etc...)
+#
+# See the file "army.h" for the meaning of the flags.
+#
+112
+# demonology
+imp          : i :  30:2.0: 0:  2:  0:  30: 0
+lesser_demon : l :  70:1.7: 0:  3:  0:  70: 0
+hellhound    : h : 150:1.7: 0:  4:  0: 150: 0
+devil        : d : 250:1.0: 0:  4:  0: 250: 0
+tormented_soul :t: 300:1.2:100: 5:  0: 300: 128
+major_demon  : m : 500:2.0: 0:  8:  0: 500: 1
+balrog       : b :1500:1.5:50: 15:  0:1500: 0
+demon_lord   : d :2500:2.0: 0: 19:  0:2500: 1024
+# diana (mole is also in aule, swarm is also in insects) (shark is in neptune)
+wolf      : w :  30:1.5: 0:  1:  0:  30: 0
+swarm     : s :  50:1.3:300: 3:  0:  50: 129
+mole      : m :  70:1.0: 0:  3:  0:  70:24576
+snake     : s : 100:0.8: 0:  3:  0: 100: 0
+hawk      : e : 200:2.0: 0:  5:  0: 200: 1
+bear      : b : 300:1.4: 0:  5:  0: 300: 0
+lion      : l : 500:1.5: 0:  6:  0: 500:16384
+terrasque : t :2000:0.5: 0: 13:  0:2000:16384
+# Monsters
+spider        : s :   30:0.8: 0: 1: 0:  30: 0
+yeti          : y :   70:1.0: 0: 2: 0:  70:16384
+ettin         : e :  120:1.5: 0: 3: 0: 120: 0
+cyclops       : c :  150:0.8: 0: 3: 0: 150: 0
+hydra         : h :  250:1.2: 0: 4: 0: 250: 0
+crimson_death : d :  500:2.0: 0: 8: 0: 500: 1
+sea_dragon    : s : 1000:1.2: 0:10: 0:1000:32
+green_dragon  : D : 1500:2.0: 0:11: 0:1500:16384
+red_dragon    : r : 2500:1.5: 0:17: 0:2500: 1
+gold_dragon   : g : 3500:2.0: 0:24: 0:3500:1025
+# Necromancy
+ghost_ship    : g :    1:2.5: 0: 1: 0:   1:36866
+skeleton      : s :   40:0.8: 0: 1: 0:  40: 0
+wraith        : w :   30:1.5: 0: 2: 0:  30: 2
+zombie        : z :   70:0.8: 0: 3: 0:  70: 4
+poltergeist   : p :  150:0.1: 0: 3: 0: 150: 512
+mummy         : m :   80:0.8:30: 3: 0:  80:8192
+ghost         : g :  250:0.7:20: 5: 0: 250: 1
+lacedon       : l :  500:1.0: 0: 8: 0: 500:32
+lich          : l : 2000:2.0:-20:14:0:2000:1024
+vampire       : v : 1500:0.8:30:15: 0:1500: 4
+# Yavanna  (need more)
+dryad         : d :   30:1.0: 0:  1:  0:  30: 0
+tree_spirit   : t :   50:1.5: 0:  2:  0:  50: 1
+wood_beast    : w :   70:1.0: 0:  2:  0:  70: 0
+magic_trees   : m :  150:1.0: 0:  3:  0: 150: 0
+yellow_musk   : y :  200:0.7: 0:  4:  0: 200: 4
+ent           : e :  250:0.8: 0:  4:  0: 250: 0
+swamp_beast   : s :  500:1.0:10:  6:  0: 500:32
+shambling_mound :s: 1200:0.8:10: 10:  0:1200: 0
+forest        : F : 2000:0.7: 0: 14:  0:2000: 0
+# Chess (think of AF_HOPPING flag for knight; for now make it hidden)
+pawn         : p :  30:0.5: 0:  1:  0:  50: 0
+knight       : N : 120:1.0:10:  4:  0: 120: 2
+bishop       : b : 150:2.0: 0:  5:  0: 150: 1
+rook         : r : 250:3.0:30:  6:  0: 250: 0
+king         : K :1000:0.4: 0:  8:  0:1000: 0
+queen        : Q : 500:4.0:50:  9:  0: 500: 0
+master       : m :2000:1.0:10: 11:  0:2000: 0
+grandmaster  : g :3000:1.3:20: 14:  0:3000:1024
+# Neptune
+living_ship     : l :    4:2.5: 0:  1:  0:   1:36864
+pirana          : p :   30:1.2: 0:  1:  0:  30:32
+water_nymph     : n :   50:1.2: 0:  2:  0:  50:32
+whale           : w :   80:1.0: 0:  2:  0:  80:32
+shark           : s :  100:1.5:10:  3:  0: 100:32
+sea_serpent     : S :  150:1.2: 0:  3:  0: 500:16416
+craken          : k :  250:1.0: 0:  4:  0: 250:32
+sea_giant       : g :  500:0.8: 0:  5:  0: 500:32
+water_elemental : W : 2000:2.0: 0: 15:  0:2000:32
+leviathan	: l : 3000:0.9:10: 18:  0:3000:32
+# Aule (mole is in diana)
+gargoyle        : g :   30:1.0: 0:  2:  0:  30: 1
+#mole           : m :   70:1.0: 0:  3:  0:  70:8192
+dust_devil      : d :  150:1.0: 0:  4:  0: 150:16385
+umber_hulk      : U :  250:1.7: 0:  6:  0: 150:24576
+stone_giant     : S :  500:0.7: 0:  6:  0: 250: 0
+earth_elemental : E : 2000:2.0: 0: 16:  0:2000:8192
+mountain        : M : 3000:0.3:60: 22:  0:3000: 0
+# Inferno
+efreet          : e :   70:1.5: 0:  2:  0:  70:16384
+phoenix         : p :   30:2.0: 0:  3:  0:  30:16385
+fire_giant      : g :  250:1.0: 0:  4:  0: 250:16384
+fire_drake      : f :  500:1.5: 0:  6:  0: 500: 0
+lava_beast      : l : 1000:1.0: 0: 10:  0:1000:8192
+fire_elemental  : F : 2000:2.0: 0: 15:  0:2000:16384
+conflagration   : c : 3000:1.5: 0: 18:  0:3000:16384
+# Avian
+flying_carpet   : f :    1:1.5: 0:  1:  0:   1:4097
+roc             : r :   30:1.5: 0:  1:  0:  30: 1
+eagle           : e :   70:1.5: 0:  2:  0:  70: 1
+cloud_giant     : a :  150:1.0: 0:  3:  0: 150: 1
+wyvern          : c :  250:1.0: 0:  4:  0: 250: 1
+areal_serpent   : s :  500:1.8: 0:  7:  0: 500: 1
+air_elemental   : A : 2000:2.0: 0: 15:  0:2000: 1
+tempest         : t : 3000:2.0: 0: 19:  0:3000: 1
+# Unity
+naga            : n :   30:1.0: 0:  1:  0:  30: 0
+centaur         : c :   70:2.0: 0:  3:  0:  70: 0
+werewolf        : w :  100:1.5: 0:  4:  0: 100:516
+minotaur        : m :  150:1.0: 0:  3:  0: 150:16384
+owl_bear        : o :  250:1.0: 0:  4:  0: 250: 0
+gryphon         : g :  350:2.0: 0:  7:  0: 350: 1
+sea_lion        : s :  600:1.5: 0:  7:  0: 600:32
+chimera         : c : 1000:1.5: 0: 10:  0: 600: 1
+sphynx          : s : 2000:0.8: 0: 17:  0:2000:1025
+# Time
+diplodocus      : d :   30:1.3: 0:  1:  0:  30: 0
+brontosaurus    : b :   70:0.7: 0:  3:  0:  70: 0
+pleisiosaurus   : p :   50:1.5: 0:  3:  0:  50:32
+pterodactyl     : p :  150:1.5: 0:  4:  0: 150: 1
+stegosaurus     : s :  250:1.0: 0:  4:  0: 250: 0
+triceratops     : t :  500:0.8: 0:  6:  0: 500:16384
+tyrannosaurus   : t : 1500:1.5: 0: 12:  0:1500: 0
+brachiosaurus   : b : 3000:0.5: 0: 18:  0:3000:16416
+# insects (swarms are in Diana)
+ant             : d :   30:1.0: 0:  2:  0:  30:24576
+#swarm          : b :   50:1.3:300: 3:  0:  50: 129
+fly             : p :   70:1.0: 0:  3:  0:  70:   1
+moth            : p :  150:1.5: 0:  4:  0: 150:   1
+bee             : s :  250:1.2:30:  6:  0: 250:   1
+grasshopper     : t :  350:1.0: 0:  6:  0: 500:16386
+mosquito        : t :  500:0.5: 0:  6:  0: 500:   5
+infestation     : i :  600:0.0:50:  6:  0: 600:   0
+roach           : t : 1000:0.8:20: 10:  0:1000:   0
+lobster         : b : 1500:1.0: 0: 13:  0:1500:  32
+creeping_doom   : c : 2500:0.8:20: 17:  0:2500:   0

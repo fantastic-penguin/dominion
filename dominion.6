@@ -1,0 +1,92 @@
+.TH DOMINION 6 "18 OCT 1991"
+.SH NAME
+dominion \- a multi-user game of world simulation and conquest
+.SH SYNOPSIS
+\fBdominion\fP [-n nation_name] [-d dir_path] [-h] [-p] [-c]
+.IP
+\fBdom_make\fP [-d dir_path]
+.IP
+\fBdom_add\fP [-m] [-d dir_path] [-f npcs_file]
+.IP
+\fBdom_update\fP [-b] [-a] [-d dir_path] [-p passwd]
+.IP
+\fBdom_print\fP [-a] [-d dir_path] [-W] [-b]
+.SH WARNING
+This man page is an extract of the documentation of Dominion and is
+limited to the overview and the meaning of the options.  It is updated
+only occasionally, because the GNU project does not use nroff.  For
+complete, current documentation, refer to the Info file Dominion or
+the DVI file dominion.dvi which are made from the LaTeXinfo source
+file dominion.texinfo.
+.SH OVERVIEW
+\fBDominion\fP is an empire-style multi-player world simulation game.
+Each player is the leader of a nation, and makes decisions for that
+nation. The decisions are political, military, diplomatic and economic
+and all these are extremely important for the well-being of a nation.
+Some nations can be played by the computer.  These nations are called
+NPCs (Non Player Countries).  They play a challenging game, and are
+quite useful if few human players are available.
+.PP
+Dominion has features from both fantasy role-playing games, educational
+games, and war games: a user needs to develop a character as leader of
+a nation, keep a healty economy, and can then develop a strong
+military force using magic or technology.
+.PP
+Most of the moves you make are not resolved until the end of a turn,
+when the \fIupdate\fP is run.  This update will incorporate your
+changes into the world data base, then it will update your economy,
+handle migration of people, resolve battles and conquest of land,
+freshen up your armies (restore move points), and a few other things.
+.PP
+The rhythm of the game is set by how much money you have spent, and
+how much you have moved your armies.  If you have spent all your
+money, you will need to wait until your revenue comes in (after the
+update) before you can spend more.  Similarly, if you have already
+moved all your armies, and they are overcome by fatigue, then you will
+have to wait until they have recovered.  This will happen in the
+update.  The time elapsed between updates is called a \fIthon\fP.
+.SH OPTIONS
+.IP
+-n nation_name	play as nation_name instead of promping for the name
+.IP
+-d dir_path	play the game from the directory dir_path instead of the
+default directory
+.IP
+-h		invoke the cinfo documentaion browser
+.IP
+-p		print a list of all participating nations
+.IP
+-c		print the last update time
+.SH BUGS
+Dominion is an extremely large piece of software.  There are certainly
+many bugs.
+.SH AUTHORS
+There are many authors.  Refer to the complete manual to see the
+contribution of each one.  They appear in the order in which they
+wrote their first contribution:
+.IP
+Mark Galassi
+.br
+Michael Fischer
+.br
+Doug Novellano
+.br
+Keith Messing
+.br
+Alan Saporta
+.br
+Joanne Rosenshein
+.br
+Stephen Bae
+.br
+Chris Coligado
+.br
+C. Titus Brown
+.br
+Charles Ofria
+.br
+Stephen Underwood
+.br
+Paolo Montrasio
+.br
+Kevin Hart

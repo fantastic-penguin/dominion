@@ -1,0 +1,32 @@
+# this file describes magic powers available to magical
+# order of Necromancy, mostly concerned with the art of
+# raising dead souls.
+#
+# the format for spirits is:
+#	name level cost
+# and for spells:
+#	name level cost duration
+#
+# where `level' is the magical skill level at which you get the power,
+# and `cost' is the cost in spell points to use the power.  `duration'
+# tells how long a spell will last.
+#
+EXEC:CMORTALITY:2
+#
+summon_ghost_ship 40 1
+summon_skeleton 50 1
+summon_wraith 80 2
+summon_zombie 90 3
+summon_poltergeist 120 3
+summon_mummy 160 3
+summon_ghost 500 5
+summon_lacedon 1400 7
+summon_lich 2000 14
+summon_vampire 2800 15
+#
+vampire_army 200 2 10
+hide_army 200 1 2
+hide_sector 250 2 8
+mag_bonus 300 1 2
+fly_army 400 2 2
+water_walk 500 2 2
