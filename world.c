@@ -46,13 +46,16 @@ extern struct s_altitude_map altitude_map[];
 extern struct s_desig_map desig_map[];
 extern int (*wrapx)(), (*wrapy)();
 
+extern int abs(int);
+int get_diplo_status(Sdiplo **dm, int nation1, int nation2);
+
 /* Wrapping functions are the heart and soul of the world's shape */
 /* these main functions, wrapx and wrapy, choose the proper function for */
 /* the proper shape of the world in question. */
 
 /* This function wraps the entire point */
 
-wrap(pp)
+void wrap(pp)
 Pt *pp;
 {
 pp->x = (*wrapx)(pp->x,pp->y);
@@ -61,7 +64,7 @@ pp->y = (*wrapy)(pp->x,pp->y);
 
 /* Wrap functions for a TORUS world */
 
-torus_wrapx(x,y)  /* produce new value of x, if x is too big or negative */
+int torus_wrapx(x,y)  /* produce new value of x, if x is too big or negative */
 int x,y;
 {
 if (x >= world.xmax) {
@@ -73,7 +76,7 @@ x += world.xmax;
 return x;
 }
 
-torus_wrapy(x,y)  /* produce new value of y, if y is too big or negative*/
+int torus_wrapy(x,y)  /* produce new value of y, if y is too big or negative*/
 int x,y;
 {
 if (y >= world.ymax) {
@@ -86,20 +89,21 @@ return y;
 }
 
 /* Wrap function for a pinched cylinder world */
+int pinch_wrapxy(int x, int y, int which);  // forward decl
 
-pinch_wrapx(x,y)
+int pinch_wrapx(x,y)
 int x,y;
 {
 return pinch_wrapxy(x,y,1);
 }
 
-pinch_wrapy(x,y)
+int pinch_wrapy(x,y)
 int x,y;
 {
 return pinch_wrapxy(x,y,2);
 }
 
-pinch_wrapxy(x,y,which) /* if which=1 then return x */
+int pinch_wrapxy(x,y,which) /* if which=1 then return x */
 int x,y,which;
 {
 while (y < 0) {
@@ -127,7 +131,9 @@ return y;
 /* latitude of the y-coordinate given.  Equator is 0 degrees and the poles */
 /* are 90 degrees (north pole) and negative 90 degrees (south pole) */
 
-latitude(x,y)
+int torus_latitude(int y);  // forward decl
+
+int latitude(x,y)
 int x,y;
 {
 float angle;
@@ -140,7 +146,7 @@ return angle;
 
 /* Returns the latitude of a y-coordinate for a pinched cylinder. */
 
-pinch_latitude(y)
+int pinch_latitude(y)
 int y;
 {
 float eq_dist, angle;
@@ -154,7 +160,7 @@ return -(angle);
 
 /* Returns the latitude of a y-coordinate for a torus */
 
-torus_latitude(y)
+int torus_latitude(y)
 int y;
 {
 float eq_dist, angle;
@@ -169,6 +175,9 @@ int altitude;
 altitude -= altitude_map[0].value;
 return altitude;
 }
+
+int xdist(int x, int y, int x1, int y1);  // forward decl
+int ydist(int x, int y, int x1, int y1);  // forward decl
 
 /* These functions give the coordinates of a sector relative to the user's */
 /* capital.  They differ depending on which type of world you use! */
@@ -229,7 +238,7 @@ break;
 }
 }
 
-pinched_dist(x,y,x1,y1,choice)
+int pinched_dist(x,y,x1,y1,choice)
 int x,y,x1,y1,choice;
 {
 int dx,dy,dx2,dy2;
@@ -336,7 +345,7 @@ int x, y;
    if none is found, it returns 0.  If the "moving_ap" is NULL,
    then you ignore the issue of whether moving_ap is in flight.
  */
-are_patrols(np, moving_ap, sp)
+int are_patrols(np, moving_ap, sp)
      Snation *np;
      Sarmy *moving_ap;
      Ssector *sp;
@@ -386,7 +395,7 @@ are_patrols(np, moving_ap, sp)
   return found;
 }
 
-init_wrap() 
+void init_wrap() 
 {
   int torus_wrapx(), torus_wrapy();
   switch(world.geo.topology) {
@@ -407,7 +416,7 @@ init_wrap()
      L or W flag, since other armies don't get any benefit from
      coastal sectors:  they should drown anyway.
    */
-is_coastal_sect(np, sp, ap)
+int is_coastal_sect(np, sp, ap)
      Snation *np;		/* nation that wants to go there */
      Ssector *sp;
      Sarmy *ap;
@@ -453,7 +462,7 @@ is_coastal_sect(np, sp, ap)
 }
 
   /* tells you if a nation has not been destroyed */
-is_active_ntn(np)
+int is_active_ntn(np)
      Snation *np;
 {
   if (np->id == 0) {
