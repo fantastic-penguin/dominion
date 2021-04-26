@@ -54,7 +54,9 @@
 #include "misc.h"
 #include "army.h"
 #include "cur_stuff.h"
+#include "functions.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <signal.h>
 
@@ -81,7 +83,7 @@ int interrupt()
 }
 
 /* show a nation's characteristics */
-show_nation(np)
+void show_nation(np)
      Snation *np;		/* nation pointer */
 {
   printf("\n\tname: %s (id = %d)\n", np->name, np->id);
@@ -97,7 +99,7 @@ show_nation(np)
 
 
 	/* tell us if the symbol is available */
-free_nation_mark(wp, c)
+int free_nation_mark(wp, c)
      Sworld *wp;
      Symbol c;
 {
@@ -114,7 +116,7 @@ free_nation_mark(wp, c)
   return 1;
 }
 
-dom_getline(s, n)			/* read a line from stdin, remove \n */
+void dom_getline(s, n)			/* read a line from stdin, remove \n */
      char s[];
      int n;
 {
@@ -129,7 +131,7 @@ dom_getline(s, n)			/* read a line from stdin, remove \n */
      the terminal.  if "w" is not NULL, get the string from
      the window "w".
    */
-get_crypt_pass(prompt, pass, w, def_pass)
+void get_crypt_pass(prompt, pass, w, def_pass)
      char prompt[], pass[];
      WINDOW *w;
      char def_pass[];
@@ -158,7 +160,7 @@ get_crypt_pass(prompt, pass, w, def_pass)
   }
 }
 
-cpass(np, pass)
+void cpass(np, pass)
      Snation *np;
      char pass[];
 {
@@ -167,7 +169,7 @@ cpass(np, pass)
   gen_exec(s);
 }
 
-which_mark(x, y, up)
+int which_mark(x, y, up)
      int x, y;
      Suser *up;
 {
@@ -385,7 +387,7 @@ which_mark(x, y, up)
 /* adds sector x,y to nation's list of owned sectors. Also changes  */
 /* owner of sector to nation->id.                                   */
 /********************************************************************/
-addsector(np, x, y)
+void addsector(np, x, y)
      Snation *np;
      int x, y;
 {
@@ -401,7 +403,7 @@ addsector(np, x, y)
 }
 
 
-subtsector(np, x, y)
+void subtsector(np, x, y)
      Snation *np;
      int x, y;
 {
@@ -438,7 +440,7 @@ subtsector(np, x, y)
      3. Set the coordinates of its capital to (-1, -1), which alerts
         the program that this nation is no more.
    */
-destroy_nation(id)
+void destroy_nation(id)
      int id;
 {
   struct pt_list *ptlist, *pt_tmp;
@@ -486,7 +488,7 @@ destroy_nation(id)
 }
 
   /* returns the number of cities in this nation */
-get_n_cities(np)
+int get_n_cities(np)
      Snation *np;
 {
   Ssector *sp;
@@ -504,7 +506,7 @@ get_n_cities(np)
 }
 
   /* returns the number of civilians in this nation */
-get_n_civil(np)
+int get_n_civil(np)
      Snation *np;
 {
   Ssector *sp;
@@ -520,7 +522,7 @@ get_n_civil(np)
 }
 
   /* returns the number of soldiers in this nation (includes spirits) */
-get_n_soldiers(np)
+int get_n_soldiers(np)
      Snation *np;
 {
   Sarmy *armies = np->armies;
@@ -534,7 +536,7 @@ get_n_soldiers(np)
 }
 
   /* returns true if a nation with this name does not yet exist */
-unique_name(name)
+int unique_name(name)
      char name[];
 {
   int i;
@@ -547,12 +549,12 @@ unique_name(name)
 }
 
   /* this is for when the user hits a harmless key, don't give error */
-null_key()
+void null_key()
 {
 }
 
   /* returns the first free army id for a nation */
-free_army_id(np)
+int free_army_id(np)
      Snation *np;
 {
   Sarmy *ap = np->armies, *ap_prev = np->armies;
@@ -583,7 +585,7 @@ free_army_id(np)
 }
 
   /* this waits for the user to type a space */
-get_space()
+void get_space()
 {
   fflush(stdin);
   while (getch() != ' ') {
@@ -591,20 +593,20 @@ get_space()
 }
 
 #ifndef min
-min(a,b)
+int min(a,b)
      int a,b;
 {
   return (a < b) ? a : b;
 }
 
-max(a,b)
+int max(a,b)
      int a,b;
 {
   return (a > b) ? a : b;
 }
 #endif
 
-statline(s1, s2)		/* print status line with s1 and s2 */
+void statline(s1, s2)		/* print status line with s1 and s2 */
      char s1[], s2[];
 {
 	/* the stat line goes at the bottom of the screen */
@@ -621,7 +623,7 @@ statline(s1, s2)		/* print status line with s1 and s2 */
      statline2 should be used for instructions while a command is being run,
         (like a move_army).
    */
-statline2(s1, s2)
+void statline2(s1, s2)
      char s1[], s2[];
 {
 	/* the stat line goes at the bottom of the screen */
@@ -637,7 +639,7 @@ statline2(s1, s2)
   /* this runs a statline, and then moves to just
      after s1, for a prompt.  used a lot in xmode
    */
-statline_prompt(s1, s2)
+void statline_prompt(s1, s2)
      char s1[], s2[];
 {
   statline(s1, s2);
@@ -648,7 +650,7 @@ statline_prompt(s1, s2)
   /* this runs a statline2, and then moves to just
      after s1, for a prompt.  used a lot in xmode
    */
-statline2_prompt(s1, s2)
+void statline2_prompt(s1, s2)
      char s1[], s2[];
 {
   statline2(s1, s2);
@@ -659,7 +661,7 @@ statline2_prompt(s1, s2)
   /* runs a statline2, waits for a space to be typed,
      then cleans the statline2 and returns
    */
-statline2_err(s1, s2)
+void statline2_err(s1, s2)
      char s1[], s2[];
 {
   statline2(s1, s2);
@@ -668,7 +670,7 @@ statline2_err(s1, s2)
 }
 
 	/* curses interface */
-init_screen()
+void init_screen()
 {
   printf("initializing screen...\r\n");
   initscr();
@@ -711,7 +713,7 @@ struct spirit_type *get_spirit_type(up, type)
      If passed string is NULL, DON'T generate exec, and
      write out the whole thing anyway.
    */
-gen_exec(s)
+void gen_exec(s)
      char *s;
 {
   FILE *fp, *fopen();
@@ -751,7 +753,7 @@ gen_exec(s)
 
 
 /* This just displays the title/intro screen */
-intro(wp, np)
+void intro(wp, np)
      Sworld *wp;
      Snation *np;
 {
@@ -789,7 +791,7 @@ intro(wp, np)
 }
 
   /* check the mag_Orders file, and see if this is a valid magic order */
-is_good_order(name)
+int is_good_order(name)
      char name[];
 {
   int good = 0;
@@ -828,7 +830,7 @@ is_good_order(name)
   /* returns true if there is at least one
      non-hidden army on this sector.
    */
-has_visible_army(sp, up)
+int has_visible_army(sp, up)
      Ssector *sp;
      Suser *up;
 {
@@ -850,7 +852,7 @@ has_visible_army(sp, up)
   /* this routine goes through the entire map and figures out
      which sectors are visible by the user.
    */
-find_visible_sectors(visible_sectors)
+void find_visible_sectors(visible_sectors)
      int **visible_sectors;
 {
   int x, y, i, j;
