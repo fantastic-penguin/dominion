@@ -32,6 +32,7 @@
 #include "dominion.h"
 #include "misc.h"
 #include "army.h"
+#include "functions.h"
 
 extern Sworld world;
 extern Suser user;
@@ -40,7 +41,7 @@ extern struct spirit_type *spirit_types;
 extern char help_tag[];
 
   /* asks the user what the display should look like */
-display_menu()
+void display_menu()
 {
   WINDOW *dispw;
   char c;
@@ -163,7 +164,7 @@ display_menu()
 }
 
   /* wizardry commands */
-wizardry_menu()
+void wizardry_menu()
 {
   WINDOW *wizw;
   char c;
@@ -255,7 +256,7 @@ wizardry_menu()
 }
 
   /* conjures a spirit */
-summon(up, w)
+void summon(up, w)
      Suser *up;
      WINDOW *w;
 {
@@ -312,7 +313,7 @@ summon(up, w)
 }
 
   /* initiates a mage */
-initiate_mage(up, w)
+void initiate_mage(up, w)
      Suser *up;
      WINDOW *w;
 {
@@ -378,7 +379,7 @@ initiate_mage(up, w)
 }
 
   /* list a user's spells */
-list_spells(up)
+void list_spells(up)
      Suser *up;
 {
   Sspell *spells = up->spell_list;
@@ -406,7 +407,7 @@ list_spells(up)
 }
 
   /* list a user's spirits */
-list_spirits(up)
+void list_spirits(up)
      Suser *up;
 {
   Sspirit *spirits = up->spirit_list;
@@ -435,7 +436,7 @@ list_spirits(up)
   delwin(listw);
 }
 
-cast_spell(up, w)
+void cast_spell(up, w)
      Suser *up;
      WINDOW *w;
 {
@@ -478,7 +479,7 @@ cast_spell(up, w)
 }
 
   /* this sets up the spirit as a new army */
-exec_summon(type_index, name)
+void exec_summon(type_index, name)
      int type_index;
      char name[];
 {
@@ -519,7 +520,7 @@ exec_summon(type_index, name)
 }
 
   /* this sets up the mage as a new army */
-exec_initiate(name)
+void exec_initiate(name)
      char name[];
 {
   Sarmy army, make_army();
@@ -563,7 +564,7 @@ exec_initiate(name)
 }
 
   /* make a window to show user her/his hanging spells */
-show_hanging_spells(up)
+void show_hanging_spells(up)
      Suser *up;
 {
   WINDOW *sw;
@@ -613,7 +614,7 @@ show_hanging_spells(up)
 }
 
   /* allows the user to focus on a specific spell */
-zoom_on_h_spell(h_list, sw)
+int zoom_on_h_spell(h_list, sw)
      Sh_spell *h_list;
      WINDOW *sw;
 {
@@ -655,7 +656,7 @@ zoom_on_h_spell(h_list, sw)
      absolute coordinates.  put the "censored" line into s.
      this is quite a hack, what?
    */
-fix_sector_line(line, s)
+void fix_sector_line(line, s)
      char line[], s[];
 {
   int xabs, yabs, x_rel, y_rel, arg;
@@ -696,7 +697,7 @@ fix_sector_line(line, s)
   /*    statline(s, "final s, hit space"); */
 }
 
-zoom_del_h_spell(h_list, sw)
+int zoom_del_h_spell(h_list, sw)
      Sh_spell *h_list;
      WINDOW *sw;
 {

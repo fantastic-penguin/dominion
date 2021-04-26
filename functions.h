@@ -134,5 +134,25 @@ void unlock_mail(int nation);
 void show_file(char name[]);
 void get_space();
 void cinfo(char fname[], char tag[]);
+void bad_key();
+int first_sect_mage_id(Snation *np, Ssector *sp);
+void show_armies(Ssector *sp);
+void list_spells(Suser *up);
+void list_spirits(Suser *up);
+void summon(Suser *up, WINDOW *w);
+void cast_spell(Suser *up, WINDOW *w);
+void initiate_mage(Suser *up, WINDOW *w);
+void show_hanging_spells(Suser *up);
+int is_mage(Sarmy *ap);
+int spirit_type_index(char type[]);
+void exec_spell(Sspell *spellp, WINDOW *w);
+void exec_summon(int type_index, char name[]);
+void exec_initiate(char name[]);
+int zoom_on_h_spell(Sh_spell *h_list, WINDOW *sw);
+int zoom_del_h_spell(Sh_spell *h_list, WINDOW *sw);
+int free_army_id(Snation *np);
+void aflag_set(Sarmy *ap, int flag);
+void fix_sector_line(char line[], char s[]);
+void delete_hanging_spell(Sh_spell *sp1);
 
 #endif // _FUNCTIONS_H_
