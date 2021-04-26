@@ -29,11 +29,12 @@
 extern Sworld world;
 extern int debug;
 #include <stdio.h>
+#include <string.h>
 #include <ctype.h>
 
-struct exec_cmd { char name[NAMELEN]; int (*func)(); };
+struct exec_cmd { char name[NAMELEN]; void (*func)(); };
 
-int cmd_amove(), cmd_astat(), cmd_aflag_set(), cmd_aflag_clear(),
+void cmd_amove(), cmd_astat(), cmd_aflag_set(), cmd_aflag_clear(),
   cmd_flag_set_sector(), cmd_flag_clear_sector(),
   cmd_acargo(), cmd_sname(),  cmd_aname(), cmd_charity(),
   cmd_taxrate(), cmd_desig_sector(), cmd_amake(),
@@ -98,8 +99,11 @@ static struct exec_cmd commands[] = {
   {"ACASTLE", cmd_acastle}
 };
 
-int getexec(FILE *fp, struct argument args[]);  // forward decl
+// forward declarations
+int getexec(FILE *fp, struct argument args[]);
 void load_options(Snation* np);
+void run_exec_line(Snation *np, struct argument args[]);
+int parse_exec_line(char line[], struct argument args[]);
 
 /*******************************************************/
 /* gets nation data for nation 'id', put it into '*np' */
@@ -250,7 +254,7 @@ int get_nation_id(name)		/* finds id, given name */
 }
 
   /* rename a sector */
-int cmd_sname(np, args)
+void cmd_sname(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -266,7 +270,7 @@ int cmd_sname(np, args)
 }
 
   /* rename an army */
-int cmd_aname(np, args)
+void cmd_aname(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -288,7 +292,7 @@ int cmd_aname(np, args)
 
 /* Move an army... change it's move points to the move points left, which
    is given in the exec string. */
-int cmd_amove(np, args)
+void cmd_amove(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -324,7 +328,7 @@ int cmd_amove(np, args)
    and it is _already_ in occupy mode, DO NOT change it's move ratio!
    Otherwise set the move ratio, change the moves left to zero, and
    change the status. */
-int cmd_astat(np, args)
+void cmd_astat(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -348,7 +352,7 @@ int cmd_astat(np, args)
 }
 
   /* Set/clear a flag of an army, such as AF_HIDDEN, AF_FLIGHT and so on... */
-int cmd_aflag_set(np, args)
+void cmd_aflag_set(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -363,7 +367,7 @@ int cmd_aflag_set(np, args)
   }
 }
 
-int cmd_aflag_clear(np, args)
+void cmd_aflag_clear(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -379,7 +383,7 @@ int cmd_aflag_clear(np, args)
 }
 
   /* Set/clear a flag of a sector, such as SF_HIDDEN, SF_BUBBLE and so on... */
-int cmd_flag_set_sector(np, args)
+void cmd_flag_set_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -393,7 +397,7 @@ int cmd_flag_set_sector(np, args)
   sp->flags |= flag;
 }
 
-int cmd_flag_clear_sector(np, args)
+void cmd_flag_clear_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -408,7 +412,7 @@ int cmd_flag_clear_sector(np, args)
 }
 
   /* Change cargo of an army */
-int cmd_acargo(np, args)
+void cmd_acargo(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -433,7 +437,7 @@ int cmd_acargo(np, args)
   }
 }
 
-int cmd_taxrate(np, args)
+void cmd_taxrate(np, args)
      struct argument args[];
      Snation *np;
 {
@@ -446,7 +450,7 @@ int cmd_taxrate(np, args)
 
 
 
-int cmd_charity(np, args)
+void cmd_charity(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -458,7 +462,7 @@ int cmd_charity(np, args)
 }
 
 
-int cmd_desig_sector(np, args)
+void cmd_desig_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -479,7 +483,7 @@ int cmd_desig_sector(np, args)
 }
 
 
-int cmd_amake(np, args)
+void cmd_amake(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -512,7 +516,7 @@ int cmd_amake(np, args)
   ++np->n_armies;
 }
 
-int cmd_cmoney(np, args)
+void cmd_cmoney(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -527,7 +531,7 @@ int cmd_cmoney(np, args)
 	 change,np->money);
 }
 
-int cmd_cmetal(np, args)
+void cmd_cmetal(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -542,7 +546,7 @@ int cmd_cmetal(np, args)
 	 change,np->metal);
 }
 
-int cmd_cjewels(np, args)
+void cmd_cjewels(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -557,7 +561,7 @@ int cmd_cjewels(np, args)
 	 change,np->jewels);
 }
 
-int cmd_cspell_pts(np, args)
+void cmd_cspell_pts(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -572,7 +576,7 @@ int cmd_cspell_pts(np, args)
 		    change, np->spell_pts);
 }
 
-int cmd_ctech_skill(np, args)
+void cmd_ctech_skill(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -585,7 +589,7 @@ int cmd_ctech_skill(np, args)
   np->tech_skill = np->tech_skill + change;
 }
 
-int cmd_cmag_skill(np, args)
+void cmd_cmag_skill(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -598,7 +602,7 @@ int cmd_cmag_skill(np, args)
   np->mag_skill = np->mag_skill + change;
 }
 
-int cmd_cfood(np, args)
+void cmd_cfood(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -613,7 +617,7 @@ int cmd_cfood(np, args)
 	 change,np->food);
 }
 
-int cmd_tech_money(np,args)
+void cmd_tech_money(np,args)
      Snation *np;
      struct argument args[];
 {
@@ -622,7 +626,7 @@ int cmd_tech_money(np,args)
 }
 
 
-int cmd_tech_metal(np,args)
+void cmd_tech_metal(np,args)
      Snation *np;
      struct argument args[];
 {
@@ -631,7 +635,7 @@ int cmd_tech_metal(np,args)
 }
 
 
-int cmd_spy_money(np,args)
+void cmd_spy_money(np,args)
      Snation *np;
      struct argument args[];
 {
@@ -639,7 +643,7 @@ int cmd_spy_money(np,args)
    }
 
 
-int cmd_mag_money(np,args)
+void cmd_mag_money(np,args)
      Snation *np;
      struct argument args[];
 {
@@ -647,7 +651,7 @@ int cmd_mag_money(np,args)
   if (debug) printf("Magic money changed to %d\n",np->mag_r_d);
 }
 
-int cmd_mag_jewels(np,args)
+void cmd_mag_jewels(np,args)
      Snation *np;
      struct argument args[];
 {
@@ -655,26 +659,26 @@ int cmd_mag_jewels(np,args)
   if (debug) printf("Magic jewels changed to %d\n",np->mag_r_d_jewels);
 }
 
-int cmd_cmine(np, args)
+void cmd_cmine(np, args)
      Snation *np;
      struct argument args[];
 {
   np->mine_skill += args[1].data.num;
 }
-int cmd_cfarm(np, args)
+void cmd_cfarm(np, args)
      Snation *np;
      struct argument args[];
 {
   np->farm_skill += args[1].data.num;
 }
-int cmd_cspeed(np, args)
+void cmd_cspeed(np, args)
      Snation *np;
      struct argument args[];
 {
   np->race.speed += args[1].data.num;
 }
 
-int cmd_nation_name(np, args)
+void cmd_nation_name(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -682,7 +686,7 @@ int cmd_nation_name(np, args)
   strcpy(changed_np->name, args[2].data.str);
 }
 
-int cmd_nation_leader(np, args)
+void cmd_nation_leader(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -690,7 +694,7 @@ int cmd_nation_leader(np, args)
   strcpy(changed_np->leader, args[2].data.str);
 }
 
-int cmd_nation_order(np, args)	/* change magic order */
+void cmd_nation_order(np, args)	/* change magic order */
      Snation *np;
      struct argument args[];
 {
@@ -698,7 +702,7 @@ int cmd_nation_order(np, args)	/* change magic order */
   strcpy(changed_np->mag_order, args[2].data.str);
 }
 
-int cmd_nation_mark(np, args)	/* change a nation's mark */
+void cmd_nation_mark(np, args)	/* change a nation's mark */
      Snation *np;
      struct argument args[];
 {
@@ -707,7 +711,7 @@ int cmd_nation_mark(np, args)	/* change a nation's mark */
 }
 
   /* set and clear the npc flag on a nation */
-int cmd_set_npc(np, args)
+void cmd_set_npc(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -716,7 +720,7 @@ int cmd_set_npc(np, args)
   changed_nation->npc_flag = 1;
 }
 
-int cmd_clear_npc(np, args)
+void cmd_clear_npc(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -725,7 +729,7 @@ int cmd_clear_npc(np, args)
   changed_nation->npc_flag = 0;
 }
 
-int cmd_npc_param(np, args)
+void cmd_npc_param(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -737,21 +741,21 @@ int cmd_npc_param(np, args)
 }
 
   /* change in a nation's fight bonus */
-int cmd_cattack(np, args)
+void cmd_cattack(np, args)
      Snation *np;
      struct argument args[];
 {
   np->attack += args[1].data.num;
 }
 
-int cmd_cdefense(np, args)
+void cmd_cdefense(np, args)
      Snation *np;
      struct argument args[];
 {
   np->defense += args[1].data.num;
 }
 
-int cmd_ccombat(np, args)
+void cmd_ccombat(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -759,14 +763,14 @@ int cmd_ccombat(np, args)
   np->defense += args[1].data.num;
 }
 
-int cmd_crepro(np, args)
+void cmd_crepro(np, args)
      Snation *np;
      struct argument args[];
 {
   np->race.repro += args[1].data.num;
 }
 
-int cmd_cmortality(np, args)
+void cmd_cmortality(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -775,7 +779,7 @@ int cmd_cmortality(np, args)
   }
 }
 
-int cmd_cintel(np, args)
+void cmd_cintel(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -784,7 +788,7 @@ int cmd_cintel(np, args)
   }
 }
 
-int cmd_cmag_apt(np, args)
+void cmd_cmag_apt(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -793,7 +797,7 @@ int cmd_cmag_apt(np, args)
   }
 }
 
-int cmd_cstrength(np, args)
+void cmd_cstrength(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -803,7 +807,7 @@ int cmd_cstrength(np, args)
 }
 
   /* change the number of people in that sector */
-int cmd_cpeople_sector(np, args)
+void cmd_cpeople_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -816,7 +820,7 @@ int cmd_cpeople_sector(np, args)
   sp->n_people += args[3].data.num;
 }
   /* change the owner in that sector */
-int cmd_cowner_sector(np, args)
+void cmd_cowner_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -834,7 +838,7 @@ int cmd_cowner_sector(np, args)
 }
 
   /* change the soil in that sector */
-int cmd_csoil_sector(np, args)
+void cmd_csoil_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -848,7 +852,7 @@ int cmd_csoil_sector(np, args)
 }
 
   /* change the metal in that sector */
-int cmd_cmetal_sector(np, args)
+void cmd_cmetal_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -861,7 +865,7 @@ int cmd_cmetal_sector(np, args)
   sp->metal += args[3].data.num;
 }
   /* change the jewels in that sector */
-int cmd_cjewels_sector(np, args)
+void cmd_cjewels_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -875,7 +879,7 @@ int cmd_cjewels_sector(np, args)
 }
 
   /* change the altitude in that sector */
-int cmd_caltitude_sector(np, args)
+void cmd_caltitude_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -889,7 +893,7 @@ int cmd_caltitude_sector(np, args)
 }
 
 /* adds a new type of army to the nation's list of available army types */
-int cmd_new_army_type(np, args)
+void cmd_new_army_type(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -923,14 +927,14 @@ int cmd_new_army_type(np, args)
    as increasing roads in a sector, or making land into water
    or vice-versa, or ships, or caravans.
 */
-int cmd_new_construct(np, args)
+void cmd_new_construct(np, args)
      Snation *np;
      struct argument args[];
 {
 }
 
   /* adds the first army to the second.  Requires the two army ids. */
-int cmd_amerge(np, args)
+void cmd_amerge(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -948,7 +952,7 @@ int cmd_amerge(np, args)
 }
 
   /* increases the army (of given id) by the given number of people */
-int cmd_aincrease(np, args)
+void cmd_aincrease(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -961,7 +965,7 @@ int cmd_aincrease(np, args)
 }
 
   /* splits an army up.  requires armyid and number of men to split */
-int cmd_asplit(np, args)
+void cmd_asplit(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -988,7 +992,7 @@ int cmd_asplit(np, args)
   sprintf(ap->name, "%s", army2.type, army2.id);
 }
 
-int cmd_adisband(np,args)
+void cmd_adisband(np,args)
      Snation *np;
      struct argument args[];
 {
@@ -1004,7 +1008,7 @@ int cmd_adisband(np,args)
   delete_army_nation(np, ap);
 }
 
-int cmd_cabonus(np,args)		/* give an army more/less special bonus */
+void cmd_cabonus(np,args)		/* give an army more/less special bonus */
      Snation *np;
      struct argument args[];
 {
@@ -1018,7 +1022,7 @@ int cmd_cabonus(np,args)		/* give an army more/less special bonus */
 }
 
   /* change fortification level of a sector */
-int cmd_cfort_sector(np, args)
+void cmd_cfort_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -1032,7 +1036,7 @@ int cmd_cfort_sector(np, args)
 }
 
   /* change number of roads in a sector */
-int cmd_croads_sector(np, args)
+void cmd_croads_sector(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -1045,7 +1049,7 @@ int cmd_croads_sector(np, args)
   sp->roads += args[3].data.num;
 }
 
-int cmd_cpass(np, args)
+void cmd_cpass(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -1059,7 +1063,7 @@ int cmd_cpass(np, args)
   strcpy(dest_np->passwd, new_pass);
 }
 
-int cmd_cur_mag_money (np, args)
+void cmd_cur_mag_money (np, args)
 
 Snation * np;
 struct argument args [];
@@ -1067,7 +1071,7 @@ struct argument args [];
   np->cur_mag_r_d = args[1].data.num;
 }
 
-int cmd_cur_tech_money (np, args)
+void cmd_cur_tech_money (np, args)
 
 Snation * np;
 struct argument args [];
@@ -1075,7 +1079,7 @@ struct argument args [];
   np->cur_tech_r_d = args[1].data.num;
 }
 
-int cmd_cur_mag_jewels (np, args)
+void cmd_cur_mag_jewels (np, args)
 
 Snation * np;
 struct argument args [];
@@ -1083,7 +1087,7 @@ struct argument args [];
   np->cur_mag_r_d_jewels = args[1].data.num;
 }
 
-int cmd_cur_tech_metal (np, args)
+void cmd_cur_tech_metal (np, args)
 
 Snation * np;
 struct argument args [];
@@ -1091,7 +1095,7 @@ struct argument args [];
   np->cur_tech_r_d_metal = args[1].data.num;
 }
 
-int cmd_cur_spy_money (np, args)
+void cmd_cur_spy_money (np, args)
 
 Snation * np;
 struct argument args [];
@@ -1099,7 +1103,7 @@ struct argument args [];
   np->cur_spy_r_d = args[1].data.num;
 }
 
-int cmd_destroy(np, args)
+void cmd_destroy(np, args)
      Snation *np;
      struct argument args[];
 {
@@ -1109,7 +1113,7 @@ int cmd_destroy(np, args)
   destroy_nation(id);
 }
 
-int cmd_acastle (np, args)
+void cmd_acastle (np, args)
      
 Snation * np;
 struct argument args [];
