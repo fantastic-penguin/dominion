@@ -47,7 +47,7 @@ extern struct s_desig_map desig_map[];
 extern int (*wrapx)(), (*wrapy)();
 
 extern int abs(int);
-int get_diplo_status(Sdiplo **dm, int nation1, int nation2);
+#include "functions.h"
 
 /* Wrapping functions are the heart and soul of the world's shape */
 /* these main functions, wrapx and wrapy, choose the proper function for */

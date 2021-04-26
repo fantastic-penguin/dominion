@@ -100,20 +100,7 @@ static struct exec_cmd commands[] = {
   {"ACASTLE", cmd_acastle}
 };
 
-// forward declarations
-int getexec(FILE *fp, struct argument args[]);
-void load_options(Snation* np);
-void run_exec_line(Snation *np, struct argument args[]);
-int parse_exec_line(char line[], struct argument args[]);
-int insert_army_nation(Snation *np, Sarmy *ap, int chosen_id);
-int insert_army_sector(Ssector *sp, Sarmy *ap);
-void delete_army_nation(Snation *np, Sarmy *ap);
-void delete_army_sector(Ssector *sp, Sarmy *ap);
-Sarmy *get_army(Snation *np, int id);
-int basic_move_rate(Snation *np);
-void addsector(Snation *np, int x, int y);
-void destroy_nation(int id);
-int is_spirit(Sarmy *ap);
+#include "functions.h"
 
 /*******************************************************/
 /* gets nation data for nation 'id', put it into '*np' */

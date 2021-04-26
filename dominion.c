@@ -31,6 +31,8 @@
 #include <unistd.h>   // getuid
 #include <sys/stat.h> // umask
 
+#include "functions.h"
+
   /* most of these data structures are declared in ext.c */
 extern Suser user;
 extern Sworld world;
@@ -41,34 +43,6 @@ extern char help_tag[];
 extern int interrupt();
 extern int (*keymap[128])();
 extern char *get_update_time(), *update_time;
-
-// forward declarations
-void init_screen();
-void online_info();
-void read_races();
-void read_world(Sworld* wp, char fname[]);
-void print_nations();
-void usageerr(int argc, char *argv[]);
-void clean_exit();
-void init();
-void init_user(int innation, char nation[]);
-void init_keymap();
-void init_screen();
-void intro(Sworld *wp, Snation *np);
-void noncritical();
-void main_loop();
-void cleanup();
-void clean_exit();
-void statline(char s1[], char s2[]);
-void draw_map();
-void set_cursor();
-int re_center(int x, int y);
-void wrap(Pt *pp);
-int army_is_in_sector(Ssector *sp, int owner, int id);
-int first_sect_army(Ssector *sp);
-void gen_exec(char *s);
-void del_lock(int id);
-int is_active_ntn(Snation* np);
 
 int old_umask;			/* to reset when we leave */
 #ifdef ANDREW

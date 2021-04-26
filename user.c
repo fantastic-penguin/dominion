@@ -31,6 +31,7 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 
 extern Suser user;
 extern Sworld world;
