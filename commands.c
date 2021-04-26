@@ -41,7 +41,7 @@ extern int (*wrapx)(), (*wrapy)();
 extern char *getenv();
 extern char libdir[], *current_dir;
 
-quit()				/* cleanup and quit */
+void quit()				/* cleanup and quit */
 {
   clear();
   cleanup();
@@ -49,7 +49,7 @@ quit()				/* cleanup and quit */
   exit(0);
 }
 
-help()
+void help()
 {
   start_help_win();
   show_help();
@@ -59,72 +59,72 @@ help()
   /* this routine sets certain parameters that must be
      set when the cursor has been moved
    */
-just_moved()
+void just_moved()
 {
   user.just_moved = 1;
 }
 
-up()				/* move the cursor; should look at topology */
+void up()				/* move the cursor; should look at topology */
 {
   --user.cursor.y;
   just_moved();
 }
-jup()
+void jup()
 {
   user.cursor.y -= 8;
   just_moved();
 }
-down()
+void down()
 {
   ++user.cursor.y;
   just_moved();
 }
-jdown()
+void jdown()
 {
   user.cursor.y += 8;
   just_moved();
 }
-right()
+void right()
 {
   ++user.cursor.x;
   just_moved();
 }
-jright()
+void jright()
 {
   user.cursor.x += 8;
   just_moved();
 }
-left()
+void left()
 {
   --user.cursor.x;
   just_moved();
 }
-jleft()
+void jleft()
 {
   user.cursor.x -= 8;
   just_moved();
 }
-upright()
+void upright()
 {
   up(); right();
   just_moved();
 }
-upleft()
+void upleft()
 {
   up(); left();
   just_moved();
 }
-downright()
+void downright()
 {
   down(); right();
   just_moved();
 }
-downleft()
+void downleft()
 {
   down(); left();
   just_moved();
 }
-jhome()
+void jhome()
 {
   user.cursor.x = user.np->capital.x;
   user.cursor.y = user.np->capital.y;
@@ -132,7 +132,7 @@ jhome()
   just_moved();
 }
 
-jpos()
+void jpos()
 {
   char s[100];
   int x,y;
@@ -160,7 +160,7 @@ jpos()
 #define ZY 18
 
   /* zoom-in on a sector */
-zoom_sector()
+void zoom_sector()
 {
   WINDOW *zoomw = NULL;
   char s[EXECLEN];
@@ -377,7 +377,7 @@ zoom_sector()
 }
 
   /* change the name of a sector */
-name_sector(w)
+void name_sector(w)
      WINDOW *w;
 {
   char name[NAMELEN];
@@ -415,7 +415,7 @@ name_sector(w)
 }
 
   /* menu that allows you to redesignate a sector */
-redesignate(np, w, confirm)
+int redesignate(np, w, confirm)
      Snation * np;
      WINDOW *w;
      int confirm;
@@ -500,7 +500,7 @@ redesignate(np, w, confirm)
   /* a couple of little routines that generate simple
      exec lines, and are used all the time
    */
-cpeople_sector(sp, p)
+void cpeople_sector(sp, p)
      Ssector *sp;
      int p;
 {
@@ -510,7 +510,7 @@ cpeople_sector(sp, p)
   gen_exec(s);
 }
 
-cmoney(np, m)
+void cmoney(np, m)
      Snation *np;
      int m;
 {
@@ -519,7 +519,7 @@ cmoney(np, m)
   gen_exec(s);
 }
 
-cmetal(np, m)
+void cmetal(np, m)
      Snation *np;
      int m;
 {
@@ -528,7 +528,7 @@ cmetal(np, m)
   gen_exec(s);
 }
 
-cjewels(np, j)
+void cjewels(np, j)
      Snation *np;
      int j;
 {
@@ -537,7 +537,7 @@ cjewels(np, j)
   gen_exec(s);
 }
 
-cspell_pts(np, pts)
+void cspell_pts(np, pts)
      Snation *np;
      int pts;
 {
@@ -547,7 +547,7 @@ cspell_pts(np, pts)
   gen_exec(s);
 }
 
-cfood(np, f)
+void cfood(np, f)
      Snation *np;
      int f;
 {
@@ -556,7 +556,7 @@ cfood(np, f)
   gen_exec(s);
 }
 
-ctech_skill(np, change)
+void ctech_skill(np, change)
      Snation *np;
      int change;
 {
@@ -565,7 +565,7 @@ ctech_skill(np, change)
   gen_exec(s);
 }
 
-cmag_skill(np, change)
+void cmag_skill(np, change)
      Snation *np;
      int change;
 {
@@ -577,7 +577,7 @@ cmag_skill(np, change)
   /* this ensures that the user has only one capital,
      when he moves his over.
    */
-move_capital(np, sp)
+void move_capital(np, sp)
      Snation *np;
      Ssector *sp;
 {
@@ -593,7 +593,7 @@ move_capital(np, sp)
 }
 
   /* dumps the map visible on the screen to a file */
-dump_map()
+void dump_map()
 {
   char s[80], filename[NAMELEN];
   sprintf(s, "give a file name (default = \"%s\")", "map");
@@ -611,7 +611,7 @@ dump_map()
 }
 
   /* mail menu */
-mail()
+void mail()
 {
   char *mail_prog;
 
@@ -636,7 +636,7 @@ mail()
  It does all the curses printing and scaning here (That's why it's a bit
  messy) and calls functions from mail for editing and sending and lock foo. */
 
-mail_write()
+void mail_write()
 {
   char s[EXECLEN];
   int ret, id, done = 0;
