@@ -2,6 +2,7 @@
 #define _FUNCTIONS_H_
 
 // Forward declare... lots of stuff.
+int mygetch();
 void init_screen();
 void online_info();
 void read_races();
@@ -21,6 +22,8 @@ void clean_exit();
 void statline(char s1[], char s2[]);
 void statline2(char s1[], char s2[]);
 void statline2_err(char s1[], char s2[]);
+void statline_prompt(char s1[], char s2[]);
+void statline2_prompt(char s1[], char s2[]);
 void draw_map();
 void set_cursor();
 int re_center(int x, int y);
@@ -63,6 +66,8 @@ void save_options(Snation *np);
 void touch_all_wins();
 void dom_getline(char s[], int n);
 int wget_string(WINDOW *w, char *rets, int len);
+int wget_number(WINDOW *w, int *num);
+int wget_name(WINDOW *w, char *name);
 void mem_error();
 int is_master_lock();
 void set_lock(int id);
@@ -88,7 +93,6 @@ void storage_budget(Snation *np);
 void do_tech_budget(WINDOW *w, Snation * np);
 void do_magic_budget(WINDOW *w, Snation * np);
 void dump_current_screen();
-int wget_number(WINDOW *w, int *num);
 int calc_revenue(Snation *np);
 int calc_expend(Snation *np);
 int calc_jewels(Snation *np);
@@ -102,5 +106,31 @@ int military_maint_metal(Snation *np);
 int military_maint_jewels(Snation *np);
 int non_profit_maint(Snation *np);
 void draw_storage_budget(WINDOW *w, Snation * np);
+void start_help_win();
+void show_help();
+void end_help_win();
+int sect_n_armies(Ssector *sp);
+int sector_metal(Ssector *sp);
+int sector_jewels(Ssector *sp);
+int sector_food(Ssector *sp);
+void name_sector(WINDOW *w);
+int redesignate(Snation *np, WINDOW *w, int confirm);
+void move_capital(Snation* np, Ssector *sp);
+void cmoney(Snation *np, int m);
+void cmetal(Snation *np, int m);
+void cjewels(Snation *np, int j);
+void cspell_pts(Snation *np, int pts);
+void cfood(Snation *np, int f);
+void ctech_skill(Snation *np, int change);
+void cmag_skill(Snation *np, int change);
+int my_scr_dump(WINDOW *w, char fname[]);
+int mail_read(int reader);
+void mail_write();
+int mail_send(char mailfile[], int sender, int receiver, char subject[]);
+void edit(char *t_fn);
+int has_mail_lock(int id);
+void lock_mail(int nation);
+void unlock_mail(int nation);
+
 
 #endif // _FUNCTIONS_H_

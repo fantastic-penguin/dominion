@@ -23,8 +23,13 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include "army.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
 	/* many commands are kept in this file, except for those
 	   that depend on the graphics being used.
 	 */
@@ -701,7 +706,7 @@ void mail_write()
 		printf("Found a lock file for receiver %d\n", id);
 		fflush(stdout);
 		refresh();
-		return(1);
+		return;
 	      }
 	    }
 	    lock_mail(id);
