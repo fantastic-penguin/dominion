@@ -41,7 +41,7 @@ Sarmy *get_army(Snation *np, int id);
 void addsector(Snation *np, int x, int y);
 int basic_move_rate(Snation *np);
 int is_spirit(Sarmy *ap);
-int destroy_nation(int id);
+void destroy_nation(int id);
 void load_army_types();
 void load_spirit_types();
 void load_master_execs();
@@ -70,6 +70,16 @@ void write_nation(Snation *np, FILE *fp);
 void init_wrap();
 void critical();
 void init_options(Snation *np);
-
+int get_n_civil(Snation *np);
+int get_n_soldiers(Snation *np);
+int get_n_priests(Snation *np);
+int get_n_students(Snation *np);
+int get_generic_move_cost(Snation* np, Ssector* sp);
+int get_army_move_cost(Snation* np, Ssector* sp, Sarmy *ap);
+int n_workers(Ssector *sp);
+int xrel(int x, int y, Pt cap);
+int yrel(int x, int y, Pt cap);
+int map_alt(int altitude);
+int has_visible_army(Ssector *sp, Suser *up);
 
 #endif // _FUNCTIONS_H_
