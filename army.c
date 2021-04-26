@@ -257,13 +257,13 @@ void army_menu()
       break;
     case 'D':
       if ((ap = get_army(user.np, user.current_army)) == NULL) {
-	return 0;
+	return;
       }
       army_disband (sp, ap);
       break;
     case 'E':
       if ((ap = get_army(user.np, user.current_army)) == NULL) {
-	return 0;
+	return;
       }
       army_examine(ap);
       break;

@@ -205,5 +205,19 @@ void change_army_status(WINDOW *aw, int id);
 void list_available_armies(Suser *up, WINDOW *aw);
 void draft_army(Snation *np);
 int army_disband(Ssector *sp, Sarmy *ap);
+void army_examine(Sarmy * ap);
+int zoom_armies(Suser *up, Ssector *sp);
+int army_merge(Sarmy * ap);
+int army_split(Sarmy * ap);
+void donate_army(Sarmy *ap, Ssector *sp);
+int next_sect_army(Ssector *sp, Sarmy *ap);
+int prev_sect_army(Ssector *sp, Sarmy *ap);
+int cargo_not_empty(Scargo *cargop);
+int is_spelled(Sarmy *ap);
+int can_occupy(Sarmy *ap);
+int can_patrol(Sarmy *ap);
+int can_intercept(Sarmy *ap);
+int can_garrison(Sarmy *ap);
+void army_visibility(int **visible_sectors, Sarmy *ap);
 
 #endif // _FUNCTIONS_H_
