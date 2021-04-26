@@ -190,6 +190,19 @@ char info_report();
 void spy_report(int id);
 int spy_figure(int n, int expend, Snation *spying_np, Snation *spied_np, int cost_fact);
 void swapgoods(Snation *fromnat, Snation *tonat, int amt, int item);
-
+void get_apparent_type(Sarmy *ap, char type[]);
+void get_army_status(Sarmy *ap, char s[]);
+int jarmy();
+void move_army(int id, WINDOW *aw);
+int transport();
+void previous_army();
+void next_army();
+int next_nation_army(Snation *np, int old_id);
+int prev_nation_army(Snation *np, int old_id);
+void just_moved();
+void change_army_status(WINDOW *aw, int id);
+void list_available_armies(Suser *up, WINDOW *aw);
+void draft_army(Snation *np);
+int army_disband(Ssector *sp, Sarmy *ap);
 
 #endif // _FUNCTIONS_H_
