@@ -131,6 +131,8 @@ void edit(char *t_fn);
 int has_mail_lock(int id);
 void lock_mail(int nation);
 void unlock_mail(int nation);
-
+void show_file(char name[]);
+void get_space();
+void cinfo(char fname[], char tag[]);
 
 #endif // _FUNCTIONS_H_

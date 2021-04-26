@@ -23,21 +23,23 @@
 
 #include "dominion.h"
 #include "cur_stuff.h"
+#include "functions.h"
 #include <stdio.h>
+#include <string.h>
 
 extern Suser user;
 extern char help_tag[];
 WINDOW *helpw;
 int help_win_len;
 
-start_help_win()
+void start_help_win()
 {
   helpw = newwin(LINES-2, COLS, 0, 0);
   wrefresh(helpw);
   help_win_len = LINES-2;
 }
 
-show_help()
+void show_help()
 {
   char filename[100];
   int done = 0;
@@ -60,7 +62,7 @@ show_help()
   statline2("", "");
 }
 
-end_help_win()
+void end_help_win()
 {
   delwin(helpw);
   touchwin(stdscr); 
@@ -68,7 +70,7 @@ end_help_win()
 }
 
   /* a simple pager */
-show_file(name)
+void show_file(name)
      char name[];
 {
   FILE *fp, *fopen();
@@ -127,7 +129,7 @@ show_file(name)
   /* runs the online curses info browser,
      using the global variable help_tag
    */
-online_info()
+void online_info()
 {
   cinfo(INFO_FILE, help_tag);
   user.just_moved = 1;
