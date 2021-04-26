@@ -369,7 +369,10 @@ void initiate_mage(up, w)
     statline(s, "initiate");
     move(LINES-1,strlen (s));
   }
-  if ((wget_name(w, name)) == NULL) {
+
+  // TODO wget_name in cur_stuff.c only returns 1 or -1...  ???
+  // ORIG: if ((wget_name(w, name)) == NULL) {
+  if ((wget_name(w, name)) == -1) {
     strcpy (name, def_name);
   }
     /* if we got this far, it means that the initiation is valid */
