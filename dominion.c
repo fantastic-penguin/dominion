@@ -59,6 +59,16 @@ void noncritical();
 void main_loop();
 void cleanup();
 void clean_exit();
+void statline(char s1[], char s2[]);
+void draw_map();
+void set_cursor();
+int re_center(int x, int y);
+void wrap(Pt *pp);
+int army_is_in_sector(Ssector *sp, int owner, int id);
+int first_sect_army(Ssector *sp);
+void gen_exec(char *s);
+void del_lock(int id);
+int is_active_ntn(Snation* np);
 
 int old_umask;			/* to reset when we leave */
 #ifdef ANDREW
