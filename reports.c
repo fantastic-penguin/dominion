@@ -46,7 +46,7 @@ char info_report(), production_report(), nations_report();
 
 extern char diplo_report (), budget_report ();
 
-report_menu()		/* this gives a menu of possible report forms */
+void report_menu()		/* this gives a menu of possible report forms */
 {
   WINDOW *repw;
   char c, exit_c = ' ';
@@ -122,7 +122,7 @@ report_menu()		/* this gives a menu of possible report forms */
 	  wclrtobot(repw);
 	}
       }
-#endif NO_FILE_ACCESS
+#endif // NO_FILE_ACCESS
       break;
     case 'i':
       exit_c = info_report(user.np);
@@ -226,8 +226,7 @@ char info_report(np)
 }
 
 /* */
-draw_info_screen (w, np)
-
+void draw_info_screen (w, np)
 WINDOW * w;
 Snation * np;
 {
@@ -369,8 +368,7 @@ char production_report(np)
   return c;
 }
 
-draw_production_screen (w, np)
-
+void draw_production_screen (w, np)
 WINDOW * w;
 Snation * np;
 {
@@ -451,7 +449,7 @@ Snation * np;
   /* this prompts for a file name and then dumps
      the current screen to that file
    */
-dump_current_screen(w, def_filename)
+void dump_current_screen(w, def_filename)
      WINDOW *w;
      char def_filename[];
 {
@@ -483,7 +481,7 @@ dump_current_screen(w, def_filename)
   /* the curses routine is not very nice, since it
      can only be read-in by curses.  hence this.
    */
-my_scr_dump(w, fname)
+int my_scr_dump(w, fname)
      WINDOW *w;
      char fname[];
 {
@@ -533,7 +531,7 @@ my_scr_dump(w, fname)
 }
 
   /* this restores a dump made with our custom screen dump routine */
-my_scr_restore(fname)
+int my_scr_restore(fname)
      char fname[];
 {
   int x, y;
@@ -600,7 +598,7 @@ my_scr_restore(fname)
 }
 
   /* let a nation change its password */
-change_passwd(np, w)
+void change_passwd(np, w)
      Snation *np;
      WINDOW *w;
 {
@@ -646,7 +644,7 @@ change_passwd(np, w)
 }
 
   /* allow a user to change their leader */
-change_leader(np, w)
+void change_leader(np, w)
      Snation *np;
      WINDOW *w;
 {
