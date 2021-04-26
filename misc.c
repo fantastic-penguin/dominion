@@ -26,7 +26,7 @@
 /* int interrupt() - handles interupts                             */
 /* show_nation(np) - displays a nation's characteristics           */
 /* free_nation_mark(wp,c) - tell us if the symbol is available     */
-/* getline(s,n) - read a line from stdin, remove \n                */
+/* dom_getline(s,n) - read a line from stdin, remove \n                */
 /* get_crypt_pass(prompt,s,w) - get password and encrypt           */
 /* critical() - while writing, don't bug me!!                      */
 /* noncritical() - normal operation                                */
@@ -114,7 +114,7 @@ free_nation_mark(wp, c)
   return 1;
 }
 
-getline(s, n)			/* read a line from stdin, remove \n */
+dom_getline(s, n)			/* read a line from stdin, remove \n */
      char s[];
      int n;
 {

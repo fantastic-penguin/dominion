@@ -70,7 +70,7 @@ void init_user(innation, nation)
   if (!innation)
     {
       printf("which nation would you like to play? ");
-      getline(nation, NAMELEN);
+      dom_getline(nation, NAMELEN);
     }
   if ((user.id = get_nation_id(nation)) == -1) {
     printf ("\r\nnation does not exist, sorry\r\n");

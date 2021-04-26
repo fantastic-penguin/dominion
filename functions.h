@@ -60,6 +60,6 @@ void ask_for_forwarding(WINDOW *win);
 void ask_for_mail_reader(WINDOW *win);
 void save_options(Snation *np);
 void touch_all_wins();
-
+void dom_getline(char s[], int n);
 
 #endif // _FUNCTIONS_H_

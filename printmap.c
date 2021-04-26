@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <math.h>
+#incldue "functions.h"
 
 extern Sworld world;
 extern Suser user;
@@ -425,7 +426,7 @@ get_user()
 
   read_world(&world, WORLD_FILE);
   fprintf(stderr, "Enter nation name: ");
-  getline(nation, NAMELEN);
+  dom_getline(nation, NAMELEN);
   user.id = get_nation_id(nation);
   get_crypt_pass("Your password: ", passwd, NULL, NULL);
   if (strcmp(world.nations[user.id].passwd, passwd)) {
