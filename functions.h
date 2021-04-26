@@ -57,7 +57,6 @@ void get_avail_armies(Suser *up, int skill);
 void get_spells(Suser *up, int skill);
 void get_spirits(Suser *up, int skill);
 void load_nation(int id, Snation *np);
-void read_in_diplo(Sdiplo **dm, int n);
 void load_dead_hspells(Suser *up, int flag);
 void load_h_spells(Suser *up);
 void find_visible_sectors(int **visible_sectors);
@@ -154,5 +153,16 @@ int free_army_id(Snation *np);
 void aflag_set(Sarmy *ap, int flag);
 void fix_sector_line(char line[], char s[]);
 void delete_hanging_spell(Sh_spell *sp1);
+
+int init_diplo(int n);
+int read_in_diplo(Sdiplo **dm, int n);
+int read_initial_diplo(Sdiplo **dm, int n);
+void increase_diplo(Sdiplo **dm_old, Sdiplo **dm_new, int n, Snation *np);
+void dump_diplo(Snation *np, Sdiplo **dm, int n);
+void free_diplo(Sdiplo **dm, int n);
+void update_diplo();
+int have_met(Sdiplo **dm, int nation1, int nation2);
+int diplo_is_locked();
+void change_dip_status(Sdiplo **dm, Sdiplo **initial_dm, int n1, int n2);
 
 #endif // _FUNCTIONS_H_

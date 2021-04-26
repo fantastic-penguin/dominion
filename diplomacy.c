@@ -23,8 +23,11 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include <stdio.h>
 #include <ctype.h>
+
+extern int abs(int);
 
 extern Sworld world;
 extern Suser user;
@@ -184,7 +187,7 @@ char show_to_screen(dm, initial_dm, nation)
   return c;
 }
 
-change_dip_status(dm, initial_dm, n1, n2)
+void change_dip_status(dm, initial_dm, n1, n2)
      Sdiplo **dm, **initial_dm;
      int n1, n2;
 {
@@ -215,7 +218,7 @@ change_dip_status(dm, initial_dm, n1, n2)
       break;
   }
   
-/*  New_St++;   /* to compensate for numbers shown on screen */
+//  New_St++;   // to compensate for numbers shown on screen 
   if ((New_St < JIHAD) || (New_St > TREATY)) {
     mvwprintw(chng_dipw, i+2, 3, "Illegal Input!");
     mvwprintw(chng_dipw, i+3, 3,"--- hit space to continue ---");
