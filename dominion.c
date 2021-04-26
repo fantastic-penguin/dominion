@@ -165,7 +165,7 @@ char *argv[];
   exit(0);
 }
 
-init()
+void init()
 {
   printf("Initializing...\r\n");
   SRND(time(0L));		/* initialize random number generator */
@@ -175,7 +175,7 @@ init()
 }
 
 	/* this is where all the work is done  */
-main_loop()
+void main_loop()
 {
   char c;
   char s[80];
@@ -207,7 +207,7 @@ main_loop()
 }
 
   /* clean up graphics, and flush out the exec file */
-cleanup()
+void cleanup()
 {
   int i;
 
@@ -220,7 +220,7 @@ cleanup()
   gen_exec(NULL);
 }
 
-clean_exit()
+void clean_exit()
 {
   extern int is_in_diplo;
 
@@ -238,7 +238,7 @@ clean_exit()
 #endif
 }
 
-critical()			/* while writing data files, don't bug me!! */
+void critical()			/* while writing data files, don't bug me!! */
 {
   signal(SIGINT, SIG_IGN);
   signal(SIGQUIT, SIG_IGN);
@@ -248,7 +248,7 @@ critical()			/* while writing data files, don't bug me!! */
   signal(SIGHUP, SIG_IGN);
 }
 
-noncritical()			/* normal operation */
+void noncritical()			/* normal operation */
 {
   signal(SIGINT, interrupt);
   signal(SIGQUIT, interrupt);
@@ -259,7 +259,7 @@ noncritical()			/* normal operation */
 }
 
   /* just prints a list of all nations to the terminal */
-print_nations()
+void print_nations()
 {
   int i;
   Snation *np;
