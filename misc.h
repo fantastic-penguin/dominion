@@ -32,12 +32,12 @@
 # define SRND(x) srandom(x)
 # define RND() random()
 # define strchr(a, b) index(a, b)
-#endif BSD
+#endif //BSD
 
 #ifdef SYSV
 # define SRND(x) srand48(x)
 # define RND() lrand48()
-#endif SYSV
+#endif //SYSV
 
 /* Figuring in cur_ stuff. */
 #define cur_expend(np) (((np->cur_tech_r_d + np->cur_mag_r_d + np->cur_spy_r_d) * np->money) / 100)
