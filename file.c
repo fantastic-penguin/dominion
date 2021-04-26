@@ -31,6 +31,11 @@
 #else
 # include <strings.h>
 #endif /* SYSV */
+#include <stdlib.h>
+#include <time.h>
+#include <fcntl.h>
+#include <unistd.h>
+
 #include "dominion.h"
 #include "misc.h"
 #include "functions.h"

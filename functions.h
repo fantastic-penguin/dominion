@@ -64,5 +64,12 @@ int wget_string(WINDOW * w, char * rets, int len);
 void mem_error();
 int is_master_lock();
 void set_lock(int id);
+int check_compressed_world(char fname[]);
+void read_nation(Snation *np, FILE *fp, Sworld *wp);
+void write_nation(Snation *np, FILE *fp);
+void init_wrap();
+void critical();
+void init_options(Snation *np);
+
 
 #endif // _FUNCTIONS_H_
