@@ -145,7 +145,7 @@ void initiate_mage(Suser *up, WINDOW *w);
 void show_hanging_spells(Suser *up);
 int is_mage(Sarmy *ap);
 int spirit_type_index(char type[]);
-void exec_spell(Sspell *spellp, WINDOW *w);
+int exec_spell(Sspell *spellp, WINDOW *w);
 void exec_summon(int type_index, char name[]);
 void exec_initiate(char name[]);
 int zoom_on_h_spell(Sh_spell *h_list, WINDOW *sw);
