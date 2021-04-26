@@ -25,8 +25,10 @@
 #include "misc.h"
 #include "functions.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <unistd.h>
 
 extern Sworld world;
 extern Suser user;
@@ -474,7 +476,7 @@ void dump_current_screen(w, def_filename)
   clrtoeol();
   statline2("", "");
   my_scr_dump(w, filename);
-/*  scr_dump(filename); /* the curses scr_dump() isn't good enough */
+//  scr_dump(filename); // the curses scr_dump() isn't good enough 
 #endif
 }
 

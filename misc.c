@@ -970,7 +970,6 @@ Pt * title;
 }
 
 int univ_intel (np)
-
 Snation * np;
 {
   double sqrt ();
@@ -997,7 +996,6 @@ Snation * np;
 */
 
 int priestliness (np)
-
 Snation * np;
 {
   double sqrt ();

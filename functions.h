@@ -93,6 +93,7 @@ void do_tech_budget(WINDOW *w, Snation * np);
 void do_magic_budget(WINDOW *w, Snation * np);
 void dump_current_screen();
 int calc_revenue(Snation *np);
+int calc_serv_revenue(Snation *np);
 int calc_expend(Snation *np);
 int calc_jewels(Snation *np);
 int calc_food(Snation *np);
@@ -153,7 +154,6 @@ int free_army_id(Snation *np);
 void aflag_set(Sarmy *ap, int flag);
 void fix_sector_line(char line[], char s[]);
 void delete_hanging_spell(Sh_spell *sp1);
-
 int init_diplo(int n);
 int read_in_diplo(Sdiplo **dm, int n);
 int read_initial_diplo(Sdiplo **dm, int n);
@@ -163,6 +163,28 @@ void free_diplo(Sdiplo **dm, int n);
 void update_diplo();
 int have_met(Sdiplo **dm, int nation1, int nation2);
 int diplo_is_locked();
-void change_dip_status(Sdiplo **dm, Sdiplo **initial_dm, int n1, int n2);
+
+int my_scr_restore(char fname[]);
+void draw_info_screen(WINDOW * w, Snation * np);
+void change_passwd(Snation *np, WINDOW *w);
+void change_leader(Snation *np, WINDOW *w);
+void set_aggressiveness(Snation *np, WINDOW *current_win);
+int univ_intel(Snation * np);
+int priestliness(Snation * np);
+void draw_production_screen(WINDOW * w, Snation *np);
+int get_employed(Snation *np);
+int get_emp_met(Snation *np);
+int get_emp_jwl(Snation *np);
+int get_emp_farm(Snation *np);
+int get_emp_serv(Snation *np);
+int get_unemployed(Snation *np);
+int get_unemp_met(Snation *np);
+int get_unemp_jwl(Snation *np);
+int get_unemp_farm(Snation *np);
+int get_unemp_serv(Snation *np);
+int military_maint(Snation *np);
+int military_maint_metal(Snation *np);
+int military_maint_jewels(Snation *np);
+int military_maint_spell_pts(Snation *np);
 
 #endif // _FUNCTIONS_H_
