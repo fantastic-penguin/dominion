@@ -27,6 +27,7 @@
 #else
 # include <strings.h>
 #endif /* SYSV */
+#include <stdlib.h>
 #include <time.h>
 
 #include "dominion.h"
@@ -40,6 +41,9 @@ extern int (*wrapx)(), (*wrapy)();
 extern int viewall;
 extern double get_version(),atof();
 extern char *update_time, *get_update_time(), *mail_forwarding(),*civ_move[];
+
+static void ask_for_forwarding(WINDOW *win);
+
 
 void usageerr(argc, argv)
 int argc;
@@ -327,7 +331,7 @@ void handle_locks(id)
   }
 
     /* see if there is a lock file for this nation */
-  if (lock_fp = is_locked(id)) {
+  if ((lock_fp = is_locked(id))) {
     fscanf(lock_fp, "%ld", &secs);
     fclose(lock_fp);
     timestr = ctime(&secs);

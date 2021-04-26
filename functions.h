@@ -56,10 +56,13 @@ void read_in_diplo(Sdiplo **dm, int n);
 void load_dead_hspells(Suser *up, int flag);
 void load_h_spells(Suser *up);
 void find_visible_sectors(int **visible_sectors);
-void ask_for_forwarding(WINDOW *win);
 void ask_for_mail_reader(WINDOW *win);
 void save_options(Snation *np);
 void touch_all_wins();
 void dom_getline(char s[], int n);
+int wget_string(WINDOW * w, char * rets, int len);
+void mem_error();
+int is_master_lock();
+void set_lock(int id);
 
 #endif // _FUNCTIONS_H_
