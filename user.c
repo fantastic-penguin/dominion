@@ -50,7 +50,7 @@ char *argv[];
   /* initializes the user's data structure, and does
      other tasks concerned with loading up the game
    */
-init_user(innation, nation)
+void init_user(innation, nation)
      int innation;		/* do we have a nation name already? */
      char nation[];		/* pre-entered nation name */
 {
@@ -169,7 +169,7 @@ init_user(innation, nation)
 }
 
   /* for a fixed army, update its visibility range */
-army_visibility(visible_sectors, ap)
+void army_visibility(visible_sectors, ap)
      int **visible_sectors;
      Sarmy *ap;
 {
@@ -202,7 +202,7 @@ army_visibility(visible_sectors, ap)
 }
 
   /* this allows a user to set her/his options */
-options()
+void options()
 {
   WINDOW *optw;
   char c;
@@ -264,7 +264,7 @@ options()
   touch_all_wins();
 }
 
-static ask_for_forwarding(win)
+static void ask_for_forwarding(win)
      WINDOW *win;
 {
   char buf[200];
@@ -284,7 +284,7 @@ static ask_for_forwarding(win)
   } 
 }
 
-ask_for_mail_reader(win)
+void ask_for_mail_reader(win)
      WINDOW *win;
 {
   char buf[200];
@@ -305,7 +305,7 @@ ask_for_mail_reader(win)
 }
 
   /* check if there is a lock file, and handle the situation if there is */
-handle_locks(id)
+void handle_locks(id)
      int id;
 {
   FILE *lock_fp, *is_locked();
