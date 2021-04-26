@@ -24,7 +24,11 @@
 #include "dominion.h"
 #include "misc.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <signal.h>
+#include <unistd.h>   // getuid
+#include <sys/stat.h> // umask
 
   /* most of these data structures are declared in ext.c */
 extern Suser user;
@@ -36,6 +40,24 @@ extern char help_tag[];
 extern int interrupt();
 extern int (*keymap[128])();
 extern char *get_update_time(), *update_time;
+
+// forward declarations
+void init_screen();
+void online_info();
+void read_races();
+void read_world(Sworld* wp, char fname[]);
+void print_nations();
+void usageerr(int argc, char *argv[]);
+void clean_exit();
+void init();
+void init_user(int innation, char nation[]);
+void init_keymap();
+void init_screen();
+void intro(Sworld *wp, Snation *np);
+void noncritical();
+void main_loop();
+void cleanup();
+void clean_exit();
 
 int old_umask;			/* to reset when we leave */
 #ifdef ANDREW
@@ -125,7 +147,7 @@ char *argv[];
   if (chdir(libdir) != 0) {
     fprintf(stderr,"Error: cannot cd to directory %s\n",libdir);
     clean_exit();
-    exit();
+    exit(1);
   }
   update_time = get_update_time();
 /*  printf("libdir=%s,def_libdir=%s\n", libdir, DEF_LIBDIR); */
