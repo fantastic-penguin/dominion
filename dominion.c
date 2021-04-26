@@ -42,7 +42,7 @@ int old_umask;			/* to reset when we leave */
 int beroot = 0;
 #endif
 
-main(argc, argv)
+int main(argc, argv)
 int argc;
 char *argv[];
 {
