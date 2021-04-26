@@ -21,6 +21,9 @@
  * the Free Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+// This file directly access members of struct _win_st. Need to not be opaque here. 
+#define NCURSES_OPAQUE 0
+
 #include "dominion.h"
 #include "misc.h"
 #include "functions.h"
