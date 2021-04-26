@@ -23,9 +23,12 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <math.h>
+#include <string.h>
+#include <stdlib.h>
 
   /* these macros represent the difficulty in gathering
      inteligence in various areas.
