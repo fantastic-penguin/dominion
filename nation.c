@@ -109,6 +109,8 @@ int insert_army_nation(Snation *np, Sarmy *ap, int chosen_id);
 int insert_army_sector(Ssector *sp, Sarmy *ap);
 void delete_army_nation(Snation *np, Sarmy *ap);
 void delete_army_sector(Ssector *sp, Sarmy *ap);
+Sarmy *get_army(Snation *np, int id);
+int basic_move_rate(Snation *np);
 
 /*******************************************************/
 /* gets nation data for nation 'id', put it into '*np' */
@@ -281,7 +283,7 @@ void cmd_aname(np, args)
 {
   int id;
   char *name;
-  Sarmy *ap, *get_army();
+  Sarmy *ap;
 
   id = args[1].data.num;
   name = args[2].data.str;
@@ -338,7 +340,7 @@ void cmd_astat(np, args)
      struct argument args[];
 {
   int a, s;
-  Sarmy *armypt, *get_army();
+  Sarmy *armypt;
   
   a = args[1].data.num;
   s = args[2].data.num;
@@ -362,7 +364,7 @@ void cmd_aflag_set(np, args)
      struct argument args[];
 {
   int id, flag;
-  Sarmy *armypt, *get_army();
+  Sarmy *armypt;
   
   id = args[1].data.num;
   flag = args[2].data.num;
@@ -377,7 +379,7 @@ void cmd_aflag_clear(np, args)
      struct argument args[];
 {
   int id, flag;
-  Sarmy *armypt, *get_army();
+  Sarmy *armypt;
   
   id = args[1].data.num;
   flag = args[2].data.num;
@@ -422,7 +424,7 @@ void cmd_acargo(np, args)
      struct argument args[];
 {
   int id;
-  Sarmy *armypt, *get_army();
+  Sarmy *armypt;
   
   id = args[1].data.num;
 
@@ -974,7 +976,7 @@ void cmd_asplit(np, args)
      Snation *np;
      struct argument args[];
 {
-  Sarmy *ap, army2, make_army(), *get_army();
+  Sarmy *ap, army2, make_army();
 
   ap = get_army(np,args[1].data.num);
   army2 = make_army(ap->type, "", args[2].data.num, ap->status,
