@@ -166,7 +166,8 @@ int diplo_is_locked();
 
 int my_scr_restore(char fname[]);
 void draw_info_screen(WINDOW * w, Snation * np);
-void change_passwd(Snation *np, WINDOW *w);
+void cpass(Snation *np, char pass[]);
+int change_passwd(Snation *np, WINDOW *w);
 void change_leader(Snation *np, WINDOW *w);
 void set_aggressiveness(Snation *np, WINDOW *current_win);
 int univ_intel(Snation * np);

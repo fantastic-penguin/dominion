@@ -603,7 +603,7 @@ int my_scr_restore(fname)
 }
 
   /* let a nation change its password */
-void change_passwd(np, w)
+int change_passwd(np, w)
      Snation *np;
      WINDOW *w;
 {
