@@ -23,8 +23,10 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 extern Sworld world;
 extern Suser user;
@@ -166,9 +168,7 @@ char budget_report(np)
 }
 
 /* Does the sub-budget for magic */
-
-do_magic_budget (w, np)
-
+void do_magic_budget (w, np)
 WINDOW * w;
 Snation * np;
 {
@@ -236,8 +236,7 @@ Snation * np;
   }
 }
 
-do_tech_budget (w, np)
-
+void do_tech_budget (w, np)
 WINDOW * w;
 Snation * np;
 {
@@ -306,9 +305,7 @@ Snation * np;
 }
 
 /* */
-
-draw_budget_screen (w, np)
-
+void draw_budget_screen (w, np)
 WINDOW * w;
 Snation * np;
 {
@@ -426,9 +423,7 @@ Snation * np;
 }
 
 /* Storage report, budget */
-
-storage_budget (np)
-
+void storage_budget (np)
 Snation * np;
 {
   WINDOW * w;
@@ -486,7 +481,9 @@ Snation * np;
       if (wget_number (w, &new_value) <= 0) {
 	bad_number = 1;
       }
-      wmove (w);
+      wmove (w, 0, 0);
+      //TODO: Next line was original; how did this work? Above line is guess...
+      //wmove (w);
       wclrtoeol (w);
       box (w, '|', '-');
 
@@ -534,7 +531,9 @@ Snation * np;
       if (wget_number (w, &new_value) <= 0) {
 	bad_number = 1;
       }
-      wmove (w);
+      wmove (w, 0, 0);
+      //TODO: Next line was original; how did this work? Above line is guess...
+      //wmove (w);
       wclrtoeol (w);
       box (w, '|', '-');
 
@@ -574,7 +573,7 @@ Snation * np;
   }
 }
 
-draw_storage_budget (w, np)
+void draw_storage_budget (w, np)
 
 WINDOW * w;
 Snation * np;
