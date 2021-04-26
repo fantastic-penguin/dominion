@@ -33,13 +33,15 @@
 #endif /* SYSV */
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
+
 #define UPDATE_FILE "last_update"
 
 extern int debug, compressed_world;
 extern struct race_list *races;
 extern Suser user;
 
-read_world(wp, fname)
+void read_world(wp, fname)
      Sworld *wp;
      char fname[];
 {
@@ -119,7 +121,7 @@ read_world(wp, fname)
 }
 
   /* save the world data file */
-write_world(wp, fname)
+void write_world(wp, fname)
      Sworld *wp;		/* pointer to the world */
      char fname[];
 {
@@ -175,7 +177,7 @@ write_world(wp, fname)
   /* short hand */
 #define WRITE_DATUM(x) fwrite(&x, sizeof(x), 1, fp)
 
-write_nation(np, fp)
+void write_nation(np, fp)
      Snation *np;
      FILE *fp;
 {
@@ -211,7 +213,7 @@ write_nation(np, fp)
   }
 }
 
-read_nation(np, fp, wp)
+void read_nation(np, fp, wp)
      Snation *np;
      FILE *fp;
      Sworld *wp;
@@ -295,7 +297,7 @@ read_nation(np, fp, wp)
 }
 
   /* reads in the list of all races */
-read_races()
+void read_races()
 {
   FILE *fp, *fopen();
   char s[200];
@@ -383,7 +385,7 @@ read_races()
      in a compressed format.  It it is, it returns 1.
      Otherwise, 0.
    */
-check_compressed_world(fname)
+int check_compressed_world(fname)
      char fname[];
 {
   char Zname[200];
@@ -399,13 +401,13 @@ check_compressed_world(fname)
 }
 
   /* sets a master lock file */
-set_master_lock()
+void set_master_lock()
 {
   close(creat("lock.master", 0600));
 }
 
   /* sets a lock for the given nation id */
-set_lock(id)
+void set_lock(id)
      int id;
 {
   char fname[PATHLEN];
@@ -429,7 +431,7 @@ set_lock(id)
 }
 
   /* removes a lock for the given nation id */
-del_lock(id)
+void del_lock(id)
      int id;
 {
   char fname[PATHLEN];
@@ -439,7 +441,7 @@ del_lock(id)
 }
 
   /* removes the master lock file */
-del_master_lock()
+void del_master_lock()
 {
   unlink("lock.master");
 }
@@ -463,7 +465,7 @@ FILE *is_locked(id)
 }
 
   /* checks if even a single nation has a lock or not */
-is_any_lock()
+int is_any_lock()
 {
   int i;
   FILE *fp;
@@ -478,7 +480,7 @@ is_any_lock()
 }
 
   /* cheks if there is a master lock file */
-is_master_lock()
+int is_master_lock()
 {
   FILE *fp, *fopen();
 
@@ -489,7 +491,7 @@ is_master_lock()
   return 0;
 }
 
-set_update_time()
+void set_update_time()
 {
   char fname[PATHLEN];
   FILE *fp, *fopen();
@@ -530,7 +532,7 @@ char *get_update_time()
   return rtvl;
 }
 
-mem_error()
+void mem_error()
 /* 
   If we can't allocate any more memory, then tell the user that's the
   case, and then die quietly, rather than the horrible death not 
@@ -543,7 +545,7 @@ mem_error()
   exit(1);
 }     
 
-load_options(np)
+void load_options(np)
 Snation *np;
 /* Loads various options form the options file into the user's option record */
 {
@@ -597,7 +599,7 @@ Snation *np;
   fclose(fopt);
 }
 
-save_options(np)
+void save_options(np)
 /* Save all of the user's optoins to a file. */
 Snation *np;
 {
@@ -686,7 +688,7 @@ char *optname;
   return rtvl;
 }
   
-init_options(np)
+void init_options(np)
 /* Init an unused option record */
 Snation *np;
 {
