@@ -25,6 +25,7 @@
 #include "misc.h"
 #include "army.h"
 #include "cur_stuff.h"
+#include "functions.h"
 
 #include <stdio.h>
 #ifdef AMIGA
@@ -43,7 +44,7 @@ extern struct army_flags army_flags [];
   /* this shows the armies inside the current sector.
      the info is put in the the main window.
    */
-show_armies(sp)
+void show_armies(sp)
      Ssector *sp;
 {
   Sarmy *ap;
@@ -158,7 +159,7 @@ show_armies(sp)
   /* this is the general army menu, which allows
      you to choose an army action.
    */
-army_menu()
+void army_menu()
 {
   WINDOW *aw;
   int x, y;
@@ -317,8 +318,7 @@ army_menu()
 
 /* Merge selected army with another army */
 
-army_merge (ap)
-
+int army_merge (ap)
 Sarmy * ap;
 {
   struct argument args[N_EXEC_ARGS];
@@ -371,8 +371,7 @@ Sarmy * ap;
   return 1;
 }
 
-army_split (ap)
-
+int army_split (ap)
 Sarmy * ap;
 {
   struct argument args[N_EXEC_ARGS];
@@ -424,7 +423,7 @@ Sarmy * ap;
 }
 
   /* allow the user to move an army */
-move_army(id,aw)
+void move_army(id,aw)
      int id;
      WINDOW *aw;
 {
@@ -507,7 +506,7 @@ move_army(id,aw)
 }
 
   /* run through the armies in a sector and pick the next */
-next_army()
+void next_army()
 {
   int old_id;
   Sarmy *ap = get_army(user.np, user.current_army);
@@ -523,7 +522,7 @@ next_army()
   }
 }
   /* run through the armies in a sector and pick the previous */
-previous_army()
+void previous_army()
 {
   Sarmy *ap = get_army(user.np, user.current_army);
   Ssector *sp = &world.map[user.cursor.x][user.cursor.y];
@@ -537,7 +536,7 @@ previous_army()
   }
 }
   /* run through the armies in a nation and pick the next */
-next_nation_army(np, old_id)
+int next_nation_army(np, old_id)
      Snation *np;
      int old_id;
 {
@@ -555,7 +554,7 @@ next_nation_army(np, old_id)
   return ap->next->id;		/* the next army id!! */
 }
   /* run through the armies in a nation and pick the previous */
-prev_nation_army(np, old_id)
+int prev_nation_army(np, old_id)
      Snation *np;
      int old_id;
 {
@@ -573,7 +572,7 @@ prev_nation_army(np, old_id)
   /* change the status of the army as it appears in both
      the nation's army list and the sector army list.
    */
-change_army_status(aw,id)
+void change_army_status(aw,id)
      WINDOW *aw;
      int id;			/* army id */
 {
@@ -672,7 +671,7 @@ change_army_status(aw,id)
      and returns 0 if the given point cannot be moved to
      by the given army.
    */
-legal_move(pt, np, id)
+int legal_move(pt, np, id)
      Pt pt;
      Snation *np;
      int id;			/* army id */
@@ -707,7 +706,7 @@ legal_move(pt, np, id)
      will also return a 0 if move points are over, or 1 if
      there are still move points.
    */
-army_move_comment(s)
+int army_move_comment(s)
      char *s;
 {
   Sarmy *ap = get_army(user.np, user.current_army);
@@ -720,7 +719,7 @@ army_move_comment(s)
 }
 
   /* draft an army for that nation */
-draft_army(np)
+void draft_army(np)
      Snation *np;
 {
   WINDOW *w;
@@ -900,7 +899,7 @@ draft_army(np)
 }
 
   /* get the first army in that sector that belongs to you */
-first_sect_army(sp)
+int first_sect_army(sp)
      Ssector *sp;
 {
   int id = -1;			/* default:  no army selected */
@@ -923,7 +922,7 @@ first_sect_army(sp)
      returns the id of the next army you own in that sector,
      or -1 if you don't have any more
    */
-next_sect_army(sp, ap)
+int next_sect_army(sp, ap)
      Ssector *sp;
      Sarmy *ap;
 {
@@ -961,7 +960,7 @@ next_sect_army(sp, ap)
      returns the id of the previous army you own in that sector,
      or -1 if you don't have any more.
    */
-prev_sect_army(sp, ap)
+int prev_sect_army(sp, ap)
      Ssector *sp;
      Sarmy *ap;
 {
@@ -984,7 +983,7 @@ prev_sect_army(sp, ap)
 }
 
   /* gives a list of army types available to this user */
-list_available_armies(up, aw)
+void list_available_armies(up, aw)
      Suser *up;
      WINDOW *aw;		/* army window */
 {
@@ -1027,8 +1026,7 @@ list_available_armies(up, aw)
 }
 
 
-army_disband(sp, ap)
-
+int army_disband(sp, ap)
 Ssector *sp;
 Sarmy * ap;
 {
@@ -1085,7 +1083,7 @@ Sarmy * ap;
 }
 
   /* give a name to an army */
-army_name (ap)
+void army_name (ap)
      Sarmy * ap;
 {
   char name[NAMELEN], s[EXECLEN];
@@ -1106,8 +1104,7 @@ army_name (ap)
   /* give a detailed description of all armies in a nation,
      or just those in the "current_sp".
    */
-zoom_armies(up, sp)
-     
+int zoom_armies(up, sp)
 Suser *up;
 Ssector *sp;
 {
@@ -1282,8 +1279,7 @@ Ssector *sp;
 
 /* This function is used by zoom_armies to select the page of armies you want*/
 
-zoom_army_page (azlw, armies, sp, page, len_page, show_cargo)
-
+int zoom_army_page (azlw, armies, sp, page, len_page, show_cargo)
 WINDOW * azlw;
 Sarmy * armies;
 Ssector * sp;
@@ -1324,8 +1320,7 @@ int page, len_page, show_cargo;
 
 /* This function is used by zoom_armies to list armies in the azlw win */
 
-zoom_list_armies (azlw, armies, sp, start_army, len_win, cargo)
-
+void zoom_list_armies (azlw, armies, sp, start_army, len_win, cargo)
 WINDOW * azlw;
 Sarmy * armies;
 Ssector * sp;
@@ -1414,7 +1409,7 @@ int cargo;			/* Cargo mode? */
        give itself to the recipient.  this only happens
        on other peoples' trade posts.
      */
-donate_army(ap, sp)
+void donate_army(ap, sp)
      Sarmy *ap;
      Ssector *sp;
 {
@@ -1488,7 +1483,7 @@ int jarmy ()
   return 1;
 }
 
-army_examine(ap)
+void army_examine(ap)
      Sarmy * ap;
 {
   WINDOW * flagw, * infow;

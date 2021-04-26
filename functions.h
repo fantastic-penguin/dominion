@@ -189,7 +189,7 @@ int military_maint_spell_pts(Snation *np);
 char info_report();
 void spy_report(int id);
 int spy_figure(int n, int expend, Snation *spying_np, Snation *spied_np, int cost_fact);
-
+void swapgoods(Snation *fromnat, Snation *tonat, int amt, int item);
 
 
 #endif // _FUNCTIONS_H_

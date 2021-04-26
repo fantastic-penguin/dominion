@@ -24,6 +24,7 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include <stdio.h>
 
 #define T_GOLD 1
@@ -44,7 +45,7 @@ struct bid { int nation, amount; };
    bids array.*/
 /* Variables: t=transaction number, n=nation selling, a=amount selling,
    i=item selling, i2=item wanted, a2=min amount wanted, p=privacy info */
-dotrades(wp)
+int dotrades(wp)
      Sworld *wp;
 {
   struct bid bids[MAXTRADES];
@@ -85,7 +86,7 @@ dotrades(wp)
 
 
 /* This actually adds or subtracts an item from a nation */
-swapgoods (fromnat, tonat, amt, item)
+void swapgoods (fromnat, tonat, amt, item)
      Snation *fromnat, *tonat;
      int amt, item;
 {
