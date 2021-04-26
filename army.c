@@ -28,9 +28,8 @@
 #include "functions.h"
 
 #include <stdio.h>
-#ifdef AMIGA
-# include <stdlib.h>
-#endif
+#include <stdlib.h>
+#include <string.h>
 
 extern Sworld world;
 extern Suser user;
@@ -225,7 +224,7 @@ void army_menu()
       }
       break;
     case 'N':			/* pick the next army, no matter where */
-      if (ap=get_army(user.np,next_nation_army(user.np, user.current_army))) {
+      if ((ap=get_army(user.np,next_nation_army(user.np, user.current_army)))) {
 	user.current_army = ap->id;
 	user.cursor = ap->pos;
 	just_moved();
@@ -236,7 +235,7 @@ void army_menu()
       }
       break;
     case 'P':
-      if (ap=get_army(user.np,prev_nation_army(user.np, user.current_army))) {
+      if ((ap=get_army(user.np,prev_nation_army(user.np, user.current_army)))) {
 	user.current_army = ap->id;
 	user.cursor = ap->pos;
 	just_moved();
