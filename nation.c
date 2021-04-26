@@ -111,6 +111,9 @@ void delete_army_nation(Snation *np, Sarmy *ap);
 void delete_army_sector(Ssector *sp, Sarmy *ap);
 Sarmy *get_army(Snation *np, int id);
 int basic_move_rate(Snation *np);
+void addsector(Snation *np, int x, int y);
+void destroy_nation(int id);
+int is_spirit(Sarmy *ap);
 
 /*******************************************************/
 /* gets nation data for nation 'id', put it into '*np' */
@@ -142,7 +145,7 @@ void load_nation(id, np)
   if (!exec_file && np->npc_flag == 0) {
     fprintf(stderr, "Nation %d (%s) did not move this turn.\n", np->id, np->name); }
   else {
-    while (argc = getexec(exec_file, args) != -1) {
+    while ((argc = getexec(exec_file, args)) != -1) {
       run_exec_line(np, args);
     }
     if (exec_file != NULL) { fclose(exec_file); }
@@ -288,7 +291,7 @@ void cmd_aname(np, args)
   id = args[1].data.num;
   name = args[2].data.str;
   
-  if (ap = get_army(np, id)) {
+  if ((ap = get_army(np, id))) {
     if (debug) printf ("Naming army %d as %s.\n", id, name);
     strcpy(ap->name, name);
   } else {
@@ -369,7 +372,7 @@ void cmd_aflag_set(np, args)
   id = args[1].data.num;
   flag = args[2].data.num;
   if (debug) printf ("Setting bit %x of army %d\n", flag, id);
-  if (armypt = get_army(np, id)) {
+  if ((armypt = get_army(np, id))) {
     armypt->flags |= flag;
   }
 }
@@ -384,7 +387,7 @@ void cmd_aflag_clear(np, args)
   id = args[1].data.num;
   flag = args[2].data.num;
   if (debug) printf ("Clearing bit %x of army %d\n", flag, id);
-  if (armypt = get_army(np, id)) {
+  if ((armypt = get_army(np, id))) {
     armypt->flags &= ~flag;
   }
 }
@@ -1023,7 +1026,7 @@ void cmd_cabonus(np,args)		/* give an army more/less special bonus */
   int bonus_change;
 
   bonus_change = args[2].data.num;
-  if (ap = get_army(np,args[1].data.num)) {
+  if ((ap = get_army(np,args[1].data.num))) {
     ap->sp_bonus += bonus_change;
   }
 }
@@ -1161,7 +1164,7 @@ void load_master_execs()
   if (!exec_file && np->npc_flag == 0) {
     /* printf("Nation %d (%s) did not move this turn.\n", np->id, np->name); */
   } else {
-    while (argc = getexec(exec_file, args) != -1) {
+    while ((argc = getexec(exec_file, args)) != -1) {
       run_exec_line(np, args);
     }
     if (exec_file != NULL) { fclose(exec_file); }
