@@ -41,7 +41,7 @@ extern char libdir[];
 extern int euid, ruid;
 extern char help_tag[];
 extern int interrupt();
-extern int (*keymap[128])();
+extern void (*keymap[128])();
 extern char *get_update_time(), *update_time;
 
 int old_umask;			/* to reset when we leave */

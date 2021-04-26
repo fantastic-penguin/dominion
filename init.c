@@ -24,13 +24,13 @@
 #include "dominion.h"
 
 extern Suser user;
-extern int (*keymap[128])();
+extern void (*keymap[128])();
 
 init_keymap()			/* assign keys to default functions */
 {
   int i;
     /* now list all commands in keymap */
-  int null_key(), bad_key(), quit(), up(), down(), right(), left(),
+  void null_key(), bad_key(), quit(), up(), down(), right(), left(),
                  upright(), upleft(),jhome(),jpos(),
                  downright(), downleft(), jup(), jdown(), jright(), jleft(),
                  help(), redraw(), windows(), display_menu(), mail(),

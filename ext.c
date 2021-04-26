@@ -46,7 +46,7 @@ int is_in_diplo = 0;
   /* each ascii key points to a function which handles that key */
 int (*wrapx)();
 int (*wrapy)();
-int (*keymap[128])();
+void (*keymap[128])();
 
 int debug = 0;
 

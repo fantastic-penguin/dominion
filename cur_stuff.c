@@ -34,7 +34,7 @@
 
 extern Suser user;
 extern Sworld world;
-extern int (*keymap[128])(), (*wrapx)(), (*wrapy)();
+extern int (*wrapx)(), (*wrapy)();
 extern struct s_desig_map desig_map[];
 extern struct s_altitude_map altitude_map[];
 extern struct item_map terrains[];

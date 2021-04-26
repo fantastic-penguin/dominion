@@ -34,6 +34,7 @@ void gen_exec(char *s);
 void del_lock(int id);
 int is_active_ntn(Snation* np);
 int get_diplo_status(Sdiplo **dm, int nation1, int nation2);
+void change_dip_status(Sdiplo **dm, Sdiplo **initial_dm, int n1, int n2);
 int getexec(FILE *fp, struct argument args[]);
 void load_options(Snation* np);
 void run_exec_line(Snation *np, struct argument args[]);
