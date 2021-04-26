@@ -163,7 +163,6 @@ void free_diplo(Sdiplo **dm, int n);
 void update_diplo();
 int have_met(Sdiplo **dm, int nation1, int nation2);
 int diplo_is_locked();
-
 int my_scr_restore(char fname[]);
 void draw_info_screen(WINDOW * w, Snation * np);
 void cpass(Snation *np, char pass[]);
@@ -187,5 +186,10 @@ int military_maint(Snation *np);
 int military_maint_metal(Snation *np);
 int military_maint_jewels(Snation *np);
 int military_maint_spell_pts(Snation *np);
+char info_report();
+void spy_report(int id);
+int spy_figure(int n, int expend, Snation *spying_np, Snation *spied_np, int cost_fact);
+
+
 
 #endif // _FUNCTIONS_H_

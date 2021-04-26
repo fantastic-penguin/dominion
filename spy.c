@@ -167,7 +167,7 @@ char nations_report()
 }
 
   /* allow a nation to spy on anther */
-spy_report(id)
+void spy_report(id)
      int id;
 {
   WINDOW *spyw;
@@ -275,7 +275,7 @@ spy_report(id)
   delwin(spyw);
 }
 
-spy_figure(n, expend, spying_np, spied_np, cost_fact)
+int spy_figure(n, expend, spying_np, spied_np, cost_fact)
      int n,			/* number we modify here */
        expend;			/* jewels spent on bribes */
      Snation *spying_np, *spied_np; /* nations involved */
