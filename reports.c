@@ -23,8 +23,10 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 extern Sworld world;
 extern Suser user;
@@ -105,7 +107,7 @@ report_menu()		/* this gives a menu of possible report forms */
 	wrefresh(repw);
       }
       if (wget_name(repw, filename) > 0) {
-	/*   erase();	  /* now erase the screen so we can view the report */
+	//   erase();	  // now erase the screen so we can view the report
 	werase(sectw);
 	if (!user.xmode) {
 	  werase(repw);
@@ -250,16 +252,16 @@ Snation * np;
     mvwaddstr(w, 2, 8, "           ");
     break;
   }
-/*
-  if (!np->npc_flag) {
-    waddstr(w, "           ");
-  } else if (np->npc_flag == 1) {
-/*    waddstr(w, " [npc: aggress. %d]", np->npc_agg); */
-/*    waddstr(w, " [npc]");
-  } else {			/* for npc_flag == 2 */
-/*    waddstr(w, " [npc+mail]");
-  }
-*/
+//
+// if (!np->npc_flag) {
+//   waddstr(w, "           ");
+// } else if (np->npc_flag == 1) {
+//    waddstr(w, " [npc: aggress. %d]", np->npc_agg);
+//    waddstr(w, " [npc]");
+// } else {			// for npc_flag == 2
+//    waddstr(w, " [npc+mail]");
+// }
+
   mvwprintw(w, 4, 0, "Id:      %d", np->id);
   mvwprintw(w, 5, 0, "Leader:  %s    ", np->leader);
   mvwprintw(w, 6, 0, "Capital: (%d,%d)",
