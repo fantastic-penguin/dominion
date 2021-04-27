@@ -313,7 +313,7 @@ void parse_info_line(fp)
     /* we can only parse it if it is really a node line */
   if (strncmp(line, "File:", strlen("File:")) != 0) {
     fseek(fp, old_pos, 0);
-    return -1;
+    return;
   }
 #define BAD_HACK
 #ifdef BAD_HACK
@@ -359,7 +359,7 @@ void parse_info_line(fp)
 
 #endif /* BAD HACK */
   fseek(fp, old_pos, 0);	/* go back to where we were */
-  return 1;
+  return;
 }
 
   /* this is also an essential function:
