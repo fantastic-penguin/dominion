@@ -665,16 +665,22 @@ void add_npcs(npc_fn, npcs_get_mail)
   write_world(&world, WORLD_FILE);
 }
 
+// wrap sigquit to proper signal fn
+void sig_quit(int s) {
+  sigquit();
+}
+
   /* critical() for the update/make/add is different from the game */
 void critical()
 {
   signal(SIGINT, SIG_IGN);
   signal(SIGQUIT, SIG_IGN);
 }
+
 void noncritical()
 {
-  signal(SIGINT, sigquit);
-  signal(SIGQUIT, sigquit);
+  signal(SIGINT, sig_quit);
+  signal(SIGQUIT, sig_quit);
 }
 
 
