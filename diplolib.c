@@ -445,7 +445,7 @@ void unlock_diplo()
 }
 
   /* returns 1 if the diplo file is locked */
-diplo_is_locked()
+int diplo_is_locked()
 {
   FILE *lock_fp, *fopen();
   char line[EXECLEN];
