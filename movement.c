@@ -38,7 +38,7 @@
      if ap is NULL we should consider giving a "generic" move
      cost for that sector.
    */
-get_army_move_cost(np, sp, ap)
+int get_army_move_cost(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
@@ -64,7 +64,7 @@ get_army_move_cost(np, sp, ap)
      is the move cost for a basic army type, such
      as "Infantry".
    */
-get_generic_move_cost(np, sp)
+int get_generic_move_cost(np, sp)
      Snation *np;
      Ssector *sp;
 {
@@ -92,7 +92,7 @@ get_generic_move_cost(np, sp)
   /* this macro does the real work */
 #define alt_cost(pref_alt, sp) (abs(pref_alt - sp->altitude)/2)
 
-alt_mc(np, sp, ap)
+int alt_mc(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
@@ -123,7 +123,7 @@ alt_mc(np, sp, ap)
   return alt_cost(virt_pref_alt, sp);
 }
 
-climate_mc(np, sp, ap)
+int climate_mc(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
@@ -145,7 +145,7 @@ terrain_mc(np, sp, ap)
   return cost;
 }
 
-patrol_mc(np, sp, ap)
+int patrol_mc(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
@@ -158,7 +158,7 @@ patrol_mc(np, sp, ap)
   return cost;
 }
 
-roads_mc(np, sp, ap)
+int roads_mc(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
@@ -169,7 +169,7 @@ roads_mc(np, sp, ap)
   return cost;
 }
 
-diplo_mc(np, sp, ap)
+int diplo_mc(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
@@ -196,7 +196,7 @@ diplo_mc(np, sp, ap)
   /* this takes care of whether a given race can
      move to a given sector from the altitude point of view
    */
-good_altitude(sp, np)
+int good_altitude(sp, np)
      Ssector *sp;
      Snation *np;
 {
@@ -208,7 +208,7 @@ good_altitude(sp, np)
   /* this takes care of whether a given army of a given race can
      move to a given sector from the altitude point of view
    */
-good_army_altitude(np, sp, ap)
+int good_army_altitude(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
