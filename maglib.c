@@ -23,8 +23,11 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
+#include <stdlib.h>
 
   /* dynamic array, to be read from file */
 extern struct spirit_type *spirit_types;
