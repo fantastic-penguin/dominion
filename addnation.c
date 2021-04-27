@@ -51,7 +51,7 @@ int sigquit();
 
 Sdiplo **allocate_diplo();
 
-main(argc, argv)
+int main(argc, argv)
      int argc;
      char *argv[];
 {
@@ -156,7 +156,7 @@ main(argc, argv)
 }
 
   /* inserts a player into the world with id = n */
-add_player(n)
+void add_player(n)
      int n;
 {
   Snation tmp_nation;			/* as we form the nation */
@@ -229,7 +229,7 @@ add_player(n)
 }
 
   /* make sure that the guy knows the game master password */
-verify_gamemaster()
+int verify_gamemaster()
 {
   char s[NAMELEN], *getpass(), *crypt();
   
@@ -238,7 +238,7 @@ verify_gamemaster()
 }
 
 
-find_free_nation(wp)		/* return first free slot, -1 if none */
+int find_free_nation(wp)		/* return first free slot, -1 if none */
      Sworld *wp;
 {
   int i;
@@ -250,14 +250,14 @@ find_free_nation(wp)		/* return first free slot, -1 if none */
   return -1;
 }
 
-cleanup()
+void cleanup()
 {
 /*  clear(); */
   refresh();
 }
 
   /* cleanup and prepare to exit */
-clean_exit()
+void clean_exit()
 {
   del_master_lock();
   if (stdscr) {
@@ -268,7 +268,7 @@ clean_exit()
 
   /* initial military setup */
 #define INITIAL_SOLDIERS 10*OCCUPYING_SOLDIERS
-setup_armies(np)
+void setup_armies(np)
      Snation *np;
 {
   Sarmy army, make_army();
@@ -318,7 +318,7 @@ setup_armies(np)
   /* initialize fields in this nation's data structure
      that are relevant to the economy.
    */
-setup_economy(np)
+void setup_economy(np)
      Snation *np;
 {
   np->taxes = 10;		/* tax rate, % of income */
@@ -340,7 +340,7 @@ setup_economy(np)
   np->cur_spy_r_d = 0;
 }
 
-get_race_mark()
+int get_race_mark()
 {
   char racemark;
   int done = 0;
@@ -374,7 +374,7 @@ get_race_mark()
   return racemark;
 }
 
-setup_race(np,racemark)
+int setup_race(np,racemark)
      Snation *np;
      char racemark;
 {
@@ -391,7 +391,7 @@ setup_race(np,racemark)
   return -1;			/* We didn't find it */
 }
 
-setup_skills(np)
+void setup_skills(np)
      Snation *np;
 {
   np->tech_skill = 0;
@@ -405,7 +405,7 @@ setup_skills(np)
   np->spell_pts = 0;
 }
 
-choose_mag_order(s)
+void choose_mag_order(s)
      char s[];
 {
   strcpy(s, "");
@@ -423,7 +423,7 @@ choose_mag_order(s)
   /* sets up the capital and a few outlying sectors; if after
      MAX_TRIES it does not find a good place, it exits.
    */
-setup_capital(np)
+int setup_capital(np)
      Snation *np;
 {
   int pref, i, j, x, y, distance, tries,
@@ -526,7 +526,7 @@ setup_capital(np)
   /* this gives a sector a default designation of
      D_FARM unless some other resource is present
    */
-default_desig(sp)
+int default_desig(sp)
      Ssector *sp;
 {
   if (sp->jewels > 0) {
@@ -544,7 +544,7 @@ default_desig(sp)
 }
 
   /* the workhorse behind addnation */
-setup_new_nation(nation_name, nation_pass, leader_name, nation_race,
+int setup_new_nation(nation_name, nation_pass, leader_name, nation_race,
 		 nation_mark, mag_ord, npc_flag, npcagg, npcexp, npciso)
      char nation_name[NAMELEN],nation_pass[PASSLEN],leader_name[NAMELEN],
        mag_ord[NAMELEN], nation_race;
@@ -614,7 +614,7 @@ setup_new_nation(nation_name, nation_pass, leader_name, nation_race,
   return 1;
 }
 
-add_npcs(npc_fn, npcs_get_mail)
+void add_npcs(npc_fn, npcs_get_mail)
      char * npc_fn;
      int npcs_get_mail;
 {
@@ -664,12 +664,12 @@ add_npcs(npc_fn, npcs_get_mail)
 }
 
   /* critical() for the update/make/add is different from the game */
-critical()
+void critical()
 {
   signal(SIGINT, SIG_IGN);
   signal(SIGQUIT, SIG_IGN);
 }
-noncritical()
+void noncritical()
 {
   signal(SIGINT, sigquit);
   signal(SIGQUIT, sigquit);
@@ -691,12 +691,12 @@ int sigquit ()
 }
 
 /* Lifted from misc.c and maglib.c */
-show_race_w(rp)
+void show_race_w(rp)
      Srace *rp;
 {
 }
 
-list_mag_orders()
+void list_mag_orders()
 {
   int n_orders, i;
   FILE *fp;
@@ -803,7 +803,7 @@ char get_nation_mark()
 }
 
   /* returns true if there is no owned sector too near this one */
-isolated(x, y)
+int isolated(x, y)
 {
   int i, j;
 
@@ -821,7 +821,7 @@ isolated(x, y)
   /* put some stuff into a nation's exec file to get them started with
      the privilege of their magic order.
    */
-add_special_mag(np, mag_ord)
+void add_special_mag(np, mag_ord)
      Snation *np;
      char mag_ord[];
 {
@@ -864,7 +864,7 @@ add_special_mag(np, mag_ord)
    successfully compile.
 */
   /* gets a string str of max length len */
-wget_string (w, rets, len)
+int wget_string (w, rets, len)
      WINDOW * w;
      char * rets;
      int len;
@@ -949,7 +949,7 @@ wget_string (w, rets, len)
   /* return true if sector (x, y) has at least n connected sectors
      on land (or in water if (x, y) is in water) surrounding it.
    */
-has_connected_mass(x, y, n)
+int has_connected_mass(x, y, n)
      int x, y, n;
 {
   Ssector *sp = &world.map[x][y];
@@ -967,7 +967,7 @@ has_connected_mass(x, y, n)
      display) confusing.  For example, <space>, '.' and so on
      would confuse.
    */
-form_valid_mark_str(mark_str)
+void form_valid_mark_str(mark_str)
      char mark_str[];
 {
   char tmp_str[128];
