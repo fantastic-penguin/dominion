@@ -236,6 +236,7 @@ int is_navy(Sarmy *ap);
 int is_mage(Sarmy *ap);
 void add_army_type(Suser *up, char type[]);
 int add_flag(char *s, int flags, int i, int has_slash);
-
+int lock_diplo(Snation *np);
+void unlock_diplo();
 
 #endif // _FUNCTIONS_H_

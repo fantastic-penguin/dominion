@@ -204,7 +204,7 @@ void dump_diplo(np, dm, n)
      nations have met, they will have their status changed from UNMET
      to NEUTRAL.  */
 
-update_diplo()
+void update_diplo()
 {
   Sdiplo **dm;
   struct pt_list *plist;
@@ -267,7 +267,7 @@ update_diplo()
 /*    printf("done with diplomacy... too slow??\n"); */
 }
 
-have_met(dm, nation1, nation2)
+int have_met(dm, nation1, nation2)
      Sdiplo **dm;
      int nation1, nation2;
 {
@@ -288,7 +288,7 @@ have_met(dm, nation1, nation2)
 
 }
 
-get_indices(dm, nation1, nation2, n1, n2)
+void get_indices(dm, nation1, nation2, n1, n2)
      Sdiplo **dm;
      int nation1, nation2, *n1, *n2;
 {
@@ -305,7 +305,7 @@ get_indices(dm, nation1, nation2, n1, n2)
 }
 
 
-handle_meet(dm, nation1, nation2)
+void handle_meet(dm, nation1, nation2)
      Sdiplo **dm;
      int nation1, nation2;
 {
@@ -324,7 +324,7 @@ handle_meet(dm, nation1, nation2)
 }
 
 
-get_diplo_status(dm, nation1, nation2)
+int get_diplo_status(dm, nation1, nation2)
      Sdiplo **dm;
      int nation1, nation2;
 {
@@ -338,7 +338,7 @@ get_diplo_status(dm, nation1, nation2)
   return(dm[n1][n2].status);
 }
 
-set_diplo_status(dm, nation1, nation2, New_Status)
+void set_diplo_status(dm, nation1, nation2, New_Status)
      Sdiplo **dm;
      int nation1, nation2, New_Status;
 {
@@ -356,7 +356,7 @@ set_diplo_status(dm, nation1, nation2, New_Status)
 /* free_diplo(): frees space for of diplomacy matrix */
 /* */
 
-free_diplo(dm, n)
+void free_diplo(dm, n)
      Sdiplo **dm;
      int n;			/* number of nations */
 {
@@ -370,7 +370,7 @@ free_diplo(dm, n)
 }
 
 #ifdef OLD_NPC_DIPLO
-update_npc_diplo()
+void update_npc_diplo()
 {
   Sdiplo **dm, **allocate_diplo();
   Snation *np;
@@ -387,7 +387,7 @@ update_npc_diplo()
   free_diplo(dm, world.n_nations);
 }
 
-do_npc_diplo(dm,np)
+void do_npc_diplo(dm,np)
      Sdiplo **dm;
      Snation *np;
 {
@@ -404,7 +404,7 @@ do_npc_diplo(dm,np)
   /* this returns 1 if these two nationes are allied to each other.
      It uses the user.diplo_matrix, instead of reading it in, for speed.
    */
-are_allied(id1, id2)
+int are_allied(id1, id2)
      int id1, id2;
 {
 /*  Sdiplo **dm, **allocate_diplo(); */
@@ -423,7 +423,7 @@ are_allied(id1, id2)
 }
 
   /* creates a diplomacy lock file, and puts some information into it */
-lock_diplo(np)
+int lock_diplo(np)
      Snation *np;
 {
   FILE *lockfp, *fopen();
@@ -439,7 +439,7 @@ lock_diplo(np)
   return 1;
 }
 
-unlock_diplo()
+void unlock_diplo()
 {
   unlink("diplo.lock");
 }
