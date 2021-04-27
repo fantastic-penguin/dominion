@@ -1079,6 +1079,7 @@ Sarmy * ap;
     user.current_army = first_sect_army(sp);
   }
   just_moved ();
+  return 0;
 }
 
   /* give a name to an army */
@@ -1455,7 +1456,7 @@ int jarmy ()
   refresh ();
   if (wget_number(stdscr, &army_num) < 1) {
     statline2("", "");
-    return;
+    return 0;
   }
 
   while (ap != NULL) {
