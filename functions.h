@@ -238,5 +238,7 @@ void add_army_type(Suser *up, char type[]);
 int add_flag(char *s, int flags, int i, int has_slash);
 int lock_diplo(Snation *np);
 void unlock_diplo();
+void handle_meet(Sdiplo **dm, int nation1, int nation2);
+void get_indices(Sdiplo **dm, int nation1, int nation2, int *n1, int *n2);
 
 #endif // _FUNCTIONS_H_
