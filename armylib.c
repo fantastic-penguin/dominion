@@ -41,7 +41,7 @@ Sarmy *get_army();
   /* this gets a string with the army status written
      out, and flags if the army is in a magical mode
    */
-get_army_status(ap, s)
+void get_army_status(ap, s)
      Sarmy *ap;
      char s[];
 {
@@ -99,7 +99,7 @@ get_army_status(ap, s)
   }
 }
 
-add_flag(s,flags,i,has_slash)
+int add_flag(s,flags,i,has_slash)
 /*
    This routine adds to a status line s the flag associated with
    the i'th bit position in the flags, adding a slash if one has not
@@ -153,7 +153,7 @@ Sarmy *get_army(np, id)
 }
 
   /* calculate the cost to draft an army */
-army_cost(ap)
+int army_cost(ap)
      Sarmy *ap;
 {
   int index = army_type_index(ap->type);
@@ -165,7 +165,7 @@ army_cost(ap)
   }
 }
 
-army_cost_metal(ap)
+int army_cost_metal(ap)
      Sarmy *ap;
 {
   int index = army_type_index(ap->type);
@@ -180,7 +180,7 @@ army_cost_metal(ap)
      if the id parameter is -1, then this function
      decides where to insert it.
    */
-insert_army_nation(np, ap, chosen_id)
+int insert_army_nation(np, ap, chosen_id)
      Snation *np;
      Sarmy *ap;
      int chosen_id;
@@ -230,7 +230,7 @@ insert_army_nation(np, ap, chosen_id)
 }
 
   /* remove an army from a nation list of armies (if it IS in the list!) */
-delete_army_nation(np, ap)
+void delete_army_nation(np, ap)
      Snation *np;
      Sarmy *ap;
 {
@@ -272,7 +272,7 @@ delete_army_nation(np, ap)
 }
 
   /* remove an army from a list of armies (if it IS in the list!) */
-delete_army_sector(sp, ap)
+void delete_army_sector(sp, ap)
      Ssector *sp;
      Sarmy *ap;
 {
@@ -304,7 +304,7 @@ delete_army_sector(sp, ap)
   /* take a sector and an army, and put the army in the sector's
      army list
    */
-insert_army_sector(sp, ap)
+int insert_army_sector(sp, ap)
      Ssector *sp;
      Sarmy *ap;
 {
@@ -419,14 +419,14 @@ Sarmy make_army(type, name, n_soldiers, status, owner, loc)
 }
 
   /* this function tells you the basic army move rate for a nation */
-basic_move_rate(np)
+int basic_move_rate(np)
      Snation *np;
 {
   return 4 + np->race.speed/8;	/* should not be less than 4 */
 }
 
   /* return 1 if given army can go into occupy mode, 0 otherwise */
-can_occupy(ap)
+int can_occupy(ap)
      Sarmy *ap;
 {
   if (ap->n_soldiers >= OCCUPYING_SOLDIERS && !is_in_transport(ap)) {
@@ -436,7 +436,7 @@ can_occupy(ap)
   }
 }
 
-can_patrol(ap)
+int can_patrol(ap)
      Sarmy *ap;
 {
   if (ap->n_soldiers >= OCCUPYING_SOLDIERS/2) {
@@ -446,7 +446,7 @@ can_patrol(ap)
   }
 }
 
-can_intercept(ap)
+int can_intercept(ap)
      Sarmy *ap;
 {
   if (ap->n_soldiers >= OCCUPYING_SOLDIERS/2) {
@@ -456,14 +456,14 @@ can_intercept(ap)
   }
 }
 
-can_garrison(ap)
+int can_garrison(ap)
      Sarmy *ap;
 {
   return 1;
 }
 
   /* loads army types from the army types file */
-load_army_types()
+void load_army_types()
 {
   FILE *fp, *fopen();
   char line[210];
@@ -507,7 +507,7 @@ load_army_types()
 }
 
   /* returns true if this nation can draft that type of army */
-is_avail_army_type(up, type)
+int is_avail_army_type(up, type)
      Suser *up;
      char type[];
 {
@@ -527,7 +527,7 @@ is_avail_army_type(up, type)
      an army type, or -1 on error (if it is not an army
      but, say, a caravan or spirit or mage).
    */
-army_type_index(type)
+int army_type_index(type)
      char type[];
 {
   int i;
@@ -543,7 +543,7 @@ army_type_index(type)
      an army type, or -1 on error (if it is not an army
      but, say, a caravan or army or mage).
    */
-spirit_type_index(type)
+int spirit_type_index(type)
      char type[];
 {
   int i;
@@ -556,7 +556,7 @@ spirit_type_index(type)
 }
 
   /* returns 1 if it is an army (not a navy), 0 otherwise */
-is_army(ap)
+int is_army(ap)
      Sarmy *ap;
 {
   if (army_type_index(ap->type) >= 0) {
@@ -566,7 +566,7 @@ is_army(ap)
 }
 
   /* returns 1 if it is a ship, 0 otherwise */
-is_navy(ap)
+int is_navy(ap)
      Sarmy *ap;
 {
     /* any army type beginning with "Ships" or "S_" is a navy */
@@ -580,7 +580,7 @@ is_navy(ap)
 }
 
   /* returns 1 if it is an mage, 0 otherwise */
-is_mage(ap)
+int is_mage(ap)
      Sarmy *ap;
 {
   if (ap && (strcmp(ap->type, "Mage") == 0 || is_wizard(ap))) {
@@ -590,7 +590,7 @@ is_mage(ap)
 }
 
   /* returns 1 if it is an spirit, 0 otherwise */
-is_spirit(ap)
+int is_spirit(ap)
      Sarmy *ap;
 {
   if (spirit_type_index(ap->type) >= 0) {
@@ -600,7 +600,7 @@ is_spirit(ap)
 }
 
   /* returns the army move rate for a specific army */
-army_move_rate(np, ap)
+int army_move_rate(np, ap)
      Snation *np;
      Sarmy *ap;
 {
@@ -626,7 +626,7 @@ army_move_rate(np, ap)
 }
 
   /* check if a army "id" belonging to owner "owner" is in "sp: */
-army_is_in_sector(sp, owner, id)
+int army_is_in_sector(sp, owner, id)
      Ssector *sp;
      int owner, id;		/* owner and id of army we are testing */
 {
@@ -647,7 +647,7 @@ army_is_in_sector(sp, owner, id)
      Some of the available army types also come from the "races"
      file, since they are race-specific.
    */
-get_avail_armies(up, skill)
+int get_avail_armies(up, skill)
      Suser *up;
      int skill;
 {
@@ -729,7 +729,7 @@ get_avail_armies(up, skill)
 }
 
   /* add an army type to the user's list */
-add_army_type(up, type)
+void add_army_type(up, type)
      Suser *up;
      char type[];
 {
@@ -765,7 +765,7 @@ add_army_type(up, type)
   }
 }
 
-sect_n_armies(sp)
+int sect_n_armies(sp)
      Ssector *sp;
 {
   int n = 0;
@@ -797,7 +797,7 @@ Sarmy *get_first_mage(np)
      to a given nation, found in a given sector.
      returns -1 if there is no mage there.
    */
-first_sect_mage_id(np, sp)
+int first_sect_mage_id(np, sp)
      Snation *np;
      Ssector *sp;
 {
@@ -815,7 +815,7 @@ first_sect_mage_id(np, sp)
 }
 
   /* returns the apparent army type for a disguised army */
-get_apparent_type(ap, type)
+void get_apparent_type(ap, type)
      Sarmy *ap;
      char type[];
 {
@@ -833,7 +833,7 @@ get_apparent_type(ap, type)
   }
 }
 
-get_spell_pts_maint(ap)
+int get_spell_pts_maint(ap)
   Sarmy *ap;
 {
 
