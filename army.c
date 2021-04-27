@@ -937,11 +937,11 @@ int next_sect_army(sp, ap)
 	 !((alist->id == ap->id) && (alist->owner == ap->owner))) {
     alist = alist->next;
   }
-/*  if (alist->next == NULL) {	/* we are at the end of the list */
+/*  if (alist->next == NULL) {	// we are at the end of the list */
 /*    return -1;
   }
 */
-
+  
   if ((alist == NULL) || (alist = alist->next) == NULL) {
     return -1;
   }
