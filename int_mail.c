@@ -130,7 +130,7 @@ void mail_read(reader)
 	  perror("Could not fork mailer");
       else
 	  while (wait(0) != pid);
-#endif UID_SEQURITY
+#endif // UID_SEQURITY
     sprintf(mail_command,"cp %s %s/mail.%d",tmp_fname,MAIL_DIR,reader);
     system(mail_command);
     unlink(tmp_fname);
