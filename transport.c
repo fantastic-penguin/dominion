@@ -26,9 +26,11 @@
 #include "army.h"
 #include "costs.h"
 #include "cur_stuff.h"
+#include "functions.h"
 
 #include <stdio.h>
 #include <math.h>
+#include <string.h>
 
 extern Suser user;
 extern Sworld world;
