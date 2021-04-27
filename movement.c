@@ -147,7 +147,7 @@ int climate_mc(np, sp, ap)
   return cost;
 }
 
-terrain_mc(np, sp, ap)
+int terrain_mc(np, sp, ap)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
