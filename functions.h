@@ -272,9 +272,14 @@ void lock_cargo();
 void unlock_cargo();
 int good_altitude(Ssector *sp, Snation *np);
 int good_army_altitude(Snation *np, Ssector *sp, Sarmy *ap);
-
 void add_h_spell(Sh_spell **listp, Sh_spell *h_spellp);
 void write_h_spells();
 void prepare_h_spell(Sh_spell *h_spellp, char name[], int nat_id, int thons_left, int n_lines);
+void got_dead_h_spell(Sh_spell *sp1);
+void write_dead_spell(Sh_spell *sp1);
+int is_army_spell(Sh_spell *sp1);
+void reset_spelled_flags();
+void free_h_spell(Sh_spell *sp1);
+void reset_one_spell(Sh_spell *sp1);
 
 #endif // _FUNCTIONS_H_
