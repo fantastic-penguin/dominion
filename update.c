@@ -52,7 +52,7 @@ struct move_data
 } **work_data;
 
 
-main(argc, argv)
+int main(argc, argv)
      int argc;
      char *argv[];
 {
@@ -234,7 +234,7 @@ main(argc, argv)
 }
 
   /* This will send mail to each nation that has a mail temp file. */
-send_mail()
+void send_mail()
 {
   char mailname[200], receiver[200], mail_subject[200];
   int i;
@@ -270,7 +270,7 @@ send_mail()
 
 /* This will backup the lib directory either before an update, after an
    update, or both.  */
-backuplib(dirname)
+void backuplib(dirname)
      char dirname[];
 {
   char cmdstr[200];
@@ -298,7 +298,7 @@ backuplib(dirname)
    of sector army lists?  many sectors will have no armies, so it is
    a waste to traverse the whole map.
  */
-reset_armies()
+void reset_armies()
 {
   Sarmy *ap, *next_ap;
   Sspirit *spiritp = NULL, *get_spirit_from_type();
@@ -394,7 +394,7 @@ reset_armies()
 /* This will check which sectors have armies in them in occupy mode.  If there
    are two armies in occupy mode, the one with the highest move ratio gets the
    sector... */
-take_sectors()
+void take_sectors()
 {
   int i, j, k, occuflag, availflag;
   Ssector *sp;
@@ -501,7 +501,7 @@ take_sectors()
 /* nation np2 takes capital of nation np1.  mfile is mail file of nation
    np1.  If np1 has any cities, make the first one their new capital.
    1/2 of np1's metal, jewels, and money are transferred to np2. */
-take_capital(np1, np2, mfile)
+void take_capital(np1, np2, mfile)
      Snation *np1, *np2;
      FILE *mfile;
 {
@@ -611,7 +611,7 @@ take_capital(np1, np2, mfile)
   /* runs throught the list of sectors belonging to a nation
      and does things like reproduction and such.
    */
-docivilians(np)
+void docivilians(np)
      Snation *np;
 {
   int current, born, died, tborn, tdied, rep, mort, i, j;
@@ -667,7 +667,7 @@ docivilians(np)
   }
 }
 
-movepeople(np, a, b, x, y)
+void movepeople(np, a, b, x, y)
 /* This routine is outdated and should be removed */
      Snation *np;
      int a, b, x, y;
@@ -702,7 +702,7 @@ movepeople(np, a, b, x, y)
   }
 }
 
-domoney(np)
+void domoney(np)
      Snation *np;
 {
   int temp;
@@ -715,7 +715,7 @@ domoney(np)
 }
 
 
-dometal(np)
+void dometal(np)
      Snation *np;
 {
   int temp;
@@ -729,7 +729,7 @@ dometal(np)
   /* calculates the new amount of jewels a nation has,
      and if it is negative, it kills off some mages
    */
-dojewels(np)
+void dojewels(np)
      Snation *np;
 {
   int temp;
@@ -768,7 +768,7 @@ dojewels(np)
 
 
   /* calculate the new amount of food.  also takes care of starving */
-dofood(np)
+void dofood(np)
      Snation *np;
 {
   int n_should_starve, n_starved, n_sold_starved;
@@ -874,12 +874,12 @@ dofood(np)
   }
 }
 
-cleanup()
+void cleanup()
 {
   /* not much to do here */
 }
 
-clean_exit()
+void clean_exit()
 {
   del_master_lock();
 };
@@ -888,7 +888,7 @@ clean_exit()
      nation all the stuff.  if there is an army, it reads
      in that army and inserts it into the sector and nation
    */
-docargos()
+void docargos()
 {
   Scargo cargo;			/* the cargo that is being traded */
   int from_id, to_id;
@@ -982,7 +982,7 @@ docargos()
 }
 
   /* update the nation's spy values */
-dospy(np, mailfile)
+void dospy(np, mailfile)
      Snation *np;
      FILE *mailfile;
 {
@@ -997,7 +997,7 @@ dospy(np, mailfile)
 }
 
 /* undo hanging spells, decrease the thons_left param */
-clear_h_spells()
+void clear_h_spells()
 {
   Sh_spell *h_spells;
   int i;
@@ -1017,19 +1017,19 @@ clear_h_spells()
 }
 
   /* critical() for the update/make/add is different from the game */
-critical()
+void critical()
 {
   signal(SIGINT, SIG_IGN);
   signal(SIGQUIT, SIG_IGN);
 }
-noncritical()
+void noncritical()
 {
   signal(SIGINT, SIG_DFL);
   signal(SIGQUIT, SIG_DFL);
 }
 
   /* posts some news articles of general interest */
-post_statistics()
+void post_statistics()
 {
   FILE *tmp_fp, *fopen();
   char tmp_name[PATHLEN];
@@ -1065,7 +1065,7 @@ post_statistics()
   post_news_file(tmp_name, NEWS_GROUP,subj,0);
 }
 
-init_work_data(xmax, ymax)
+void init_work_data(xmax, ymax)
 /*
    Allocate the memory for the temporary array the size of the world
    (with one extra for wrap around) for manipulation before scaling 
@@ -1089,7 +1089,7 @@ int xmax,ymax;
   }
 }
 
-clear_work_data()
+void clear_work_data()
 /* Clear the work_peop array */
 {
   int x,y;
@@ -1107,7 +1107,7 @@ clear_work_data()
 
 #define MOVE_FREE 1
 
-move_people_free(np)
+void move_people_free(np)
 Snation *np;
 {
   struct pt_list *curr_pt;
@@ -1270,7 +1270,7 @@ Snation *np;
   }
 }
 
-fill_work_data(np)
+void fill_work_data(np)
 Snation *np;
 {
   struct pt_list *curr_pt;
@@ -1302,7 +1302,7 @@ Snation *np;
 
 #define MOVE_RESTR 2
 
-move_the_people(np)
+void move_the_people(np)
 Snation *np;
 {
   struct pt_list *curr_pt;
@@ -1355,7 +1355,7 @@ Snation *np;
   }
 }
 
-move_space_avail(np,curr_pt,peop,tot_emp,tot_peop)
+void move_space_avail(np,curr_pt,peop,tot_emp,tot_peop)
 Snation *np;
 struct pt_list *curr_pt;
 int tot_emp, *peop,tot_peop;
@@ -1406,7 +1406,7 @@ int tot_emp, *peop,tot_peop;
   *peop = peop_left;
 }
 
-move_somespace_avail(np,curr_pt,peop)
+void move_somespace_avail(np,curr_pt,peop)
 Snation *np;
 struct pt_list *curr_pt;
 int *peop;
@@ -1434,7 +1434,7 @@ int *peop;
   *peop = peop_left;
 }
 
-move_people_restrict(np)
+void move_people_restrict(np)
 Snation *np;
 {
   struct pt_list *curr_pt;
@@ -1563,7 +1563,7 @@ struct pt_list **ptlist;
   return;
 }
 
-free_ptlist(ptlist)
+void free_ptlist(ptlist)
 struct pt_list **ptlist;
 {
   struct pt_list *pt_list = *ptlist, *tmp_pt;
@@ -1575,7 +1575,7 @@ struct pt_list **ptlist;
   }
 }
 
-add_to_plist(ptlist, x, y)
+void void add_to_plist(ptlist, x, y)
 struct pt_list **ptlist;
 int x,y;
 {
@@ -1602,7 +1602,7 @@ int x,y;
   return;
 }
     
-setup_user_arr(num)
+void setup_user_arr(num)
 int num;
 {
   if ((temp_users = (Suser *)malloc(num * sizeof(Suser))) == NULL) {
@@ -1610,13 +1610,13 @@ int num;
   }
 }
 
-copy_to_user_arr(val)
+void copy_to_user_arr(val)
 int val;
 {
   temp_users[val] = user;
 }
 
-copy_from_user_arr(val)
+void copy_from_user_arr(val)
 int val;
 {
   user = temp_users[val];
