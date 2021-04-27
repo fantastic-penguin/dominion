@@ -96,7 +96,7 @@ void add_h_spell(listp, h_spellp)
 }
 
   /* removes a hanging spell from the list */
-delete_h_spell(listp, h_spellp)
+void delete_h_spell(listp, h_spellp)
      Sh_spell **listp, *h_spellp;
 {
 }
