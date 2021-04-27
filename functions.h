@@ -296,5 +296,23 @@ char diplo_report(Snation *nation);
 void interpolate(double *X[], int oldx, int oldy, int newx, int newy);
 void write_world(Sworld *wp, char fname[]);
 void set_update_time();
+int verify_gamemaster();
+void set_master_lock();
+void del_master_lock();
+int is_any_lock();
+int find_free_nation(Sworld *wp);
+void add_npcs(char *npc_fn, int npcs_get_mail);
+void add_player(int n);
+int unique_name(char name[]);
+int get_race_mark();
+void choose_mag_order(char s[]);
+void add_special_mag(Snation *np, char mag_ord[]);
+int setup_new_nation(char nation_name[NAMELEN], nation_pass[PASSLEN], leader_name[NAMELEN],
+    char nation_race, Symbol nation_mark, char mag_ord[NAMELEN], int npc_flag, int npcagg, int npcexp, int npciso);
+void list_mag_orders();
+int isolated(int x, int y);
+int sect_desire(Snation *np, int x, int y);
+int default_desig(Ssector *sp);
+void form_valid_mark_str(char mark_str[]);
 
 #endif // _FUNCTIONS_H_
