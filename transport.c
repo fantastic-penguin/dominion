@@ -31,6 +31,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 extern Suser user;
 extern Sworld world;

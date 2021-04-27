@@ -256,7 +256,6 @@ void insert(char *in_name, FILE *out_pntr);
 char pager(char fname[]);
 void group_insert(s_group **first, s_group *temp);
 void post_news_file(char *news_file, char *group_name, char *subject, int id);
-
 void cargo_statline(WINDOW *w, Suser *up);
 void transport_load(Sarmy *ap, WINDOW *tw);
 void transport_unload(Sarmy *ap, WINDOW *tw);
@@ -265,6 +264,14 @@ int good_loading_place(Snation *np, Ssector *sp, char type, int quantity);
 int good_unloading_place(Snation *np, Ssector *sp, char type, int quantity);
 int load_too_big(Snation *np, Sarmy *ap, char c, int quantity);
 void adjust_cargo(Sarmy *ap);
+int cargo_weight(Scargo *cargo);
+int caravan_weight(Sarmy *ap);
+int is_trade_place(Ssector *sp);
+int cargo_is_locked();
+void lock_cargo();
+void unlock_cargo();
+int good_altitude(Ssector *sp, Snation *np);
+int good_army_altitude(Snation *np, Ssector *sp, Sarmy *ap);
 
 
 #endif // _FUNCTIONS_H_
