@@ -281,5 +281,17 @@ int is_army_spell(Sh_spell *sp1);
 void reset_spelled_flags();
 void free_h_spell(Sh_spell *sp1);
 void reset_one_spell(Sh_spell *sp1);
+void root_edit_sector();
+void root_edit_nation();
+void root_destroy_nation(Snation *np, WINDOW *renw);
+void cowner_sector(Ssector *sp, int change);
+void csoil_sector(Ssector *sp, int change);
+void cmetal_sector(Ssector *sp, int change);
+void cjewels_sector(Ssector *sp, int change);
+void caltitude_sector(Ssector *sp, int change);
+void subtsector(Snation *np, int x, int y);
+int is_good_order(char name[]);
+int free_nation_mark(Sworld *wp, Symbol c);
+char diplo_report(Snation *nation);
 
 #endif // _FUNCTIONS_H_
