@@ -371,7 +371,7 @@ army_maint_money(ap)
   extern struct army_type *army_types;
 
   if (is_army(ap)) {
-    index = army_type_index(ap);
+    index = army_type_index(ap->type);
     money_maint = army_types[index].money_maint * ap->n_soldiers;
   }
     /* in other cases, money maint is zero */
