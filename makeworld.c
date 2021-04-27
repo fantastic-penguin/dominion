@@ -168,7 +168,7 @@ int xmax,ymax;
    than dumping core on division by zero like it should.  If it
    doesn't apply to your machine, you are lucky and should be grateful.
 */
-/*        if (X[i][j] != X[i][j]) /* Yes, I really mean this */
+// /*        if (X[i][j] != X[i][j]) /* Yes, I really mean this */
 /*        { 
           printf("Error: value %lf at %d %d\n",X[i][j],i,j);
         }
@@ -261,7 +261,7 @@ int oldx, oldy, newx, newy;
    than dumping core on division by zero like it should.  If it
    doesn't apply to your machine, you are lucky and should be grateful.
 */
-/*        if (X[x][y] != X[x][y]) /* Yes, I really mean this */
+// /*        if (X[x][y] != X[x][y]) /* Yes, I really mean this */
 /*        { 
           printf("Error: value %lf at %d %d\n",X[x][y],x,y);
         }
