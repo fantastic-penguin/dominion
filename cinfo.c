@@ -66,6 +66,7 @@ void cinfo_init_screen();
 void cinfo_intro_screen(FILE *intro_fp, WINDOW *infow);
 void cinfo_statline(char s[]);
 void cinfo_cleanup();
+void str_lower(char s[]);
 
   /* main routine if this program is run standalone.  Otherwise,
      the cinfo() routine can be called from anywhere.
