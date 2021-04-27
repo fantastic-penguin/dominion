@@ -89,7 +89,8 @@ main(argc, argv)
   clean_exit();
   exit(0);
 }
-clean_exit(){};
+
+void clean_exit(){};
 
 #endif /* STANDALONE */
 
@@ -187,7 +188,7 @@ cinfo(fname, tag)
 }
 
   /* prepare the screen */
-cinfo_init_screen()
+void cinfo_init_screen()
 {
 #ifdef STANDALONE
   printf("initializing screen...\r\n");
@@ -205,7 +206,7 @@ cinfo_init_screen()
 }
 
   /* clean up curses, if necessary, and free memory */
-cinfo_cleanup()
+void cinfo_cleanup()
 {
   wclear(infow);
   wrefresh(infow);
@@ -217,7 +218,7 @@ cinfo_cleanup()
 }
 
   /* shows the introductory page and waits for a key hit */
-cinfo_intro_screen(intro_fp, infow)
+void cinfo_intro_screen(intro_fp, infow)
      FILE *intro_fp;
      WINDOW *infow;
 {
@@ -237,7 +238,7 @@ cinfo_intro_screen(intro_fp, infow)
 }
 
   /* shows the given string at the bottom of the page */
-cinfo_statline(s)
+void cinfo_statline(s)
      char s[];
 {
   wmove(infow, LINES-1, 0);
@@ -246,7 +247,7 @@ cinfo_statline(s)
   wrefresh(infow);
 }
 
-cinfo_statline2()
+void cinfo_statline2()
 {
   wmove(infow, LINES-2, 0);
   wstandout(infow);
@@ -261,7 +262,7 @@ cinfo_statline2()
      setting the file pointer to a menu item.
      this function also returns the seek pointer
    */
-find_menu_item(fp, tag)
+int find_menu_item(fp, tag)
      FILE *fp;
      char tag[];
 {
@@ -298,7 +299,7 @@ find_menu_item(fp, tag)
   /* this function is essential:
      it sets the node[], node_prev[], node_next[] and node_up[] strings
    */
-parse_info_line(fp)
+void parse_info_line(fp)
      FILE *fp;
 {
   char line[2*LINE_LEN];
@@ -362,7 +363,7 @@ parse_info_line(fp)
   /* this is also an essential function:
      it shows the current information page
    */
-show_page(fp, infow)
+int show_page(fp, infow)
      FILE *fp;
      WINDOW *infow;
 {
@@ -392,7 +393,7 @@ show_page(fp, infow)
 }
 
   /* prompt the user for a tag; return -1 if there is no input */
-prompt(item)
+int prompt(item)
      char item[];
 {
   int ret;
@@ -410,7 +411,7 @@ prompt(item)
 }
 
   /* called at the start, this finds the location of the tag table */
-find_tag_table(fp)
+void find_tag_table(fp)
      FILE *fp;
 {
   char line[2*LINE_LEN];
