@@ -364,7 +364,7 @@ int military_maint_spell_pts(np)
 }
 
   /* this gives the money needed to maintain a given army */
-army_maint_money(ap)
+int army_maint_money(ap)
      Sarmy *ap;
 {
   int money_maint = 0, index;
