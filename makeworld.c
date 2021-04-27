@@ -297,7 +297,7 @@ int oldx, oldy, newx, newy;
 }
 
 
-int init_sector(map,i,j)
+void init_sector(map,i,j)
 /* This function sets a sector to it's base values (mostly zeros) */
 Ssector **map;
 int i,j;
@@ -383,7 +383,7 @@ Snation *np;
   return 0;
 }
 
-int init_d_map(xmax,ymax)
+void init_d_map(xmax,ymax)
 /*
    Allocate the memory for the temporary array the size of the world
    (with one extra for wrap around) for manipulation before scaling 
@@ -1254,7 +1254,7 @@ void set_compressed()
 }
 
 
-void main (argc, argv)
+int main (argc, argv)
      int argc;
      char *argv[];
 {
