@@ -32,6 +32,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 #define HASH_SIZE 500   /* Size of hash table for sea_level determination */
 #define STATFILE "world.stats"
@@ -44,6 +45,9 @@ extern int (*wrapx)(), (*wrapy)(), compressed_world;
 extern struct s_altitude_map altitude_map[];
 extern struct item_map climates[];
 double **d_map;
+
+//forward decls
+#include "functions.h"
 
 /* Base terrains for each given climate type */
 int cli_terr[] = { 1, 4, 5, 3, 6, 4, 5, 3, 5, 3, 0 };

@@ -293,5 +293,8 @@ void subtsector(Snation *np, int x, int y);
 int is_good_order(char name[]);
 int free_nation_mark(Sworld *wp, Symbol c);
 char diplo_report(Snation *nation);
+void interpolate(double *X[], int oldx, int oldy, int newx, int newy);
+void write_world(Sworld *wp, char fname[]);
+void set_update_time();
 
 #endif // _FUNCTIONS_H_
