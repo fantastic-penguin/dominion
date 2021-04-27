@@ -273,5 +273,8 @@ void unlock_cargo();
 int good_altitude(Ssector *sp, Snation *np);
 int good_army_altitude(Snation *np, Ssector *sp, Sarmy *ap);
 
+void add_h_spell(Sh_spell **listp, Sh_spell *h_spellp);
+void write_h_spells();
+void prepare_h_spell(Sh_spell *h_spellp, char name[], int nat_id, int thons_left, int n_lines);
 
 #endif // _FUNCTIONS_H_
