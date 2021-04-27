@@ -22,8 +22,10 @@
  */
 
 #include "dominion.h"
+#include "functions.h"
 
 #include <stdio.h>
+#include <string.h>
 
 extern Sworld world;
 extern Suser user;
