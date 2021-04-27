@@ -22,6 +22,7 @@
 
 #include "dominion.h"
 #include "news.h"
+#include "functions.h"
 #include <stdio.h>
 #ifdef SYSV
 #include <string.h>
@@ -29,6 +30,9 @@
 #include <strings.h>
 #endif
 #include <ctype.h>
+#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
 
 extern Suser user;		/* The current user. Used for names. */
 extern Sworld world;		/* The current world. Used for the thon. num.*/
