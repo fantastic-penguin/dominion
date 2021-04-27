@@ -61,7 +61,7 @@ static struct spell_struct spell_structures[] = {
 };
 
   /* this actually executes a spell */
-exec_spell(spellp, w)
+int exec_spell(spellp, w)
      Sspell *spellp;
      WINDOW *w;
 {
@@ -750,7 +750,7 @@ int spell_hide_sector(up, w, spellp, h_spellp)
 }
 
   /* these are used to set and clear army flags (in the exec file) */
-aflag_set(ap, flag)
+void aflag_set(ap, flag)
      Sarmy *ap;
      int flag;
 {
@@ -760,7 +760,7 @@ aflag_set(ap, flag)
   gen_exec(s);
 }
 
-aflag_clear(ap, flag)
+void aflag_clear(ap, flag)
      Sarmy *ap;
      int flag;
 {
@@ -771,7 +771,7 @@ aflag_clear(ap, flag)
 }
 
 /* For chess; transfers the spirit to the nations capital  */
-spell_castle (up, w, spellp, h_spellp)
+int spell_castle (up, w, spellp, h_spellp)
      Suser * up;
      WINDOW * w;
      Sspell * spellp;
