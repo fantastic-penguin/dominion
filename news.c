@@ -48,7 +48,7 @@ char *news_post()
     char *ptr;
 
     sprintf(buffer, "news.post");
-    if (file = fopen(buffer, "r")) {
+    if ((file = fopen(buffer, "r"))) {
 	fgets(buffer, sizeof(buffer), file);
 	fclose(file);
 	ptr = buffer + strlen(buffer) - 1;
