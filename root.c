@@ -30,7 +30,7 @@
 extern Sworld world;
 extern Suser user;
 
-root_edit()
+void root_edit()
 {
   WINDOW *rew;
   char s[EXECLEN];
@@ -65,7 +65,7 @@ root_edit()
   touch_all_wins(stdscr);
 }
 
-root_edit_sector()
+void root_edit_sector()
 {
   WINDOW *resw;
   int pop_change, done = 0, new_owner, change;
@@ -158,7 +158,7 @@ root_edit_sector()
 }
 
   /* allows the game master to tinker with a nation */
-root_edit_nation()
+void root_edit_nation()
 {
   WINDOW *renw;
   int done = 0, change, id;
@@ -336,7 +336,7 @@ root_edit_nation()
 }
 
   /* here are some exec lines available only to the Gamemaster */
-cowner_sector(sp, owner)
+void cowner_sector(sp, owner)
      Ssector *sp;
      int owner;
 {
@@ -346,7 +346,7 @@ cowner_sector(sp, owner)
   gen_exec(s);
 }
 
-csoil_sector(sp, change)
+void csoil_sector(sp, change)
      Ssector *sp;
      int change;
 {
@@ -356,7 +356,7 @@ csoil_sector(sp, change)
   gen_exec(s);
 }
 
-cmetal_sector(sp, change)
+void cmetal_sector(sp, change)
      Ssector *sp;
      int change;
 {
@@ -366,7 +366,7 @@ cmetal_sector(sp, change)
   gen_exec(s);
 }
 
-cjewels_sector(sp, change)
+void cjewels_sector(sp, change)
      Ssector *sp;
      int change;
 {
@@ -376,7 +376,7 @@ cjewels_sector(sp, change)
   gen_exec(s);
 }
 
-caltitude_sector(sp, change)
+void caltitude_sector(sp, change)
      Ssector *sp;
      int change;
 {
@@ -387,7 +387,7 @@ caltitude_sector(sp, change)
 }
 
   /* this is serious:  destroy a nation, interactively, as super user */
-root_destroy_nation(np, renw)
+void root_destroy_nation(np, renw)
      Snation *np;
      WINDOW *renw;
 {
@@ -412,7 +412,7 @@ root_destroy_nation(np, renw)
      various different places (such as the root editing and
      the info report).
    */
-set_aggressiveness(np, current_win)
+void set_aggressiveness(np, current_win)
      Snation *np;
      WINDOW *current_win;	/* for redrawing purposes */
 {
