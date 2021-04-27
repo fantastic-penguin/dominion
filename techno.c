@@ -23,6 +23,7 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 
 #include <stdio.h>
 #include <math.h>
