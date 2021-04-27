@@ -39,17 +39,17 @@ extern WINDOW * sectw;
 extern struct army_type * army_types;
 
 
-/* Main transport functions */
-/* int transport ();  /* Coordinates everything (top level) */
-/* int transport_load (Sarmy *, WINDOW *); /* Actually loads stuff */
-/* int transport_unload (Sarmy *, WINDOW *); /* Unloads stuff */
-/* int transport_transfer (Sarmy *, WINDOW *); /* Transfers stuff */
+// /* Main transport functions */
+// /* int transport ();  /* Coordinates everything (top level) */
+// /* int transport_load (Sarmy *, WINDOW *); /* Actually loads stuff */
+// /* int transport_unload (Sarmy *, WINDOW *); /* Unloads stuff */
+// /* int transport_transfer (Sarmy *, WINDOW *); /* Transfers stuff */
 
-/* Cargo weight functions */
-/* int army_weight (Sarmy *); /* Figures out an army's manweight */ 
-/* int caravan_weight (Sarmy *); /* Figures out a caravan's manweight */
-/* int cargo_weight (Scargo *); /* Figures out a cargo's manweight */
-/* char * make_cargo_statline (Scargo *); /* Makes a cargo statline */
+// /* Cargo weight functions */
+// /* int army_weight (Sarmy *); /* Figures out an army's manweight */ 
+// /* int caravan_weight (Sarmy *); /* Figures out a caravan's manweight */
+// /* int cargo_weight (Scargo *); /* Figures out a cargo's manweight */
+// /* char * make_cargo_statline (Scargo *); /* Makes a cargo statline */
 
   /* allows you to load/unload cargo from a caravan */
 int transport()
