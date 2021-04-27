@@ -545,14 +545,22 @@ s_group *news_groups_menu(human,reading)
 	(g_temp)->last=last_in;
 	(g_temp)->postable=post_in;
 	(g_temp)->next=NULL;
-	if ((human==0)||(g_temp->postable=='1'))
+	// NOTE: These two if statements had no curly braces, so added them. Note that the
+	// existing indentation suggested that the `else` went with the outer `if`, but I
+	// believe C grammar would associate the `else` with the nearest (i.e. inner) `if`.
+	// I added braces to match indentation, but this should be re-evaluated thoroughly
+	// with consideration of the surrounding code.
+	// TODO: Review these nested `if` statements given the above note.
+	if ((human==0)||(g_temp->postable=='1')) {
 	  if (!reading||((g_temp->first)<=(g_temp->last)))
 	  {
 	    group_insert(&g_first,g_temp);
 	    total_groups++;
 	  }
-	else
+	}
+	else {
 	  free(g_temp);
+	}
       }
   if (g_fp != NULL) { fclose(g_fp); } 
   clear();
