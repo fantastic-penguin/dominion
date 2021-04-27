@@ -267,5 +267,5 @@ int good_army_altitude(np, sp, ap)
   return 1;
 
 
-/*  return (np->race.pref_alt < SEA_LEVEL || has_bubble(sp)); /* underwater */
+// /*  return (np->race.pref_alt < SEA_LEVEL || has_bubble(sp)); /* underwater */
 }
