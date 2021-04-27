@@ -55,6 +55,7 @@
 #include "army.h"
 #include "costs.h"
 #include "cur_stuff.h"
+#include "functions.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <signal.h>
