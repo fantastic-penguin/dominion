@@ -293,13 +293,13 @@ void get_indices(dm, nation1, nation2, n1, n2)
      int nation1, nation2, *n1, *n2;
 {
 
-/*  while(nation1 != dm[(*n1)++][0].self_id)      /* find nation 1 */
-/*    ;
-  (*n1)--;
-  while(nation2 != dm[*n1][(*n2)++].neighbor_id)  /* find nation 2 */
-/*    ;
-  (*n2)--;
-*/
+// /*  while(nation1 != dm[(*n1)++][0].self_id)      /* find nation 1 */
+// /*    ;
+//   (*n1)--;
+//   while(nation2 != dm[*n1][(*n2)++].neighbor_id)  /* find nation 2 */
+// /*    ;
+//   (*n2)--;
+// */
     *n1 = nation1;
     *n2 = nation2;
 }
