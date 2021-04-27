@@ -79,7 +79,7 @@ double prod_level(np)
 }
 
   /* calculate the amount of tax revenue for a given nation */
-calc_revenue(np)
+int calc_revenue(np)
      Snation *np;
 {
   Ssector *sp;
@@ -164,7 +164,7 @@ Snation *np;
 }
 
   /* how much food is produced in the nation */
-calc_food(np)
+int calc_food(np)
      Snation *np;
 {
   Ssector *sp;
@@ -189,7 +189,7 @@ calc_food(np)
 }
 
   /* calculate a nation's expenditures */
-calc_expend(np)
+int calc_expend(np)
      Snation *np;
 {
   int percent;
@@ -200,7 +200,7 @@ calc_expend(np)
     + non_profit_maint(np);;
 }
 
-calc_expend_metal(np)
+int calc_expend_metal(np)
      Snation *np;
 {
   int percent;
@@ -210,7 +210,7 @@ calc_expend_metal(np)
   return (percent*calc_metal(np)) / 100 + military_maint_metal(np);
 }
 
-calc_expend_jewels(np)
+int calc_expend_jewels(np)
      Snation *np;
 {
   int percent;
@@ -220,7 +220,7 @@ calc_expend_jewels(np)
   return (percent*calc_jewels(np)) / 100 + military_maint_jewels(np);
 }
 
-calc_expend_food(np)
+int calc_expend_food(np)
      Snation *np;
 {
   int food_eaten;
@@ -235,7 +235,7 @@ calc_expend_food(np)
      the amount of a resource (metal, jewels, food)
      for a SINGLE sector
    */
-sector_metal(sp)
+int sector_metal(sp)
      Ssector *sp;
 {
   int i, j, n_refineries = 0;
@@ -265,7 +265,7 @@ sector_metal(sp)
   return (int)(metal * prod_level(np));
 }
 
-sector_jewels(sp)
+int sector_jewels(sp)
      Ssector *sp;
 {
   Snation *np = &world.nations[sp->owner];
@@ -276,7 +276,7 @@ sector_jewels(sp)
   return (int) (jewels * prod_level(np));
 }
 
-sector_food(sp)
+int sector_food(sp)
      Ssector *sp;
 {
   Snation *np = &world.nations[sp->owner];
@@ -291,7 +291,7 @@ sector_food(sp)
   /* this returns the TOTAL amount of money spent
      to maintain the nation's military forces
    */
-military_maint(np)
+int military_maint(np)
      Snation *np;
 {
   Sarmy *ap;
@@ -306,7 +306,7 @@ military_maint(np)
   /* this returns the TOTAL amount of metal spent
      to maintain the nation's military forces
    */
-military_maint_metal(np)
+int military_maint_metal(np)
      Snation *np;
 {
   Sarmy *ap;
@@ -321,7 +321,7 @@ military_maint_metal(np)
   /* this returns the TOTAL amount of jewels spent
      to maintain the nation's military forces
    */
-military_maint_jewels(np)
+int military_maint_jewels(np)
      Snation *np;
 {
   Sarmy *ap;
@@ -335,7 +335,7 @@ military_maint_jewels(np)
   /* this returns the TOTAL amount of jewels spent
      to maintain the nation's military forces
    */
-military_maint_spell_pts(np)
+int military_maint_spell_pts(np)
      Snation *np;
 {
   Sarmy *ap;
@@ -379,7 +379,7 @@ army_maint_money(ap)
   /* this returns the TOTAL amount of money spent to
      maintain the nation's non-profit centers (hospitals  ...)
    */
-non_profit_maint(np)
+int non_profit_maint(np)
      Snation *np;
 {
   struct pt_list *ptlist = np->ptlist; /* nation's list of owned sectors */
@@ -402,7 +402,7 @@ non_profit_maint(np)
   return total;
 }
 
-get_n_students(np)
+int get_n_students(np)
      Snation *np;
 {
   Ssector *sp;
@@ -419,7 +419,7 @@ get_n_students(np)
   return n;
 }
 
-get_n_priests (np)
+int get_n_priests (np)
      Snation *np;
 {
   Ssector *sp;
@@ -436,7 +436,7 @@ get_n_priests (np)
   return n;
 }
 
-get_employed(np)
+int get_employed(np)
      Snation *np;
 {
   Ssector *sp;
@@ -452,7 +452,7 @@ get_employed(np)
   return n;
 }
 
-get_unemployed(np)
+int get_unemployed(np)
      Snation *np;
 {
   Ssector *sp;
@@ -468,7 +468,7 @@ get_unemployed(np)
   return n;
 }
 
-get_emp_met(np)
+int get_emp_met(np)
      Snation *np;
 {
   Ssector *sp;
@@ -486,7 +486,7 @@ get_emp_met(np)
   return n;
 }
 
-get_unemp_met(np)
+int get_unemp_met(np)
      Snation *np;
 {
   Ssector *sp;
@@ -504,7 +504,7 @@ get_unemp_met(np)
   return n;
 }
 
-get_emp_jwl(np)
+int get_emp_jwl(np)
      Snation *np;
 {
   Ssector *sp;
@@ -522,7 +522,7 @@ get_emp_jwl(np)
   return n;
 }
 
-get_unemp_jwl(np)
+int get_unemp_jwl(np)
      Snation *np;
 {
   Ssector *sp;
@@ -540,7 +540,7 @@ get_unemp_jwl(np)
   return n;
 }
 
-get_emp_farm(np)
+int get_emp_farm(np)
      Snation *np;
 {
   Ssector *sp;
@@ -558,7 +558,7 @@ get_emp_farm(np)
   return n;
 }
 
-get_unemp_farm(np)
+int get_unemp_farm(np)
      Snation *np;
 {
   Ssector *sp;
@@ -577,13 +577,13 @@ get_unemp_farm(np)
 }
 
   /* the service sector!! */
-get_emp_serv(np)
+int get_emp_serv(np)
      Snation *np;
 {
   return get_employed(np)-get_emp_met(np)-get_emp_jwl(np)-get_emp_farm(np);
 }
 
-get_unemp_serv(np)
+int get_unemp_serv(np)
      Snation *np;
 {
   return get_unemployed(np)
@@ -591,7 +591,7 @@ get_unemp_serv(np)
 }
 
   /* tax revenue from the service sector */
-calc_serv_revenue(np)
+int calc_serv_revenue(np)
      Snation *np;
 {
   Ssector *sp;
@@ -621,7 +621,7 @@ calc_serv_revenue(np)
 }
 
   /* average quantities of all nations in the world */
-get_avg_money(wp)
+int get_avg_money(wp)
       Sworld *wp;
 {
   Snation *np;
@@ -637,7 +637,7 @@ get_avg_money(wp)
   return n_nations ? total/n_nations : 0;
 }
 
-get_avg_metal(wp)
+int get_avg_metal(wp)
       Sworld *wp;
 {
   Snation *np;
@@ -653,7 +653,7 @@ get_avg_metal(wp)
   return n_nations ? total/n_nations : 0;
 }
 
-get_avg_jewels(wp)
+int get_avg_jewels(wp)
       Sworld *wp;
 {
   Snation *np;
@@ -669,7 +669,7 @@ get_avg_jewels(wp)
   return n_nations ? total/n_nations : 0;
 }
 
-get_avg_food(wp)
+int get_avg_food(wp)
       Sworld *wp;
 {
   Snation *np;
@@ -685,7 +685,7 @@ get_avg_food(wp)
   return n_nations ? total/n_nations : 0;
 }
 
-get_avg_civil(wp)
+int get_avg_civil(wp)
       Sworld *wp;
 {
   Snation *np;
@@ -701,7 +701,7 @@ get_avg_civil(wp)
   return n_nations ? total/n_nations : 0;
 }
 
-get_avg_soldiers(wp)
+int get_avg_soldiers(wp)
       Sworld *wp;
 {
   Snation *np;
@@ -718,7 +718,7 @@ get_avg_soldiers(wp)
 }
 
 
-get_avg_sectors(wp)
+int get_avg_sectors(wp)
      Sworld *wp;
 {
   Snation *np;
@@ -735,7 +735,7 @@ get_avg_sectors(wp)
 }
 
 
-get_per_occu_land(wp)
+int get_per_occu_land(wp)
      Sworld *wp;
 {
   int x, y, land = 0, n_occu = 0;
@@ -750,7 +750,7 @@ get_per_occu_land(wp)
   return (n_occu*100)/land;
 }
 
-get_per_occu_water(wp)
+int get_per_occu_water(wp)
      Sworld *wp;
 {
   int x, y, water = 0, n_occu = 0;
@@ -771,7 +771,7 @@ get_per_occu_water(wp)
 
 
   /* return the number of active nations (including game master) */
-get_n_act_ntn(wp)
+int get_n_act_ntn(wp)
      Sworld *wp;
 {
   int i, total = 0;
@@ -784,7 +784,7 @@ get_n_act_ntn(wp)
   return total;
 }
 
-n_workers(sp)
+int n_workers(sp)
      Ssector *sp;
 {
   double race_factor;
