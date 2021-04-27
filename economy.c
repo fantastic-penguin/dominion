@@ -72,6 +72,9 @@ extern int (*wrapx)(), (*wrapy)();
 
 #define PROD_POWER (7.0/6.0)
 
+// forward decl
+int army_maint_money(Sarmy *ap);
+
 double prod_level(np)
      Snation *np;
 {
