@@ -968,6 +968,9 @@ int has_connected_mass(x, y, n)
      see if any new connected sectors were found.  if none were,
      and n_found < n, then NAH... doesn't work!!  put it off for now.
    */
+
+   // TODO: INCOMPLETE
+   return 0;
 }
 
   /* makes a list of valid nation marks in the given string;
