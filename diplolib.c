@@ -96,7 +96,7 @@ void init_diplo(n)
 
   if ((fp = fopen(DIPLO_FILE, "w")) == NULL) {
     printf("sorry, cannot open file %s for writing\n", DIPLO_FILE);
-    return -1;
+    return;
   }
   critical();
   for (i = 0; i < n; ++i) {
@@ -168,7 +168,7 @@ void read_initial_diplo(dm, n)
   FILE *dfp, *fopen();
 
   if ((dfp = fopen(INIT_DIPLO_FILE, "r")) == NULL) {
-    return -1;
+    return;
   }
 
   for (i = 0; i < n; ++i) {
@@ -187,7 +187,7 @@ void dump_diplo(np, dm, n)
   int i;
 
   if ((dfp = fopen(DIPLO_FILE, "w")) == NULL) {
-    return -1;
+    return;
   }
   critical();
   lock_diplo(np);
