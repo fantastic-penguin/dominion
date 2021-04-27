@@ -544,12 +544,14 @@ int default_desig(sp)
 }
 
   /* the workhorse behind addnation */
-int setup_new_nation(nation_name, nation_pass, leader_name, nation_race,
-		 nation_mark, mag_ord, npc_flag, npcagg, npcexp, npciso)
-     char nation_name[NAMELEN],nation_pass[PASSLEN],leader_name[NAMELEN],
-       mag_ord[NAMELEN], nation_race;
-     Symbol nation_mark;
-     int npc_flag, npcagg, npcexp, npciso;
+// int setup_new_nation(nation_name, nation_pass, leader_name, nation_race,
+// 		 nation_mark, mag_ord, npc_flag, npcagg, npcexp, npciso)
+//      char nation_name[NAMELEN],nation_pass[PASSLEN],leader_name[NAMELEN],
+//        mag_ord[NAMELEN], nation_race;
+//      Symbol nation_mark;
+//      int npc_flag, npcagg, npcexp, npciso;
+int setup_new_nation(char nation_name[NAMELEN], char nation_pass[PASSLEN], char leader_name[NAMELEN],
+    char nation_race, Symbol nation_mark, char mag_ord[NAMELEN], int npc_flag, int npcagg, int npcexp, int npciso)
 {
   Sdiplo **dm_old, **dm_new;
   Snation tmp;
