@@ -320,7 +320,7 @@ void parse_info_line(fp)
        if the second string is not a substring of the
        first.
      */
-  if (ptr = strstr(line, "Node: ")) {
+  if ((ptr = strstr(line, "Node: "))) {
     n = (int) ((long) strchr(ptr, ',') - (long) ptr - strlen("Node: "));
     strncpy(node, ptr+strlen("Node: "), n);
     node[n] = '\0';
@@ -328,7 +328,7 @@ void parse_info_line(fp)
     strcpy(node, "");
   }
 
-  if (ptr = strstr(line, "Prev: ")) {
+  if ((ptr = strstr(line, "Prev: "))) {
     n = (int) ((long) strchr(ptr, ',') - (long) ptr - strlen("Prev: "));
     strncpy(node_prev, ptr+strlen("Prev: "), n);
     node_prev[n] = '\0';
@@ -336,7 +336,7 @@ void parse_info_line(fp)
     strcpy(node_prev, "");
   }
 
-  if (ptr = strstr(line, "Up: ")) {
+  if ((ptr = strstr(line, "Up: "))) {
     n = (int) ((long) strchr(ptr, ',') - (long) ptr - strlen("Up: "));
     strncpy(node_up, ptr+strlen("Up: "), n);
     node_up[n] = '\0';
@@ -348,7 +348,7 @@ void parse_info_line(fp)
        the last field in an info line.  but
        remember to remove the newline.
      */
-  if (ptr = strstr(line, "Next: ")) {
+  if ((ptr = strstr(line, "Next: "))) {
     strcpy(node_next, ptr+strlen("Next: "));
     node_next[strlen(node_next)-1] = '\0';
   } else {			/* field is not there */
