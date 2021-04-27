@@ -40,7 +40,7 @@ extern WINDOW * sectw;
 extern int (*wrapx)(), (*wrapy)();
 
   /* construct a constructible object */
-construct()
+int construct()
 {
   WINDOW *cw;
   char c;
@@ -101,7 +101,7 @@ construct()
 }
 
   /* build fortification on a sector */
-construct_fortification(np, sp, w)
+int construct_fortification(np, sp, w)
      Snation *np;
      Ssector *sp;
      WINDOW *w;
@@ -162,7 +162,7 @@ construct_fortification(np, sp, w)
   return 1;
 }
   /* build roads on a sector */
-construct_roads(np, sp, w)
+int construct_roads(np, sp, w)
      Snation *np;
      Ssector *sp;
      WINDOW *w;
@@ -228,7 +228,7 @@ construct_roads(np, sp, w)
      race to live in a sector below (or above)
      water, when they normally could not.
    */
-construct_bubble(np, sp, w)
+int construct_bubble(np, sp, w)
      Snation *np;
      Ssector *sp;
      WINDOW *w;
