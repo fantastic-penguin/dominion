@@ -45,7 +45,7 @@ int diplo_mc(Snation *np, Ssector *sp, Sarmy *ap);
 int is_coastal_sect(Snation *np, Ssector *sp, Sarmy *ap);
 int good_army_altitude(Snation *np, Ssector *sp, Sarmy *ap);
 int are_patrols(Snation *np, Sarmy *ap, Ssector *sp);
-int are_allied(Snation *np, Sarmy *ap, Ssector *sp);
+int are_allied(int id1, int id2);
 
   /* returns the move cost for a given army over a given sector
      if ap is NULL we should consider giving a "generic" move
