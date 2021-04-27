@@ -972,7 +972,7 @@ int load_too_big(np, ap, c, quantity)
     quantity_weight = quantity;
     break;
   case 'a':
-    if (cargo_ap = get_army(np, quantity)) {
+    if ((cargo_ap = get_army(np, quantity))) {
       quantity_weight = army_weight (cargo_ap);
     }
     else { quantity_weight = 0; }  /* no army ?!? */
