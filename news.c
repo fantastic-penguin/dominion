@@ -21,6 +21,7 @@
 
 #include "dominion.h"
 #include "news.h"
+#include "functions.h"
 #include <stdio.h>
 #ifdef AMIGA
 #  include <exec/types.h>
@@ -34,6 +35,8 @@
 #else
 #  include <strings.h>
 #endif
+#include <unistd.h>
+#include <stdlib.h>
 
 extern Sworld world;
 extern Suser user;

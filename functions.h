@@ -249,6 +249,6 @@ void draw_map_compact();
 int is_under_sectw(int x, int y);
 int which_mark(int x, int y, Suser *up);
 void show_sector(int x, int y);
-
+void insert(char *in_name, FILE *out_pntr);
 
 #endif // _FUNCTIONS_H_
