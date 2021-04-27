@@ -246,5 +246,9 @@ void show_spell(Sspell *spellp);
 void show_spirit(Sspirit *spiritp);
 void draw_map_regular();
 void draw_map_compact();
+int is_under_sectw(int x, int y);
+int which_mark(int x, int y, Suser *up);
+void show_sector(int x, int y);
+
 
 #endif // _FUNCTIONS_H_
