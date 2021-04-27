@@ -1,4 +1,6 @@
 /* news.h - structures used in the News system */
+#ifndef _NEWS_H_
+#define _NEWS_H_
 
 /*
  * Copyright (C) 1990 Free Software Foundation, Inc.
@@ -37,3 +39,5 @@ struct S_Article {
   int read;   /* Has the article been read? */
 };
 typedef struct S_Article s_article;
+
+#endif // _NEWS_H_
