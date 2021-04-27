@@ -69,7 +69,7 @@ void put_mesg(FILE *fp, struct message_body *mbody);
 /* Read the persons mail. Reader is the name
    of the nations whose mail is to be read.
  */
-int mail_read(reader)
+void mail_read(reader)
      int reader;
 {
   FILE *lock_fp;

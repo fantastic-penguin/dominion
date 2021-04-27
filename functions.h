@@ -127,7 +127,7 @@ void cfood(Snation *np, int f);
 void ctech_skill(Snation *np, int change);
 void cmag_skill(Snation *np, int change);
 int my_scr_dump(WINDOW *w, char fname[]);
-int mail_read(int reader);
+void mail_read(int reader);
 void mail_write();
 int mail_send(char mailfile[], int sender, int receiver, char subject[]);
 void edit(char *t_fn);
