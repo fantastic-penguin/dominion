@@ -181,7 +181,7 @@ char *s,*fixed;
   char *poss = s, *posf = fixed;
 
   if (s == NULL) { return NULL; }
-  for ( poss = s;(poss != '\0') && (posf - fixed < NAMELEN);  poss++ , posf++)
+  for ( poss = s;(*poss != '\0') && (posf - fixed < NAMELEN);  poss++ , posf++)
   {
     if ((*poss == ' ') || (*poss == '\t'))
     {
