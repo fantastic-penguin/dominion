@@ -804,7 +804,7 @@ int draft_army(np)
   }
     /* if they just type return, use the default name */
   if (ret <= 0) {
-    sprintf(name, "%s", type, free_army_id(np));
+    sprintf(name, "%s %d", type, free_army_id(np));
   }
 
   if (user.xmode) {
