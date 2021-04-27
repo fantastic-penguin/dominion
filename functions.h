@@ -155,6 +155,7 @@ int zoom_on_h_spell(Sh_spell *h_list, WINDOW *sw);
 int zoom_del_h_spell(Sh_spell *h_list, WINDOW *sw);
 int free_army_id(Snation *np);
 void aflag_set(Sarmy *ap, int flag);
+void aflag_clear(Sarmy *ap, int flag);
 void fix_sector_line(char line[], char s[]);
 void delete_hanging_spell(Sh_spell *sp1);
 void init_diplo(int n);
@@ -255,5 +256,15 @@ void insert(char *in_name, FILE *out_pntr);
 char pager(char fname[]);
 void group_insert(s_group **first, s_group *temp);
 void post_news_file(char *news_file, char *group_name, char *subject, int id);
+
+void cargo_statline(WINDOW *w, Suser *up);
+void transport_load(Sarmy *ap, WINDOW *tw);
+void transport_unload(Sarmy *ap, WINDOW *tw);
+void transport_transfer(Sarmy *ap, WINDOW *tw);
+int good_loading_place(Snation *np, Ssector *sp, char type, int quantity);
+int good_unloading_place(Snation *np, Ssector *sp, char type, int quantity);
+int load_too_big(Snation *np, Sarmy *ap, char c, int quantity);
+void adjust_cargo(Sarmy *ap);
+
 
 #endif // _FUNCTIONS_H_
