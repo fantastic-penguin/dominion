@@ -54,7 +54,7 @@ void load_master_execs();
 int get_nation_id(char name[]);
 void get_crypt_pass(char prompt[], char pass[], WINDOW *w, char def_pass[]);
 void handle_locks(int id);
-int get_avail_armies(Suser *up, int skill);
+void get_avail_armies(Suser *up, int skill);
 void get_spells(Suser *up, int skill);
 void get_spirits(Suser *up, int skill);
 void load_nation(int id, Snation *np);

@@ -102,13 +102,13 @@ void get_army_status(ap, s)
   }
 }
 
-int add_flag(s,flags,i,has_slash)
 /*
    This routine adds to a status line s the flag associated with
    the i'th bit position in the flags, adding a slash if one has not
    already been added.  The flags corresponding to the bit positions
    are in ext.c in a global array.
 */
+int add_flag(s,flags,i,has_slash)
 char *s;
 int flags, i, has_slash;
 {
@@ -139,18 +139,18 @@ Sarmy *get_army(np, id)
     return NULL;
   }
   while ((ap != NULL) && (ap->id != id)) {
-/*    sprintf(s, "(while) ap->id=%d,id=%d", ap->id, id);
-    printf("%s", s);
-/*     statline2(s, "get_army debug"); */
-/*    getch(); */
+// /*    sprintf(s, "(while) ap->id=%d,id=%d", ap->id, id);
+//     printf("%s", s);
+// /*     statline2(s, "get_army debug"); */
+// /*    getch(); */
 
 
     ap = ap->next;
   }
-/*  sprintf(s, "(out of while) ap->id=%d,id=%d", ap ? ap->id : -1, id);
-  printf("%s", s);
-/*  statline2(s, "get_army debug"); */
-/*  getch(); */
+// /*  sprintf(s, "(out of while) ap->id=%d,id=%d", ap ? ap->id : -1, id);
+//   printf("%s", s);
+// /*  statline2(s, "get_army debug"); */
+// /*  getch(); */
 
   return ap;			/* should be NULL if none is found */
 }
@@ -650,7 +650,7 @@ int army_is_in_sector(sp, owner, id)
      Some of the available army types also come from the "races"
      file, since they are race-specific.
    */
-int get_avail_armies(up, skill)
+void get_avail_armies(up, skill)
      Suser *up;
      int skill;
 {
@@ -662,7 +662,7 @@ int get_avail_armies(up, skill)
 
   if ((fp = fopen(TECHNO_FILE, "r")) == NULL) {
     printf("could not open technology file %s\n", TECHNO_FILE);
-    return -1;
+    return;
   }
 
   while (!done) {
@@ -692,7 +692,7 @@ int get_avail_armies(up, skill)
   sprintf (magfn, "magic/mag_%s", up->np->mag_order);
   if ((fp = fopen (magfn, "r")) == NULL) {
     printf ("could not open magic file %s\n", magfn);
-    return -1;
+    return;
   }
 
   done = 0;
@@ -711,7 +711,7 @@ int get_avail_armies(up, skill)
      */
   if ((fp = fopen(RACES_FILE, "r")) == NULL) {
     printf("could not open races file %s\n", RACES_FILE);
-    return -1;
+    return;
   }
   done = 0;
   while (!done) {
