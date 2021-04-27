@@ -54,7 +54,7 @@ void load_master_execs();
 int get_nation_id(char name[]);
 void get_crypt_pass(char prompt[], char pass[], WINDOW *w, char def_pass[]);
 void handle_locks(int id);
-void get_avail_armies(Suser *up, int skill);
+int get_avail_armies(Suser *up, int skill);
 void get_spells(Suser *up, int skill);
 void get_spirits(Suser *up, int skill);
 void load_nation(int id, Snation *np);
@@ -231,5 +231,11 @@ int get_spell_pts_maint(Sarmy *ap);
 void donate_cargo(int x, int y, int from_id, int to_id, Scargo *cargo);
 int army_move_rate(Snation *np, Sarmy *ap);
 char *contents(int money, int metal, int jewels, int food, int people, int army, Pt *title, int sp);
+int is_army(Sarmy *ap);
+int is_navy(Sarmy *ap);
+int is_mage(Sarmy *ap);
+void add_army_type(Suser *up, char type[]);
+int add_flag(char *s, int flags, int i, int has_slash);
+
 
 #endif // _FUNCTIONS_H_
