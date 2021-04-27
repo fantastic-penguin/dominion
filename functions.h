@@ -219,7 +219,6 @@ int can_patrol(Sarmy *ap);
 int can_intercept(Sarmy *ap);
 int can_garrison(Sarmy *ap);
 void army_visibility(int **visible_sectors, Sarmy *ap);
-
 int is_avail_army_type(Suser *up, char type[]);
 int army_cost(Sarmy *ap);
 int army_cost_metal(Sarmy *ap);
@@ -231,6 +230,6 @@ void zoom_list_armies(WINDOW *azlw, Sarmy *armies, Ssector *sp, int start_army, 
 int get_spell_pts_maint(Sarmy *ap);
 void donate_cargo(int x, int y, int from_id, int to_id, Scargo *cargo);
 int army_move_rate(Snation *np, Sarmy *ap);
-
+char *contents(int money, int metal, int jewels, int food, int people, int army, Pt *title, int sp);
 
 #endif // _FUNCTIONS_H_
