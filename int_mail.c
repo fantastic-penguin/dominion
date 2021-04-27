@@ -58,6 +58,14 @@ struct message_body {
   struct message_body *next;
 };
 
+// Forward declarations
+int mail_reader(char *fname);
+int load_messages(FILE *fp, struct message **first_mesg);
+void display_messages(struct message *first_mesg, int num_mess);
+int write_messages(FILE *fp, struct message *first_mesg);
+void clear_messages(struct message *first_mesg);
+void put_mesg(FILE *fp, struct message_body *mbody);
+
 /* Read the persons mail. Reader is the name
    of the nations whose mail is to be read.
  */
