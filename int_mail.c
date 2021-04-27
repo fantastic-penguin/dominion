@@ -246,6 +246,7 @@ char *fname;
 #endif
   
   clear_messages(first_mesg);
+  return 0;
 }
 
 int put_mesg_to_file(mbody)
@@ -388,7 +389,7 @@ struct message_body *mbody;
       curr_line = 0;
       if ((temp[0] == 'j') || (temp[0] == 'J')) 
       {
-        return 0;
+        return;
       }
     }
     curr = curr->next;
