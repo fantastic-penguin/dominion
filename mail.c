@@ -55,7 +55,7 @@ char *mail_forwarding(nation)
 }
 
   /* This function checks if mailbox for nation 'id' is locked. */
-has_mail_lock(id)
+int has_mail_lock(id)
      int id;
 {
   FILE *lock_fp;
@@ -80,7 +80,7 @@ has_mail_lock(id)
 } /* has_mail_lock */
 
   /* This function locks a user's mailbox */
-lock_mail(nation)
+void lock_mail(nation)
 int nation;
 {
   FILE *lock_fp;
@@ -97,7 +97,7 @@ int nation;
 }
 
   /* This unlock's a user's mailbox */
-unlock_mail(nation)
+void unlock_mail(nation)
 int nation;
 {
   char lock_fn[100];
