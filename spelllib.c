@@ -26,8 +26,11 @@
 #include "dominion.h"
 #include "misc.h"
 #include "army.h"
+#include "functions.h"
 
 #include <stdio.h>
+#include <string.h>
+#include <unistd.h>
 
   /* army and spirit types */
 extern struct army_type *army_types;
