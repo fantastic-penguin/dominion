@@ -222,7 +222,7 @@ int id;
 	a_fp=fopen(a_fn,"w");
 	if (a_fp==NULL) {
 	  fprintf(stderr,"Error Opening New Article File Pointer\n");
-	  return(1);
+	  return;
 	}
 	fprintf(a_fp,"Date: Thon %d\n",world.turn);
 	if (id==0) {
