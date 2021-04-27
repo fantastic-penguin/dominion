@@ -39,6 +39,12 @@ extern WINDOW * sectw;
 
 extern int (*wrapx)(), (*wrapy)();
 
+// forward declarations
+int construct_fortification(Snation *np, Ssector *sp, WINDOW *w);
+int construct_bubble(Snation *np, Ssector *sp, WINDOW *w);
+int construct_roads(Snation *np, Ssector *sp, WINDOW *w);
+
+
   /* construct a constructible object */
 int construct()
 {
