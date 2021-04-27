@@ -48,7 +48,7 @@ extern Suser user;
      the thons_left parameter by one, and removing the spell
      once the thons_left reaches zero.
    */
-write_h_spells()
+void write_h_spells()
 {
   FILE *hang_fp, *fopen();
   char line[EXECLEN];
@@ -81,7 +81,7 @@ write_h_spells()
   /* we need list as a pointer to pointer, so as to add at
      the start of the list (which is easy and fast)
    */
-add_h_spell(listp, h_spellp)
+void add_h_spell(listp, h_spellp)
      Sh_spell **listp, *h_spellp;
 {
   Sh_spell *tmp;
@@ -103,7 +103,7 @@ delete_h_spell(listp, h_spellp)
   /* prepares a new hanging spell structure, to be
      filled in with its exec lines
    */
-prepare_h_spell(h_spellp, name, nat_id, thons_left, n_lines)
+void prepare_h_spell(h_spellp, name, nat_id, thons_left, n_lines)
      Sh_spell *h_spellp;
      char name[];
      int nat_id, thons_left, n_lines;
@@ -123,7 +123,7 @@ prepare_h_spell(h_spellp, name, nat_id, thons_left, n_lines)
 }
 
 /* compares 2 hanging spells and returns 0 if same 1 if not */
-h_spell_compare(sp1, sp2)
+int h_spell_compare(sp1, sp2)
 Sh_spell *sp1, *sp2;
 {
   int i;
@@ -139,7 +139,7 @@ Sh_spell *sp1, *sp2;
   return 0;
 };
 
-is_dead_spell(sp,flag)
+int is_dead_spell(sp,flag)
 int flag;
 Sh_spell *sp;
 {
@@ -158,7 +158,7 @@ Sh_spell *sp;
   return 0;
 }
 
-load_dead_hspells(up,flag)
+void load_dead_hspells(up,flag)
 int flag;
      Suser *up;			/* up can also be NULL */
 {
@@ -210,7 +210,7 @@ int flag;
      user to examine, apart from the global list.
    */
 
-load_h_spells(up)
+void load_h_spells(up)
      Suser *up;			/* up can also be NULL */
 {
   FILE *hang_fp, *fopen();
@@ -267,7 +267,7 @@ load_h_spells(up)
   fclose(hang_fp);
 }
 
-delete_hanging_spell(sp1)
+void delete_hanging_spell(sp1)
 Sh_spell *sp1;
 {
   Sh_spell *prev, *next, *tmp, *tmp2;
@@ -306,7 +306,7 @@ Sh_spell *sp1;
   free_h_spell(tmp2);
 }
 
-got_dead_h_spell(sp1)
+void got_dead_h_spell(sp1)
 Sh_spell *sp1;
 {
   Sh_spell *prev, *tmp, *tmp2;
@@ -336,7 +336,7 @@ Sh_spell *sp1;
   }
 }
 
-free_h_spell(sp1)
+void free_h_spell(sp1)
 Sh_spell *sp1;
 {
   int i;  
@@ -348,7 +348,7 @@ Sh_spell *sp1;
   free(sp1);
 }
 
-reset_spelled_flags()
+void reset_spelled_flags()
 {
   Sh_spell *tmp;
   
@@ -361,7 +361,7 @@ reset_spelled_flags()
   }
 }
 
-reset_one_spell(sp1)
+void reset_one_spell(sp1)
 Sh_spell *sp1;
 {
   struct argument exec_args[N_EXEC_ARGS];
@@ -404,7 +404,7 @@ Sh_spell *sp1;
   }
 }
 
-is_army_spell(sp1)
+int is_army_spell(sp1)
 Sh_spell *sp1;
 {
   struct argument exec_args[N_EXEC_ARGS];
@@ -436,7 +436,7 @@ Sh_spell *sp1;
   return 0;
 }
 
-write_dead_spell(sp1)
+void write_dead_spell(sp1)
 Sh_spell *sp1;
 {
   FILE *dead_fp, *fopen();
@@ -462,7 +462,7 @@ Sh_spell *sp1;
   fclose(dead_fp);
 }
 
-clear_dead_hspells()
+void clear_dead_hspells()
 {
   Sh_spell *h_spells;
   int i,end;
@@ -488,7 +488,7 @@ clear_dead_hspells()
 /* checking to see if the flags are different from the default.       */
 /* If new spells are developed that change things besides flags, then */
 /* other mechanism's will need to be used.                            */
-is_spelled(ap)
+int is_spelled(ap)
 Sarmy *ap;
 {
   int i;
