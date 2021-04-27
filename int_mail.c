@@ -193,13 +193,13 @@ char *text;
   }
 }
 
-int mail_reader(fname)
 /* 
   This routine acts like a very simple mail program, in that it allows
   the user to read their mail, and to delete messages, and even to write
   the messages to a file.  However you are still required with this program
   to proceede linearly one message at a time through all your mail.
 */
+int mail_reader(fname)
 char *fname;
 {
   FILE *fp, *fpout, *fopen(); /* fp is the mailfile fpout is a temp file */
@@ -276,7 +276,7 @@ struct message_body *mbody;
     setuid(ruid);
     chdir(current_dir);
     if ((fp = fopen(fname, "w")) == NULL) {
-      fprintf(stderr,"Error: could not write to file %d",fname);
+      fprintf(stderr,"Error: could not write to file %s",fname);
       exit(0);
     }
     put_mesg(fp,mbody);
