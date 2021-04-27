@@ -148,7 +148,7 @@ FILE *fp;
   return temp;
 }    
 
-is_fromline(s)
+int is_fromline(s)
 /* Determines if the string passed it is the start of a new message */
 char *s;
 {
@@ -157,7 +157,7 @@ char *s;
   return 0;
 }
 
-add_line(mbody, text)
+void add_line(mbody, text)
 /* Adds a new line onto the end of the message passed to it. */
 struct message_body **mbody;
 char *text;
@@ -185,7 +185,7 @@ char *text;
   }
 }
 
-mail_reader(fname)
+int mail_reader(fname)
 /* 
   This routine acts like a very simple mail program, in that it allows
   the user to read their mail, and to delete messages, and even to write
@@ -240,7 +240,7 @@ char *fname;
   clear_messages(first_mesg);
 }
 
-put_mesg_to_file(mbody)
+int put_mesg_to_file(mbody)
 /*
    This function is to write the given message out to a file the
    user specifies
@@ -289,7 +289,7 @@ struct message_body *mbody;
   return 0;
 }
 
-put_mesg(fp,mbody)
+void put_mesg(fp,mbody)
 /* This function puts the given message into the file passed to it */
 FILE *fp;
 struct message_body *mbody;
@@ -303,7 +303,7 @@ struct message_body *mbody;
   }
 }
 
-clear_mesg(mbody)
+void clear_mesg(mbody)
 /* Clean up the memory for a given message */
 struct message_body **mbody;
 {
@@ -319,7 +319,7 @@ struct message_body **mbody;
   *mbody = NULL;  /* And clean up the beginning */
 }
 
-add_rest(fpout, fpin)
+void add_rest(fpout, fpin)
 /* Add the rest of the mailfile to the temporary output file */
 FILE *fpout, *fpin;
 {
@@ -331,7 +331,7 @@ FILE *fpout, *fpin;
   }
 }
 
-get_message(fp, mbody, first_flag)
+int get_message(fp, mbody, first_flag)
 int first_flag;
 struct message_body **mbody;
 FILE *fp;
@@ -359,7 +359,7 @@ FILE *fp;
   return 1;
 }
 
-print_message(mbody)
+void print_message(mbody)
 struct message_body *mbody;
 {
   int curr_line = 0, i;
@@ -391,7 +391,7 @@ struct message_body *mbody;
   curr_line = 0;
 }
 
-load_messages(fp,first_mesg)
+int load_messages(fp,first_mesg)
 FILE *fp;
 struct message **first_mesg;
 {
@@ -424,7 +424,7 @@ struct message **first_mesg;
   return num_mess;
 }
 
-write_messages(fp, first_mesg)
+int write_messages(fp, first_mesg)
 FILE *fp;
 struct message *first_mesg;
 {
@@ -494,7 +494,7 @@ struct message *mesg;
   return NULL;
 }
 
-display_messages(first_mesg,num_mess)
+void display_messages(first_mesg,num_mess)
 int num_mess;
 struct message *first_mesg;
 {
@@ -617,7 +617,7 @@ struct message *first_mesg;
   }
 }
 
-clear_messages(first_mesg)
+void clear_messages(first_mesg)
 struct message *first_mesg;
 {
   struct message *curr_mesg = first_mesg, *next_mesg;
