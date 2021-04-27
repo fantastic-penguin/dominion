@@ -34,7 +34,7 @@
 
 #define LINE_LEN 80		/* longer than this is truncated */
   /* this is defined in the Makefile */
-/* #define STANDALONE		/* if we run standalone... */
+// /* #define STANDALONE		/* if we run standalone... */
 #define INFO_PATH "/usr/local/lib/emacs/info"
 #ifndef INFO_INTRO
 # define INFO_INTRO "/usr/local/lib/info_intro"
