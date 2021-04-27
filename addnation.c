@@ -24,9 +24,14 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <signal.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <time.h>
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include "army.h"
 
 #define INIT_CIV 10000
