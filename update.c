@@ -1524,7 +1524,7 @@ Snation *np;
 /* Loop over all points again */
 }
 
-int sort_ptlist(ptlist)
+void sort_ptlist(ptlist)
 struct pt_list **ptlist;
 {
   struct pt_list *pnext, *pprev, *pcurr, *ptemp;

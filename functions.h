@@ -352,7 +352,7 @@ int get_avg_food(Sworld *wp);
 int get_avg_sectors(Sworld *wp);
 int get_per_occu_land(Sworld *wp);
 int get_per_occu_water(Sworld *wp);
-int sort_ptlist(struct pt_list **ptlist);
+void sort_ptlist(struct pt_list **ptlist);
 void free_ptlist(struct pt_list **ptlist);
 void add_to_plist(struct pt_list **ptlist, int x, int y);
 
