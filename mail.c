@@ -37,6 +37,11 @@
 # include <strings.h>
 #endif
 
+#include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include "functions.h"
+
 extern Suser user;
 extern Sworld world;
 extern char *libdir;
