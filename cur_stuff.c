@@ -27,6 +27,8 @@
 /* wget_string(w, str, len) - gets a string in a curses window     */
 /* wget_number(w, p) - gets a number in a curses window            */
 
+#define NCURSES_OPAQUE 0
+
 #include "dominion.h"
 #include "misc.h"
 #include "cur_stuff.h"
