@@ -56,7 +56,7 @@ s_group *g_choice;
 } /* first_unread */
 
 
-write_newsrc(art_arr, g_choice)
+void write_newsrc(art_arr, g_choice)
 s_article **art_arr;
 s_group *g_choice;
 {
@@ -123,7 +123,7 @@ s_group *g_choice;
     } /* else */
 } /* write_newsrc */
 
-read_newsrc(art_arr,g_choice)
+void read_newsrc(art_arr,g_choice)
 s_article **art_arr;
 s_group *g_choice;
 {
@@ -168,7 +168,7 @@ s_group *g_choice;
   fclose(nr_fp);
 } /* read_newsrc */
 
-art_menu_bottom(menu_lines)
+void art_menu_bottom(menu_lines)
 int menu_lines;
 {
   mvaddstr(menu_lines+2,5,"Position arrow with [j]/[2] (down) and [k]/[8] (up)");
@@ -181,7 +181,7 @@ int menu_lines;
    that can be read. The menu is displayed according to where the cursor is
    and where it's pointing to. (and of course the size of the screen) */
 
-show_art_menu(art_arr,menu_lines,cur_point,cur_pos,first_art,last_art)
+void show_art_menu(art_arr,menu_lines,cur_point,cur_pos,first_art,last_art)
      s_article **art_arr;
      /* This is an array of pointers to "article structures". See news.h */
      int menu_lines,cur_point,cur_pos,first_art,last_art;
@@ -223,7 +223,7 @@ show_art_menu(art_arr,menu_lines,cur_point,cur_pos,first_art,last_art)
    group to read (pointed to by g_choice). This displays a menu of the articles
    and allows the user to display articles from the menu. */
 
-news_arts_menu(g_choice,turn)
+void news_arts_menu(g_choice,turn)
 s_group *g_choice;		/* This is the group to read from */
 int turn;			/* What thon is this? For positioning the
 				 cursor. */
@@ -650,7 +650,7 @@ s_group *news_groups_menu(human,reading)
   return(g_ret);
 } /* news_groups_menu */
 
-news()
+void news()
 {
   int not_done;
   char tmp_fname[PATHLEN];
