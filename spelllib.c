@@ -58,7 +58,7 @@ void write_h_spells()
 
   if ((hang_fp = fopen(HANGING_SPELLS_FILE, "w")) == NULL) {
     printf("cannot write file %s\n", HANGING_SPELLS_FILE);
-    return -1;
+    return;
   }
   for (h_spells=hanging_spells; h_spells != NULL; h_spells = h_spells->next) {
       /* only write them out if they have not expired */
@@ -171,7 +171,7 @@ int flag;
   sprintf(filename,"exec/%s.%d","dead_spells",up->id);
   if ((dead_fp = fopen(filename, "r")) == NULL) {
     if (debug) printf("no file %s\n", filename);
-    return -1;
+    return;
   }
   while (!done) {
     h_spell.next = NULL;
@@ -228,7 +228,7 @@ void load_h_spells(up)
   }
   if ((hang_fp = fopen(HANGING_SPELLS_FILE, "r")) == NULL) {
     if (debug) printf("no file %s\n", HANGING_SPELLS_FILE);
-    return -1;
+    return;
   }
   while (!done) {
     h_spell.next = NULL;
@@ -447,7 +447,7 @@ Sh_spell *sp1;
   sprintf(filename,"exec/%s.%d","dead_spells",user.id);
   if ((dead_fp = fopen(filename, "a")) == NULL) {
     if (debug) printf("no file %s\n", filename);
-    return -1;
+    return;
   }
   fprintf(dead_fp, "%s\n", sp1->name);
   fprintf(dead_fp, "%d\n", sp1->nat_id);
