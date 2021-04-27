@@ -44,7 +44,12 @@
 
 #include "dominion.h"
 #include "misc.h"
+#include "functions.h"
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 extern Sworld world;
 extern int (*wrapx)(), (*wrapy)();
