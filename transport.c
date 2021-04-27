@@ -129,7 +129,7 @@ int transport()
 }
 
   /* load onto a caravan or ship */
-transport_load (ap, tw)
+void transport_load (ap, tw)
      Sarmy *ap;
      WINDOW *tw;
 {
@@ -279,7 +279,7 @@ transport_load (ap, tw)
 }
 
 /* unload from a caravan */
-transport_unload(ap, tw)
+void transport_unload(ap, tw)
      Sarmy *ap;
      WINDOW *tw;
 {
@@ -477,7 +477,7 @@ transport_unload(ap, tw)
   show_armies(sp);
 }
 
-transport_transfer (ap, tw)
+void transport_transfer (ap, tw)
 Sarmy * ap;
 WINDOW * tw;
 {
@@ -662,7 +662,7 @@ WINDOW * tw;
 #define is_city(sp) (sp->designation == D_CITY || sp->designation == D_CAPITAL)
 
 /* you can only load a caravan in certain places */
-good_loading_place(np, sp, type, quantity)
+int good_loading_place(np, sp, type, quantity)
      Snation *np;
      Ssector *sp;
      char type;			/* type of cargo */
@@ -724,7 +724,7 @@ good_loading_place(np, sp, type, quantity)
 }
 
 /* you can only unload a caravan in certain places */
-good_unloading_place(np, sp, type, quantity)
+int good_unloading_place(np, sp, type, quantity)
      Snation *np;
      Ssector *sp;
      char type;			/* type of thing being unloaded */
@@ -789,7 +789,7 @@ good_unloading_place(np, sp, type, quantity)
 
 /* keeps a status line on the transportation window which
    which shows you the cargo on the currently selected army */
-cargo_statline(w, up)
+void cargo_statline(w, up)
      WINDOW *w;
      Suser *up;
 {
@@ -814,7 +814,7 @@ cargo_statline(w, up)
 }
 
 /* gives cargo from one nation to another */
-donate_cargo(x, y, from_id, to_id, cargo)
+void donate_cargo(x, y, from_id, to_id, cargo)
      int from_id, to_id;
      Scargo *cargo;
 {
@@ -869,7 +869,7 @@ donate_cargo(x, y, from_id, to_id, cargo)
 }
 
 /* lock and unlock the cargo data file */
-lock_cargo()
+void lock_cargo()
 {
   FILE *fp, *fopen();
   char fname[NAMELEN];
@@ -885,7 +885,7 @@ lock_cargo()
   }
 }
 
-unlock_cargo()
+void unlock_cargo()
 {
   char fname[NAMELEN];
 
@@ -896,7 +896,7 @@ unlock_cargo()
 }
 
 /* check if the cargo data file is locked */
-cargo_is_locked()
+int cargo_is_locked()
 {
   FILE *fp, *fopen();
   char fname[NAMELEN];
@@ -912,7 +912,7 @@ cargo_is_locked()
 }
 
 /* valid trading places are cities, capitals and trade posts */
-is_trade_place(sp)
+int is_trade_place(sp)
      Ssector *sp;
 {
   switch (sp->designation) {
@@ -927,7 +927,7 @@ is_trade_place(sp)
 
 /* returns true if there is a cargo */
 
-cargo_not_empty(cargop)
+int cargo_not_empty(cargop)
      Scargo *cargop;
 {
   if (cargop->money > 0 || cargop->metal > 0 || cargop->jewels > 0
@@ -940,7 +940,7 @@ cargo_not_empty(cargop)
 
 /* returns true if we cannot fit this additional load
    onto the ship or caravan. */
-load_too_big(np, ap, c, quantity)
+int load_too_big(np, ap, c, quantity)
      Snation *np;
      Sarmy *ap;			/* the carrier */
      char c;			/* the type of load */
@@ -991,9 +991,7 @@ load_too_big(np, ap, c, quantity)
 }
 
 /* Returns the weight of an army, whether normal or a caravan/navy */
-
 int army_weight (ap)
-
 Sarmy * ap;
 {
   int weight, index;
@@ -1016,9 +1014,7 @@ Sarmy * ap;
 }
 
 /* Returns the weight of a caravan, plus any subsidiary cargo */
-
 int caravan_weight (ap)
-
 Sarmy * ap;
 {
   int weight = 0, caravan_index;
@@ -1034,9 +1030,7 @@ Sarmy * ap;
 }
 
 /* Returns the weight of a cargo */
-
 int cargo_weight (cargo)
-
 Scargo * cargo;
 {
   int weight = 0;
@@ -1054,9 +1048,7 @@ Scargo * cargo;
 }
 
 /* Builds cargo statline out of the cargo struct */
-
 char * make_cargo_statline (cargo)
-
 Scargo * cargo;
 {
   char * rstatline;
@@ -1077,7 +1069,7 @@ Scargo * cargo;
 }
 
 /* puts out an exec line describing the new cargo of a caravan */
-adjust_cargo(ap)
+void adjust_cargo(ap)
      Sarmy *ap;
 {
   char s[EXECLEN];
