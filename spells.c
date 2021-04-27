@@ -24,8 +24,10 @@
 #include "dominion.h"
 #include "misc.h"
 #include "army.h"
+#include "functions.h"
 
 #include <stdio.h>
+#include <string.h>
 
   /* how many new move points the haste spall gives you */
 #define HASTE_POINTS 8
