@@ -37,7 +37,7 @@ extern int debug;
 extern FILE *mailfile;
 
   /* this is the routine actually called by the update program */
-domagic(np, mailfile)
+void domagic(np, mailfile)
      Snation *np;
      FILE *mailfile;
 {
@@ -70,7 +70,7 @@ domagic(np, mailfile)
 #define JEWEL_MAG_POWER (3.0/4.0)
 
   /* this routine calculates the new mag_skill for a nation */
-new_mag_skill(np)
+int new_mag_skill(np)
      Snation *np;
 {
   int increase;
@@ -88,7 +88,7 @@ new_mag_skill(np)
   /* this calculates how many new spell points a nation gets this turn.
      note that spell points accumulate but little.
    */
-new_spell_pts(np)
+int new_spell_pts(np)
      Snation *np;
 {
   int new_pts;
@@ -105,7 +105,7 @@ new_spell_pts(np)
 }
 
   /* these spells are loaded in init_user() */
-get_spells(up, skill)
+void get_spells(up, skill)
      Suser *up;
      int skill;
 {
@@ -122,7 +122,7 @@ get_spells(up, skill)
   if ((fp = fopen(fname, "r")) == NULL) {
     printf("could not open file for magic order %s.  returning.\n",
 	   up->np->mag_order);
-    return -1;
+    return;
   }
   while (!done) {
     if (fgets(line, EXECLEN, fp) == NULL) {
@@ -170,7 +170,7 @@ get_spells(up, skill)
 }
 
   /* these spirits are loaded in init_user() */
-get_spirits(up, skill)
+void get_spirits(up, skill)
      Suser *up;
      int skill;
 {
@@ -188,7 +188,7 @@ get_spirits(up, skill)
   if ((fp = fopen(fname, "r")) == NULL) {
     printf("could not open file for magic order %s.  returning.\n",
 	   up->np->mag_order);
-    return -1;
+    return;
   }
   while (!done) {
     if (fgets(line, EXECLEN, fp) == NULL) {
@@ -228,7 +228,7 @@ get_spirits(up, skill)
 
 
   /* show a user's collection of spells and spirits */
-list_user_spells(up)
+void list_user_spells(up)
      Suser *up;
 {
   Sspell *tmp_spell;
@@ -248,7 +248,7 @@ list_user_spells(up)
   }
 }
 
-show_spell(spellp)
+void show_spell(spellp)
      Sspell *spellp;
 {
   int i;
@@ -256,7 +256,8 @@ show_spell(spellp)
   printf("Spell <%s>, cost %d\n",
 	 spellp->name, spellp->cost);
 }
-show_spirit(spiritp)
+
+void show_spirit(spiritp)
      Sspirit *spiritp;
 {
   int i;
@@ -271,7 +272,7 @@ show_spirit(spiritp)
 }
 
   /* at startup, this reads the spirit_types[] from a file */
-load_spirit_types()
+void load_spirit_types()
 {
   FILE *fp, *fopen();
   char line[210];
@@ -311,7 +312,7 @@ load_spirit_types()
 }
 
   /* returns true if this nation can draft that type of spirit */
-is_valid_spirit_type(np, type)
+int is_valid_spirit_type(np, type)
      Snation *np;
      char type[];
 {
