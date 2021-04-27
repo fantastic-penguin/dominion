@@ -307,7 +307,7 @@ int unique_name(char name[]);
 int get_race_mark();
 void choose_mag_order(char s[]);
 void add_special_mag(Snation *np, char mag_ord[]);
-int setup_new_nation(char nation_name[NAMELEN], nation_pass[PASSLEN], leader_name[NAMELEN],
+int setup_new_nation(char nation_name[NAMELEN], char nation_pass[PASSLEN], char leader_name[NAMELEN],
     char nation_race, Symbol nation_mark, char mag_ord[NAMELEN], int npc_flag, int npcagg, int npcexp, int npciso);
 void list_mag_orders();
 int isolated(int x, int y);
