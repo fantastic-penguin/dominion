@@ -161,7 +161,7 @@ s_group **first,*temp;
     }
 } /* group_insert */
 
-post_news_file(news_file,group_name,subject,id)
+void post_news_file(news_file,group_name,subject,id)
 char *news_file,*group_name,*subject;
 int id;
 {
