@@ -48,16 +48,16 @@ double **d_map;
 /* Base terrains for each given climate type */
 int cli_terr[] = { 1, 4, 5, 3, 6, 4, 5, 3, 5, 3, 0 };
 
-cleanup()
+void cleanup()
 {
 }
 
-critical()
+void critical()
 {
   signal(SIGINT, SIG_IGN);
   signal(SIGQUIT, SIG_IGN);
 }
-noncritical()
+void noncritical()
 {
   signal(SIGINT, SIG_DFL);
   signal(SIGQUIT, SIG_DFL);
@@ -90,7 +90,7 @@ double Gauss()
 
 }
 
-gen_arr(X,H,r,xmax,ymax,max_height, min_height)
+int gen_arr(X,H,r,xmax,ymax,max_height, min_height)
 double *X[],H,r,*max_height,*min_height;
 int xmax,ymax;
 /*
@@ -198,7 +198,7 @@ int xmax,ymax;
   return delta;
 }
 
-interpolate(X, oldx, oldy, newx, newy)
+void interpolate(X, oldx, oldy, newx, newy)
 /*
    Similar to the Interpolate routine mentionedin The Science of
    fractal images this routine interpolates the values of the verticies
@@ -316,7 +316,7 @@ int i,j;
   map[i][j].alist = (struct armyid *)NULL;
 };
 
-init_gamemaster(np)
+int init_gamemaster(np)
 /* 
    This function sets up the gamemaster nation (the only nation the game
    starts with).
@@ -379,7 +379,7 @@ Snation *np;
   return 0;
 }
 
-init_d_map(xmax,ymax)
+int init_d_map(xmax,ymax)
 /*
    Allocate the memory for the temporary array the size of the world
    (with one extra for wrap around) for manipulation before scaling 
@@ -480,7 +480,7 @@ double *d_map[],perc,max_height,min_height;
   return level;
 }
 
-power_scale(wp,d_map,level, k, minimum, maximum)
+void power_scale(wp,d_map,level, k, minimum, maximum)
 /* 
   This function takes the entire map and rescales it by taking
   each item to the kth power, after rescaling the value to be
@@ -537,7 +537,7 @@ double *d_map[],level,k,*maximum, *minimum;
   }
 }
 
-gen_alt(wp,water_per,dim,lac,info_flag,fp)
+void gen_alt(wp,water_per,dim,lac,info_flag,fp)
 /* 
    Here we generate the altitudes for the world.  First step is to create
    a fractal array of doubles to scale.  We find where sea level should be,
@@ -636,7 +636,7 @@ FILE *fp;
   }
 }
 
-gen_climate(dim,lac,wp,info_flag,fp)
+void gen_climate(dim,lac,wp,info_flag,fp)
 /* 
    Here we generate the climates for the world.  First step is to create
    a fractal array of doubles to scale.  Then we modify everything by
@@ -745,7 +745,7 @@ FILE *fp;
   }
 }
 
-adjust_terrain(wp)
+void adjust_terrain(wp)
 /*
    This function adjusts the terrain starting at the base level
    given by the climate, and adjusting for altitude.
@@ -782,7 +782,7 @@ Sworld *wp;
   }
 }
 
-gen_metal(wp,metal_per,metal_avg,info_flag,fp)
+void gen_metal(wp,metal_per,metal_avg,info_flag,fp)
 /*
   This function distributes the metal over the world.  The location of
   the metal deposits is determined fractally, and the value of the
@@ -889,7 +889,7 @@ FILE *fp;
 
 }
 
-gen_jewel(wp,jewel_per,jewel_avg,info_flag,fp)
+void gen_jewel(wp,jewel_per,jewel_avg,info_flag,fp)
 /* 
    This adds jewels to the world the same way metal is added.
    If you understood gen_metal, you understand this.  They are
@@ -989,7 +989,7 @@ FILE *fp;
   }
 }
 
-gen_soil(wp,dim,lac,average,info_flag,fp)
+void gen_soil(wp,dim,lac,average,info_flag,fp)
 /* 
    This routine sets the soil value for each sector.  To some degree
    this is done fractally, and to some degree it is determined by
@@ -1137,7 +1137,7 @@ FILE *fp;
   }
 }
 
-explain(help_num)
+void explain(help_num)
 int help_num;
 {
   switch(help_num)
@@ -1188,7 +1188,7 @@ int help_num;
   }
 }
 
-get_int(prompt, help_num, value)
+int get_int(prompt, help_num, value)
 char *prompt;
 int help_num, *value;
 {
@@ -1211,7 +1211,7 @@ int help_num, *value;
   return rtvl;
 }
 
-get_double(prompt, help_num, value)
+int get_double(prompt, help_num, value)
 char *prompt;
 int help_num;
 double *value;
@@ -1235,7 +1235,7 @@ double *value;
   return rtvl;
 }
 
-set_compressed()
+void set_compressed()
 {
   char s[100];
 
@@ -1250,7 +1250,7 @@ set_compressed()
 }
 
 
-main (argc, argv)
+void main (argc, argv)
      int argc;
      char *argv[];
 {
@@ -1540,5 +1540,5 @@ main (argc, argv)
   exit(0);
 }
 
-clean_exit(){};
+void clean_exit(){};
 
