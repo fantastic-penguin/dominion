@@ -244,5 +244,7 @@ int new_mag_skill(Snation *np);
 int new_spell_pts(Snation *np);
 void show_spell(Sspell *spellp);
 void show_spirit(Sspirit *spiritp);
+void draw_map_regular();
+void draw_map_compact();
 
 #endif // _FUNCTIONS_H_

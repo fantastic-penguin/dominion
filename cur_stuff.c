@@ -49,7 +49,7 @@ WINDOW *sectw;
 /* statline and statline2 moved to misc.c */
 
   /* simple standalone pager, used for news and other stuff */
-pager(fname)
+char pager(fname)
      char fname[];
 {
   FILE *fp, *fopen();
@@ -103,7 +103,7 @@ pager(fname)
 }
 
   /* draw the world map */
-draw_map()
+void draw_map()
 {
   if (user.map_style == NORMAL_MAP) {
     draw_map_regular();
@@ -113,7 +113,7 @@ draw_map()
 }
 
   /* draw the map with a space between adjacent sectors */
-draw_map_regular()
+void draw_map_regular()
 {
   char s[80];
   int x = user.cursor.x, y = user.cursor.y /*,
@@ -161,7 +161,7 @@ draw_map_regular()
   refresh();
 }
 
-draw_map_compact()		/* compact drawing of map */
+void draw_map_compact()		/* compact drawing of map */
 {
   char s[80];
   int x = user.cursor.x, y = user.cursor.y;
@@ -204,7 +204,7 @@ draw_map_compact()		/* compact drawing of map */
   refresh();
 }
 
-show_sector(x, y)		/* give info on the sector */
+void show_sector(x, y)		/* give info on the sector */
      int x, y;
 {
   Ssector *sp = &world.map[x][y];
@@ -283,14 +283,14 @@ show_sector(x, y)		/* give info on the sector */
   wrefresh(sectw);
 }
 
-bad_key()			/* user typed an undefined key */
+void bad_key()			/* user typed an undefined key */
 {
   statline("type space to go on", "bad_key");
   while (getch() != ' ') {
   }
 }
 
-redraw()
+void redraw()
 {
 /*  user.center = user.cursor; */
   clear();
@@ -298,7 +298,7 @@ redraw()
   user.just_moved = 1;
 }
 
-windows()			/* user gets to manage windows */
+void windows()			/* user gets to manage windows */
 {
   WINDOW *winw;			/* for this screen only */
   Pt new_loc;			/* new location of the window */
@@ -345,7 +345,7 @@ windows()			/* user gets to manage windows */
 /*  fflush(stdin); */
 }
 
-touch_all_wins()	/* make sure all permanent windows get touched */
+void touch_all_wins()	/* make sure all permanent windows get touched */
 {
   touchwin(stdscr);
 /*  if (user.show_sect_win) {
@@ -487,7 +487,7 @@ Pt drag_cursor(pt, flags, comment, legal)
      re-centers it if necessary.  return 1 if re-centering was done.
      return 0 if there was no need to re-center.
    */
-re_center(x, y)
+int re_center(x, y)
      int x, y;
 {
   int change = 0;
@@ -532,7 +532,7 @@ re_center(x, y)
 }
 
   /* see if these coordinates would appear under the sector window */
-is_under_sectw(x, y)
+int is_under_sectw(x, y)
      int x, y;
 {
   int xfirst, yfirst, xlast, ylast;
@@ -551,7 +551,7 @@ is_under_sectw(x, y)
 }
 
   /* this puts the cursor in the right place */
-set_cursor()
+void set_cursor()
 {
   int x = user.cursor.x, y = user.cursor.y;
 
@@ -566,7 +566,7 @@ set_cursor()
   /* replacement for getch():  first checks if it is a question
      mark, and if it is it calls online_info().
    */
-mygetch()
+int mygetch()
 {
   int c;
   if ((c = getch()) == '?') {
@@ -576,7 +576,7 @@ mygetch()
 }
 
   /* gets a string str of max length len; returns 0 on failure; 1 otherwise */
-wget_string (w, rets, len)
+int wget_string (w, rets, len)
      WINDOW * w;
      char * rets;
      int len;
@@ -659,7 +659,7 @@ wget_string (w, rets, len)
 }
 
 /* gets a number from window w; returns 1 if all OK; -1 otherwise */
-wget_number (w, num)
+int wget_number (w, num)
      WINDOW * w;
      int * num;
 {
@@ -720,7 +720,7 @@ wget_number (w, num)
   return 1;
 }
 
-wget_name (w, name)
+int wget_name (w, name)
      WINDOW * w;
      char * name;
 {
@@ -804,7 +804,7 @@ wget_name (w, name)
 #undef mvwprintw
 #include <varargs.h>
 
-mymvwprintw(va_alist)
+int mymvwprintw(va_alist)
      va_dcl
 {
     va_list ap;
