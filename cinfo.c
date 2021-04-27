@@ -100,7 +100,7 @@ static WINDOW *infow;		/* screen-size window in which it happens */
      fname: name of info file
      tag:   topic we should try to search for
    */
-cinfo(fname, tag)
+void cinfo(fname, tag)
      char fname[], tag[];
 {
   char item[LINE_LEN];
@@ -433,7 +433,7 @@ void find_tag_table(fp)
 }
 
   /* converts a string to lower case */
-str_lower(s)
+void str_lower(s)
      char s[];
 {
   while (*s) {
