@@ -22,6 +22,7 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <curses.h>
 #ifdef SYSV
 # include <string.h>
@@ -30,7 +31,7 @@
 #endif /* SYSV */
 
 /* some systems already have strstr() */
-/* #define HAVE_STRSTR */
+#define HAVE_STRSTR
 
 #define LINE_LEN 80		/* longer than this is truncated */
   /* this is defined in the Makefile */
