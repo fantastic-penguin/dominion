@@ -76,7 +76,7 @@ Sdiplo **allocate_diplo(n)
    of the game, when there is no file, and all nations are unmet! */
 /* */
 
-init_diplo(n)
+void init_diplo(n)
      int n;			/* number of nations */
 {
   Sdiplo **dm;
@@ -110,7 +110,7 @@ init_diplo(n)
      take a diplo matrix, and add a new blank entry to it.
      assume that dm_old and dm_new both have storage */
 
-increase_diplo(dm_old, dm_new, n, np)
+void increase_diplo(dm_old, dm_new, n, np)
      Sdiplo **dm_old, **dm_new;
      int n;			/* number of nations *before* increase */
      Snation *np;
@@ -138,7 +138,7 @@ increase_diplo(dm_old, dm_new, n, np)
 
 
   /* reads information into the diplomacy file */
-read_in_diplo(dm, n)
+int read_in_diplo(dm, n)
      Sdiplo **dm;
      int n;			/* number of nations */
 {
@@ -160,7 +160,7 @@ read_in_diplo(dm, n)
    the turn.  It is important to do this, because the software must
    know if the user is changing diplomacy by more than 2 levels.
  */
-read_initial_diplo(dm, n)
+void read_initial_diplo(dm, n)
      Sdiplo **dm;
      int n;			/* number of nations */
 {
@@ -178,7 +178,7 @@ read_initial_diplo(dm, n)
 }
 
   /* dumps the data structure to the diplomacy file. */
-dump_diplo(np, dm, n)
+void dump_diplo(np, dm, n)
      Snation *np;		/* the nation that is writing (if any) */
      Sdiplo **dm;
      int n;
