@@ -135,7 +135,7 @@ int main(argc, argv)
   /* Run through each nation doing calculations for money, etc. */
   /* this is a kludge:  we need the user struct for things like spells */
 
-/*  update_npc_diplo(); /* we don't use this any more */
+// /*  update_npc_diplo(); /* we don't use this any more */
   load_master_execs();
   init_work_data(world.xmax, world.ymax);
     /* you must load each nation before you can load the hanging
@@ -683,10 +683,10 @@ void movepeople(np, a, b, x, y)
     des2 = emp_desire(np, x, y);
     p1 = world.map[a][b].n_people;
     p2 = world.map[x][y].n_people;
-/*    pt2 = (des2*(p1+p2))/(des1+des2); /* Potential change in p2 */
-
-/*    moved = (pt2 - p2)/4; /* Move 1/4 of potential change to p2 */
-/*    moved /= 4;			/* make even fewer people move */
+// /*    pt2 = (des2*(p1+p2))/(des1+des2); /* Potential change in p2 */
+// 
+// /*    moved = (pt2 - p2)/4; /* Move 1/4 of potential change to p2 */
+// /*    moved /= 4;			/* make even fewer people move */
     moved = (p1*(100-des1))/400 - (p2*(100-des2))/400;
     moved = min(moved, p1);
       /* hold it!! we cannot move people underwater without bubbles */
