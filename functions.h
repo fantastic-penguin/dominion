@@ -240,5 +240,9 @@ int lock_diplo(Snation *np);
 void unlock_diplo();
 void handle_meet(Sdiplo **dm, int nation1, int nation2);
 void get_indices(Sdiplo **dm, int nation1, int nation2, int *n1, int *n2);
+int new_mag_skill(Snation *np);
+int new_spell_pts(Snation *np);
+void show_spell(Sspell *spellp);
+void show_spirit(Sspirit *spiritp);
 
 #endif // _FUNCTIONS_H_
