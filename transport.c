@@ -505,7 +505,7 @@ WINDOW * tw;
 
   if (c == ' ') {
     statline2 ("", "");
-    return 0; 
+    return; 
   }
 
   if (c != 'a' && c != 't' && c != '*') {
@@ -520,7 +520,7 @@ WINDOW * tw;
     ret = wget_number(user.xmode ? stdscr : tw, &quantity);
     if (ret <= 0 || c == ' ') {
       statline2 ("", "");
-      return 0;
+      return;
     }
   }
 
@@ -536,7 +536,7 @@ WINDOW * tw;
 
   if (ap->id == recip_num || (recip = get_army (user.np, recip_num)) == NULL) {
     statline2 ("", "");
-    return 0;
+    return;
   }
 
   /* Actually transfer */
@@ -546,11 +546,11 @@ WINDOW * tw;
 
       if (ap->cargo.army != -1 && recip->cargo.army != -1) {
 	statline2_err ("hit space", "only one army allowed per caravan");
-	return 0;
+	return;
       }
       if (recip->cargo.title.x != -1 && ap->cargo.title.x != -1) {
 	statline2_err ("hit space", "only one title allowed per caravan");
-	return 0;
+	return;
       }
       if (is_cargo (recip)) {
 	capacity = recip->n_soldiers * CARAVAN_CAPACITY;
@@ -577,19 +577,19 @@ WINDOW * tw;
       }
       else {
 	statline2_err ("hit space", "cargo too big to transfer");
-	return 0;
+	return;
       }
     }
     else {
       if (load_too_big (np, recip, c, quantity)) {
 	statline2_err ("hit space", "load too big");
-	return (0);
+	return;
       }
       switch (c) {
       case 'a':
 	if (recip->cargo.army != -1) {
 	  statline2_err ("hit space", "army already loaded");
-	  return 0;
+	  return;
 	}
 	recip->cargo.army = ap->cargo.army;
 	ap->cargo.army = -1;
@@ -597,7 +597,7 @@ WINDOW * tw;
       case 't':
 	if (recip->cargo.title.x != -1) {
 	  statline2_err ("hit space", "title already loaded");
-	  return 0;
+	  return;
 	}
 	recip->cargo.title.x = ap->cargo.title.x;
 	recip->cargo.title.y = ap->cargo.title.y;
@@ -612,7 +612,7 @@ WINDOW * tw;
   else {
     if (load_too_big (np, recip, c, quantity)) {
       statline2_err("hit space", "load too big");
-      return (0);
+      return;
     }
     switch (c) {
     case 's':
