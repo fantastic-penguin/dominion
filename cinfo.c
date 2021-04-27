@@ -54,6 +54,18 @@ long tag_table_pos = 0;
   /* this tells us that we must show a new page */
 int update_info_page = 1;
 
+// Forward declarations
+void find_tag_table(FILE *fp);
+void clean_exit();
+int find_menu_item(FILE *fp, char tag[]);
+void parse_info_line(FILE *fp);
+int show_page(FILE *fp, WINDOW *infow);
+int prompt(char item[]);
+void cinfo_init_screen();
+void cinfo_intro_screen(FILE *intro_fp, WINDOW *infow);
+void cinfo_statline(char s[]);
+void cinfo_cleanup();
+
   /* main routine if this program is run standalone.  Otherwise,
      the cinfo() routine can be called from anywhere.
    */
