@@ -29,6 +29,9 @@
 #else /* ridge */
 # define	INT_MAX		2147483647 /* max decimal value of an "int" */
 #endif /* ridge */
+#include <time.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 #define HASH_SIZE 500   /* Size of hash table for sea_level determination */
 #define STATFILE "world.stats"
