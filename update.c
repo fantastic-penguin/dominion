@@ -1575,7 +1575,7 @@ struct pt_list **ptlist;
   }
 }
 
-void void add_to_plist(ptlist, x, y)
+void add_to_plist(ptlist, x, y)
 struct pt_list **ptlist;
 int x,y;
 {
