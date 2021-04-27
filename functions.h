@@ -1,6 +1,10 @@
 #ifndef _FUNCTIONS_H_
 #define _FUNCTIONS_H_
 
+#include <stdlib.h>
+#include <unistd.h>
+#include <time.h>
+#include <string.h>
 #include "news.h"
 
 // Forward declare... lots of stuff.
