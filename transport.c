@@ -664,11 +664,12 @@ WINDOW * tw;
 #define is_city(sp) (sp->designation == D_CITY || sp->designation == D_CAPITAL)
 
 /* you can only load a caravan in certain places */
-int good_loading_place(np, sp, type, quantity)
-     Snation *np;
-     Ssector *sp;
-     char type;			/* type of cargo */
-     int quantity;		/* amount, or army id */
+// int good_loading_place(np, sp, type, quantity)
+//      Snation *np;
+//      Ssector *sp;
+//      char type;			/* type of cargo */
+//      int quantity;		/* amount, or army id */
+int good_loading_place(Snation *np, Ssector *sp, char type, int quantity)
 {
   Sarmy *ap, *get_army();
 
@@ -726,11 +727,12 @@ int good_loading_place(np, sp, type, quantity)
 }
 
 /* you can only unload a caravan in certain places */
-int good_unloading_place(np, sp, type, quantity)
-     Snation *np;
-     Ssector *sp;
-     char type;			/* type of thing being unloaded */
-     int quantity;		/* how much, or army id */
+// int good_unloading_place(np, sp, type, quantity)
+//      Snation *np;
+//      Ssector *sp;
+//      char type;			/* type of thing being unloaded */
+//      int quantity;		/* how much, or army id */
+int good_unloading_place(Snation *np, Ssector *sp, char type, int quantity)
 {
   Sarmy *ap, *get_army();
 
@@ -942,11 +944,12 @@ int cargo_not_empty(cargop)
 
 /* returns true if we cannot fit this additional load
    onto the ship or caravan. */
-int load_too_big(np, ap, c, quantity)
-     Snation *np;
-     Sarmy *ap;			/* the carrier */
-     char c;			/* the type of load */
-     int quantity;		/* how much */
+// int load_too_big(np, ap, c, quantity)
+//      Snation *np;
+//      Sarmy *ap;			/* the carrier */
+//      char c;			/* the type of load */
+//      int quantity;		/* how much */
+int load_too_big(Snation *np, Sarmy *ap, char c, int quantity)
 {
   Sarmy *cargo_ap;
   float capacity, quantity_weight;
