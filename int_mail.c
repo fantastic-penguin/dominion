@@ -23,6 +23,7 @@
  */
 
 #include "dominion.h"
+#include "functions.h"
 #include <stdio.h>
 #ifdef AMIGA
 # include <exec/types.h>
@@ -30,6 +31,8 @@
 #else
 # include <sys/types.h>
 #endif
+#include <unistd.h>
+#include <stdlib.h>
 
 #include <time.h>
 #ifdef SYSV
