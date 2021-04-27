@@ -340,7 +340,7 @@ void clear_h_spells();
 void take_capital(Snation *np1, Snation *np2, FILE *mfile);
 void clear_work_data();
 void move_people_restrict(Snation *np);
-void move_people_free()Snation *np);
+void move_people_free(Snation *np);
 int emp_desire(Snation *np, int a, int b);
 int get_n_act_ntn(Sworld *wp);
 int get_avg_civil(Sworld *wp);
