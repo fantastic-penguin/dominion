@@ -34,6 +34,19 @@
 
 #define TOO_MUCH_MOVE_COST 1000	/* basically impenetrable */
 
+// forward decls
+int abs(int);
+int alt_mc(Snation *np, Ssector *sp, Sarmy *ap);
+int climate_mc(Snation *np, Ssector *sp, Sarmy *ap);
+int terrain_mc(Snation *np, Ssector *sp, Sarmy *ap);
+int patrol_mc(Snation *np, Ssector *sp, Sarmy *ap);
+int roads_mc(Snation *np, Ssector *sp, Sarmy *ap);
+int diplo_mc(Snation *np, Ssector *sp, Sarmy *ap);
+int is_coastal_sect(Snation *np, Ssector *sp, Sarmy *ap);
+int good_army_altitude(Snation *np, Ssector *sp, Sarmy *ap);
+int are_patrols(Snation *np, Sarmy *ap, Ssector *sp);
+int are_allied(Snation *np, Sarmy *ap, Ssector *sp);
+
   /* returns the move cost for a given army over a given sector
      if ap is NULL we should consider giving a "generic" move
      cost for that sector.
