@@ -220,4 +220,17 @@ int can_intercept(Sarmy *ap);
 int can_garrison(Sarmy *ap);
 void army_visibility(int **visible_sectors, Sarmy *ap);
 
+int is_avail_army_type(Suser *up, char type[]);
+int army_cost(Sarmy *ap);
+int army_cost_metal(Sarmy *ap);
+int army_weight(Sarmy *ap);
+void cpeople_sector(Ssector *sp, int p);
+int army_type_index(char type[]);
+int zoom_army_page(WINDOW *azlw, Sarmy *armies, Ssector *sp, int page, int len_page, int show_cargo);
+void zoom_list_armies(WINDOW *azlw, Sarmy *armies, Ssector *sp, int start_army, int len_win, int cargo);
+int get_spell_pts_maint(Sarmy *ap);
+void donate_cargo(int x, int y, int from_id, int to_id, Scargo *cargo);
+int army_move_rate(Snation *np, Sarmy *ap);
+
+
 #endif // _FUNCTIONS_H_
