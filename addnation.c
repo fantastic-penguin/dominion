@@ -441,7 +441,7 @@ int setup_capital(np)
   distance = 7;
 
   while (x < 0) {
-    distance = max(1, --distance);
+    distance = max(1, distance - 1);
     for (i = 0; i < 10; i++) {
       do {
 	  /* keep trying random sectors as long
