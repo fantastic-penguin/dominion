@@ -1,6 +1,8 @@
 #ifndef _FUNCTIONS_H_
 #define _FUNCTIONS_H_
 
+#include "news.h"
+
 // Forward declare... lots of stuff.
 int mygetch();
 void init_screen();
