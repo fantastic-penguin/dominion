@@ -487,7 +487,7 @@ void move_army(id,aw)
     /* now see if we should also move the cargo (recursively) */
   if (is_cargo(ap) && ap->cargo.army >= 0) {
     cargo_ap = ap;
-    while (cargo_ap = get_army(user.np, cargo_ap->cargo.army)) {
+    while ((cargo_ap = get_army(user.np, cargo_ap->cargo.army))) {
 	delete_army_sector(sp_initial, cargo_ap);
       cargo_ap->pos = sp_final->loc;
       insert_army_sector(sp_final, cargo_ap);
@@ -718,7 +718,7 @@ int army_move_comment(s)
 }
 
   /* draft an army for that nation */
-void draft_army(np)
+int draft_army(np)
      Snation *np;
 {
   WINDOW *w;
@@ -733,12 +733,12 @@ void draft_army(np)
 
   if (sp->owner != user.np->id) {
     statline2_err("hit space to continue", "Must be your sector");
-    return;
+    return -1;
   }
 /* Make sure the sector is not hostile */
   if (has_hostile(sp)) {
     statline2_err("hit space to continue", "Cannot draft from hostile sector");
-    return;
+    return -1;
   }
   
   statline("choose your army/navy/caravan type", "draft_army");

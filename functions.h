@@ -203,7 +203,7 @@ int prev_nation_army(Snation *np, int old_id);
 void just_moved();
 void change_army_status(WINDOW *aw, int id);
 void list_available_armies(Suser *up, WINDOW *aw);
-void draft_army(Snation *np);
+int draft_army(Snation *np);
 int army_disband(Ssector *sp, Sarmy *ap);
 void army_examine(Sarmy * ap);
 int zoom_armies(Suser *up, Ssector *sp);
