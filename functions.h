@@ -250,5 +250,8 @@ int is_under_sectw(int x, int y);
 int which_mark(int x, int y, Suser *up);
 void show_sector(int x, int y);
 void insert(char *in_name, FILE *out_pntr);
+char pager(char fname[]);
+void group_insert(s_group **first, s_group *temp);
+void post_news_file(char *news_file, char *group_name, char *subject, int id);
 
 #endif // _FUNCTIONS_H_
