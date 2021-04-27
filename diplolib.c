@@ -456,9 +456,9 @@ int diplo_is_locked()
   }
     /* now see if the lock file is outdated.  if so, remove it */
   fscanf(lock_fp, "%s", line);
-  sscanf(line, "%d", &lock_secs);
+  sscanf(line, "%ld", &lock_secs);
   now_secs = time(0L);
-  if (abs(now_secs - lock_secs) > 2*30) { /* older than 2 minutes? */
+  if (labs(now_secs - lock_secs) > 2*30L) { /* older than 2 minutes? */
     unlink("diplo.lock");
     return 0;
   }
