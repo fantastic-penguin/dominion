@@ -989,6 +989,6 @@ void form_valid_mark_str(mark_str)
   /* skip '-' and '.' */
   strcat(tmp_str, "/0123456789:;<=>"); /* now skip '?' */
   strcat(tmp_str, "@ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-  strcat(tmp_str, "[\]^_`abcdefghijklmnopqrstuvwxyz{|}");
+  strcat(tmp_str, "[]^_`abcdefghijklmnopqrstuvwxyz{|}");
   strcpy(mark_str, tmp_str);
 }
