@@ -30,7 +30,9 @@
 #include "dominion.h"
 #include "misc.h"
 #include "cur_stuff.h"
+#include "functions.h"
 #include <stdio.h>
+#include <string.h>
 
 extern Suser user;
 extern Sworld world;
