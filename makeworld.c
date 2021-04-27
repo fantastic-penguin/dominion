@@ -1280,7 +1280,7 @@ int main (argc, argv)
   if (chdir(libdir) == -1) {
     fprintf(stderr,"Error: cannot cd to directory %s\n",libdir);
     clean_exit();
-    exit();
+    exit(1);
   }
   SRND(time(0L));		/* initialize random number generator */
   read_races();			/* get races from races file */
