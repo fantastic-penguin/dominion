@@ -204,9 +204,7 @@ right general direction. (the base desire of owned sectors is 0, unless at war)
 ---------------------------------------------------------------------------*/
 find_desire(np,des_array)
 Snation *np;
-struct desire{
-	int base,final;
-	} **des_array;
+struct desire **des_array;
 {
   int x,y,i,d;
 
@@ -341,9 +339,7 @@ form a square.
 ---------------------------------------------------------------------------*/
 add_square(x,y,radius,add,des_array,np)
 int x,y,radius,add;
-struct desire{
-	int base,final;
-	} **des_array;
+struct desire **des_array;
 Snation *np;
 {
 int i,tx,ty,id,flag = 0;
