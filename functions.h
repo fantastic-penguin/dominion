@@ -355,5 +355,7 @@ int get_per_occu_water(Sworld *wp);
 void sort_ptlist(struct pt_list **ptlist);
 void free_ptlist(struct pt_list **ptlist);
 void add_to_plist(struct pt_list **ptlist, int x, int y);
+void get_tech_entry(FILE *fp, Snation *np, FILE *mailfile);
+void skip_tech_entry(FILE *fp);
 
 #endif // _FUNCTIONS_H_

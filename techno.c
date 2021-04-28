@@ -65,7 +65,7 @@ void get_new_techno(np, old_skill, new_skill, mailfile)
 
   if ((fp = fopen(TECHNO_FILE, "r")) == NULL) {
     printf("could not open technology file %s\n", TECHNO_FILE);
-    return -1;
+    return;
   }
 
   while (!done) {
