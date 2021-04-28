@@ -67,7 +67,7 @@ extern Sworld world;
 int (*wrapx)(), (*wrapy)();
 FILE *mailfile;
 
-dobattles()
+void dobattles()
 {
   int x,y;
   Sdiplo **dm, **allocate_diplo();
@@ -117,7 +117,7 @@ dobattles()
   /* takes all armies in intercept mode and sees if
      it can move them to attack an enemy army.
    */
-move_intercepts(dm)
+void move_intercepts(dm)
      Sdiplo **dm;
 {
   int nation,x,y;
@@ -171,7 +171,7 @@ move_intercepts(dm)
                 This routine is called from battle()
 */
 
-against(dm,list,nation)
+int against(dm,list,nation)
      Sdiplo **dm;
      struct armyid *list;
      int nation;
@@ -193,7 +193,7 @@ against(dm,list,nation)
 
 /*  this routine is being called from battle() */
 
-supports(dm,list,nation)
+int supports(dm,list,nation)
      Sdiplo **dm;
      struct armyid *list;
      int nation;
@@ -219,7 +219,7 @@ supports(dm,list,nation)
 /* this routine is being called from battle() as well */
 /* also being called from battle() */
 
-add_to_list(list,army,mail_list)
+void add_to_list(list,army,mail_list)
      struct armyid **list, *army, **mail_list;
 {
   struct armyid *tmp;
@@ -261,12 +261,11 @@ add_to_list(list,army,mail_list)
      This routine is called from battle() and from extract_losses
 *************************************************************/
 
-total_bonus(np,sp,ap,dm)
+int total_bonus(np,sp,ap,dm)
 Snation *np;
 Ssector *sp;
 Sarmy *ap;
 Sdiplo **dm;
-
 {
   int bonus = 0;
   int ds1,ds2;  /* test to see if army is in trearty with sector owner */
@@ -327,7 +326,7 @@ Sdiplo **dm;
      know that **dm is being passed along and not used
      until it reaches total_bonus() */
 
-count_force(np,sp,ap,dm)
+int count_force(np,sp,ap,dm)
      Snation *np;
      Ssector *sp;
      Sarmy *ap;
@@ -342,7 +341,7 @@ count_force(np,sp,ap,dm)
   return force;
 }
 
-count_men(force_list,flags)
+int count_men(force_list,flags)
 /*
    This counts the nubmer of units in a given force counting only those
    units without the flags in flags set.
@@ -365,7 +364,7 @@ int flags;
   return total;
 }
 
-count_machine(force_list)
+int count_machine(force_list)
 /*
    This counts the nubmer of units in a given force counting only those
    units without the flags in flags set.
@@ -387,7 +386,7 @@ struct armyid *force_list;
   return total;
 }
 
-mach_bonus_avg(force_list)
+int mach_bonus_avg(force_list)
 /*
    This computes the average bonus gained from machines.
 */
@@ -412,7 +411,7 @@ struct armyid *force_list;
 
 /* This function is being called from battle() */
 
-extract_losses(list, pct_loss, mail_list, type, dm)
+int extract_losses(list, pct_loss, mail_list, type, dm)
      struct armyid *list;
      float pct_loss;
      struct armyid *mail_list;
@@ -507,7 +506,7 @@ extract_losses(list, pct_loss, mail_list, type, dm)
   return dead;
 }
 
-free_list(list)
+void free_list(list)
      struct armyid *list;
 {
   struct armyid *tmp;
@@ -519,7 +518,7 @@ free_list(list)
   }
 }
 
-status_check(list,status)
+int status_check(list,status)
      struct armyid *list;
      int status;
 {
@@ -537,7 +536,7 @@ status_check(list,status)
   return 0;
 }
 
-battle_mail(mail_list,s)
+void battle_mail(mail_list,s)
      struct armyid *mail_list;
      char s[];
 {
@@ -553,7 +552,7 @@ battle_mail(mail_list,s)
   /* prints the introductory message, with relative
      coordinates for each nation.
    */
-intro_battle_mail(mail_list, x, y)
+void intro_battle_mail(mail_list, x, y)
      struct armyid *mail_list;
      int x, y;
 {
@@ -574,7 +573,7 @@ intro_battle_mail(mail_list, x, y)
 }
 
   /* prints some stuff to the News about the battle */
-intro_battle_news(news_fp, x, y, ally_list, enemy_list, neutral_list)
+void intro_battle_news(news_fp, x, y, ally_list, enemy_list, neutral_list)
      FILE *news_fp;
      int x, y;
      struct armyid *ally_list, *enemy_list, *neutral_list;
@@ -629,7 +628,7 @@ intro_battle_news(news_fp, x, y, ally_list, enemy_list, neutral_list)
   }
 }
 
-single_mail(nation,s)
+void single_mail(nation,s)
      int nation;
      char s[];
 {
@@ -648,7 +647,7 @@ single_mail(nation,s)
   fclose(mailfile);
 }
 
-battle(dm, x, y, news_fp, ally_list, enemy_list, neutral_list, mail_list)
+void battle(dm, x, y, news_fp, ally_list, enemy_list, neutral_list, mail_list)
      Sdiplo **dm;
      int x,y;
      FILE *news_fp;			/* for reporting to the news */
@@ -808,7 +807,7 @@ battle(dm, x, y, news_fp, ally_list, enemy_list, neutral_list, mail_list)
      redo the battle code, it will have to do.  the previous
      code used to not yield battles in some cases.
    */
-is_war(dm, x, y, news_fp)
+int is_war(dm, x, y, news_fp)
      Sdiplo **dm;
      int x, y;
      FILE *news_fp;
