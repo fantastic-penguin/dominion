@@ -34,7 +34,7 @@ extern Suser user;
 #define METAL_TECH_POWER (3.0/4.0)
 
   /* this routine calculates the new tech_skill for a nation */
-new_tech_skill(np)
+int new_tech_skill(np)
      Snation *np;
 {
   int increase;
@@ -53,7 +53,7 @@ new_tech_skill(np)
   /* this routine sees if the user should get a new
      technology level, by comparing its old and new tech skills
    */
-get_new_techno(np, old_skill, new_skill, mailfile)
+void get_new_techno(np, old_skill, new_skill, mailfile)
      Snation *np;
      int old_skill, new_skill;
      FILE *mailfile;
@@ -100,7 +100,7 @@ get_new_techno(np, old_skill, new_skill, mailfile)
      should only be called if the nation *deserves* the new tech
      power.
    */
-get_tech_entry(fp, np, mailfile)
+void get_tech_entry(fp, np, mailfile)
      FILE *fp;
      Snation *np;
      FILE *mailfile;
@@ -146,7 +146,7 @@ get_tech_entry(fp, np, mailfile)
 }
 
   /* wait for an "end" in the techno file */
-skip_tech_entry(fp)
+void skip_tech_entry(fp)
      FILE *fp;
 {
   char line[EXECLEN];
@@ -156,7 +156,7 @@ skip_tech_entry(fp)
 }
 
   /* this is the routine actually called by the update program */
-dotechno(np, mailfile)
+void dotechno(np, mailfile)
      Snation *np;
      FILE *mailfile;
 {
