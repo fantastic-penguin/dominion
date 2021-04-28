@@ -393,9 +393,7 @@ an insertion, it's best to keep the value small in the interest of time.
 void check_moves(np,ap,ary)
 Snation *np;
 Sarmy *ap;
-struct tmp_map{
-  int mvcost,mvleft;
-  } ary[NPC_SIDE][NPC_SIDE];
+struct tmp_map ary[NPC_SIDE][NPC_SIDE];
 {
   int i,j,k;
   int x,y,tx,ty,mapx,mapy;
