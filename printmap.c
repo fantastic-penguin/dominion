@@ -158,7 +158,7 @@ int main(argc, argv)
 	mark2 = which_mark(iw, jw, &user);
       }
 
-      if (ascii_map) asc_mark(mark1, mark2, type1, type2, visibility);
+      if (ascii_map) asc_mark(mark1, mark2);//, type1, type2, visibility);
       else ps_mark(ii, jj, mark1, mark2, type1, type2, visibility);
       ii++;
     }
@@ -321,8 +321,8 @@ void clean_exit()
 
 /* GET_MAP_INFO asks the user where to center the map, and what size
    it should be */
-void get_map_info(x, y, size, type1, type2)
-     int *x, *y, *size, *type1, *type2;
+void get_map_info(x, y, size)//, type1, type2)
+     int *x, *y, *size;//, *type1, *type2;
 {
   char buff[NAMELEN];
   int temp;
@@ -502,5 +502,3 @@ char *des(x)
     return " ";
   }
 }
-
-
