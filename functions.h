@@ -357,5 +357,10 @@ void free_ptlist(struct pt_list **ptlist);
 void add_to_plist(struct pt_list **ptlist, int x, int y);
 void get_tech_entry(FILE *fp, Snation *np, FILE *mailfile);
 void skip_tech_entry(FILE *fp);
+int is_war(Sdiplo **dm, int x, int y, FILE *news_fp);
+int against(Sdiplo **dm, struct armyid *list, int nation);
+void single_mail(int nation, char s[]);
+void battle_mail(struct armyid *mail_list, char s[])
+void move_intercepts(Sdiplo **dm);
 
 #endif // _FUNCTIONS_H_
