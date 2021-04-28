@@ -55,7 +55,7 @@ int opt_army_size,atwar,npc_specific;
 /*-----------------------------npc_moves()------------------------------------
 	This function makes the moves for an npc
 ----------------------------------------------------------------------------*/
-npc_moves(np)
+void npc_moves(np)
      Snation *np;
 {
   int i;
@@ -103,7 +103,7 @@ are some things that init_user does that this does not do.
 	Also, this function sets global varibles like needs and race-specific
 army types.
 ---------------------------------------------------------------------------*/
-init_npc(np)
+void init_npc(np)
      Snation *np;
 {
   int c,i,d;
@@ -210,7 +210,7 @@ npc_jewel_need =(float)calc_expend_jewels(np)/((float)calc_jewels(np)+1.0)+.3;*/
 	Draft armies.  This routine has been altered to take technology
 level into account.
 ----------------------------------------------------------------------------*/
-do_npc_draft(np)
+void do_npc_draft(np)
      Snation *np;
 {
   Sarmy ap, make_army();
@@ -295,7 +295,7 @@ do_npc_draft(np)
 Basically, find the net spell points and draft the biggest spirit you can.
 Don't draft caravan spirits.
 ---------------------------------------------------------------------------*/
-do_npc_summon(np)
+void do_npc_summon(np)
 Snation *np;
 {
   int have_mage = 0,sindex,net_points,badflags;
@@ -378,7 +378,7 @@ within NPC_VIEW sectors.  Move to the one that will give the greatest
 movement left and merge.  Prefer to merge with other armies that have
 less than the optimal number.
 ---------------------------------------------------------------------------*/
-do_npc_merge(np)
+void do_npc_merge(np)
   Snation *np;
 {
   int i,tx,ty,x,y,finalmv;
@@ -452,7 +452,7 @@ do_npc_merge(np)
 /*--------------------------------do_npc_split()------------------------------
 	Split armies that have grown too large into manageable armies
 ----------------------------------------------------------------------------*/
-do_npc_split(np)
+void do_npc_split(np)
 Snation *np;
 {
   Sarmy *ap;
@@ -480,7 +480,7 @@ have left at that point.  The function looks for the most desirable sectors
 that the army can move to and puts them in the highlist array.  It then
 randomly picks a point from this array and moves the army to it.
 ----------------------------------------------------------------------------*/
-do_npc_armies(np,des_array)
+void do_npc_armies(np,des_array)
   Snation *np;
   struct desire **des_array;
 {
@@ -563,7 +563,7 @@ do_npc_armies(np,des_array)
 /*------------------------------do_npc_redesig()-------------------------------
 	Redesignate sectors that the npc owns.
 -----------------------------------------------------------------------------*/
-do_npc_redesig(np)
+void do_npc_redesig(np)
      Snation *np;
 {
   struct pt_list *Pointer;
