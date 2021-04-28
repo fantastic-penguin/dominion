@@ -392,5 +392,15 @@ void find_desire(Snation *np, struct desire **des_array);
 int npc_des(Snation *np, int x, int y);
 int add_square(int x, int y, int radius, int add, struct desire **des_array, Snation *np);
 void set_diplo_status(Sdiplo **dm, int nation1, int nation2, int New_Status);
+void dom_print_intro();
+void get_user();
+void get_display_type(int *t1, int *t2);
+void get_map_info(int *x, int *y, int *size);//, int *type1, int *type2);
+void ps_prolog(int size, int type1, int type2);
+void asc_mark(int m, int v);
+void ps_mark(int x, int y, int m1, int m2, int t1, int t2, int vis);
+void draw_axes(int size, int xc, int yc);
+void draw_key();
+
 
 #endif // _FUNCTIONS_H_
