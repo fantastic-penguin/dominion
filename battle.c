@@ -52,6 +52,7 @@
 #include "dominion.h"
 #include "misc.h"
 #include "army.h"
+#include "functions.h"
 
 #include <stdio.h>
 
