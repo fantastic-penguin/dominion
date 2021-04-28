@@ -29,6 +29,7 @@
 #include "dominion.h"
 #include "misc.h"
 #include "army.h"
+#include "functions.h"
 #include <math.h>
 #include <curses.h>
 #include <stdio.h>
