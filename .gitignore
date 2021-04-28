@@ -1,1 +1,6 @@
 *.o
+dom_add
+dom_make
+dom_print
+dom_update
+dominion
