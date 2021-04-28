@@ -495,7 +495,7 @@ int extract_losses(list, pct_loss, mail_list, type, dm)
   for (tmp_aid = list; tmp_aid != NULL; tmp_aid = tmp_aid->next) {
     np = &world.nations[tmp_aid->owner];
      /* only if we *do* get the army can we go on. it might have been killed */
-    if (ap = get_army(np, tmp_aid->id)) {
+    if ((ap = get_army(np, tmp_aid->id))) {
 /*      sp = &world.map[ap->pos.x][ap->pos.y]; why??? */
       if (is_vampire(ap)) {
           /* notice that an army canot grow by more than a certain amount */
@@ -643,7 +643,7 @@ void single_mail(nation,s)
     clean_exit();
     exit(1);
   }
-  fprintf(mailfile, s);
+  fprintf(mailfile, "%s", s);
   fclose(mailfile);
 }
 
