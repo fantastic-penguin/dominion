@@ -315,7 +315,7 @@ Snation *np;
 
   sp = &world.map[np->capital.x][np->capital.y];
 
-  have_mage = get_first_mage(np);
+  have_mage = !!get_first_mage(np);
   if (!have_mage) {
     if (np->jewels >= INITIATION_JEWELS && next_thon_jewels(np) > 6000)
       init_npc_mage(np,sp);
