@@ -7,6 +7,15 @@
 #include <string.h>
 #include "news.h"
 
+struct desire {
+    int base;
+    int final;
+};
+struct tmp_map {
+    int mvcost;
+    int mvleft;
+};
+
 // Forward declare... lots of stuff.
 int mygetch();
 void init_screen();
@@ -362,5 +371,23 @@ int against(Sdiplo **dm, struct armyid *list, int nation);
 void single_mail(int nation, char s[]);
 void battle_mail(struct armyid *mail_list, char s[]);
 void move_intercepts(Sdiplo **dm);
+void init_npc(Snation *np);
+void do_npc_draft(Snation *np);
+void do_npc_merge(Snation *np);
+void do_npc_split(Snation *np);
+void do_npc_summon(Snation *np);
+void do_npc_diplo(Snation *np);
+void do_npc_armies(Snation *np, struct desire **des_array);
+void do_npc_redesig(Snation *np);
+int get_good_types(int good_armies[MAX_TYPES], int current, int cut1, int cut2);
+Sarmy *get_first_mage(Snation *np);
+void init_npc_mage(Snation *np, Ssector *sp);
+void check_moves(Snation *np, Sarmy *ap, struct tmp_map ary[NPC_SIDE][NPC_SIDE]);
+int tmp_army_better(Sarmy *ap, Sarmy *tmpap, Sarmy *oldap);
+void cmd_amove(Snation *np, struct argument args[]);
+void cmd_amerge(Snation *np, struct argument args[]);
+void cmd_asplit(Snation *np, struct argument args[]);
+void cmd_astat(Snation *np, struct argument args[]);
+void find_desire(Snation *np, struct desire **des_array);
 
 #endif // _FUNCTIONS_H_
