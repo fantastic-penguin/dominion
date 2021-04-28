@@ -360,7 +360,7 @@ void skip_tech_entry(FILE *fp);
 int is_war(Sdiplo **dm, int x, int y, FILE *news_fp);
 int against(Sdiplo **dm, struct armyid *list, int nation);
 void single_mail(int nation, char s[]);
-void battle_mail(struct armyid *mail_list, char s[])
+void battle_mail(struct armyid *mail_list, char s[]);
 void move_intercepts(Sdiplo **dm);
 
 #endif // _FUNCTIONS_H_
