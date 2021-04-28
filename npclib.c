@@ -133,7 +133,7 @@ population of 10,000 will not draft cavemen when it has more than 625 soldiers,
 and will not draft spearmen when it has more than 1250 soldiers, and will not
 draft at all when it has more than 2500 soldiers. (when at war)
 ---------------------------------------------------------------------------*/
-get_good_types(good_armies,current,cut1,cut2)
+int get_good_types(good_armies,current,cut1,cut2)
 int good_armies[MAX_TYPES];
 int current,cut1,cut2;	/* current # of troops and cutoffs */
 {
@@ -174,7 +174,7 @@ This is a crude way of preventing one army from growing too large.
 Edit to your heart's content, if you think it will make the npc's better.
 	(This function is called by npc_merge)
 ------------------------------------------------------------------------*/
-tmp_army_better(ap,tmpap,oldap)
+int tmp_army_better(ap,tmpap,oldap)
 Sarmy *ap,*tmpap,*oldap;
 {
   if(strcmp(tmpap->type,ap->type)){	/* different types */
@@ -202,7 +202,7 @@ adjacent sectors have their desireability increased by N-1, the next sectors
 out are increased by N-2, etc.  This will hopefully keep npc's moving in the
 right general direction. (the base desire of owned sectors is 0, unless at war)
 ---------------------------------------------------------------------------*/
-find_desire(np,des_array)
+void find_desire(np,des_array)
 Snation *np;
 struct desire **des_array;
 {
@@ -246,7 +246,7 @@ struct desire **des_array;
 This desireability will be calculated differently when the npc is at war
 than when it is at peace.  For now, just try to expand.
 -----------------------------------------------------------------------------*/
-npc_des(np,x,y)
+int npc_des(np,x,y)
 Snation *np;
 int x,y;
 {
@@ -337,7 +337,7 @@ int x,y;
 radius away from x,y.  Radius is defined rather loosely here, since the sectors
 form a square.
 ---------------------------------------------------------------------------*/
-add_square(x,y,radius,add,des_array,np)
+int add_square(x,y,radius,add,des_array,np)
 int x,y,radius,add;
 struct desire **des_array;
 Snation *np;
@@ -390,7 +390,7 @@ of the map in ary are not considered, so a larger value for NPC_SIDE will
 sometimes result in better movement.  However, since the algorithm includes
 an insertion, it's best to keep the value small in the interest of time.
 --------------------------------------------------------------------------*/
-check_moves(np,ap,ary)
+void check_moves(np,ap,ary)
 Snation *np;
 Sarmy *ap;
 struct tmp_map{
@@ -460,7 +460,7 @@ a random number, and the npc aggressiveness.  If the number is less than
 the npc aggressiveness, then the diplomacy status goes down.  Otherwise
 it goes up.
 ---------------------------------------------------------------------------*/
-do_npc_diplo(np)
+void do_npc_diplo(np)
      Snation *np;
 {
   int i,dip_from,dip_to,num,up,down;
@@ -512,7 +512,7 @@ do_npc_diplo(np)
 /*---------------------------init_npc_mage()-----------------------------------
 	Initiate a mage for the npc.  Copied from menus.c
 -----------------------------------------------------------------------------*/
-init_npc_mage(np,sp)
+void init_npc_mage(np,sp)
 Snation *np;
 Ssector *sp;
 {
