@@ -45,9 +45,9 @@ extern int debug;
 extern struct army_type *army_types;
 extern struct spirit_type *spirit_types;
 
-struct desire {
-  int base,final;
-};
+// struct desire {
+//   int base,final;
+// };
 
 float npc_food_need,npc_metal_need,npc_jewel_need,npc_money_need;
 int opt_army_size,atwar,npc_specific;
@@ -386,9 +386,7 @@ void do_npc_merge(np)
   Sarmy *bestarmy,*ap,*tmpap,*get_army();
   struct armyid *alist;
   struct argument args[N_EXEC_ARGS];
-  struct tmp_map {
-    int mvcost,mvleft;
-  } legal_moves[NPC_SIDE][NPC_SIDE];
+  struct tmp_map legal_moves[NPC_SIDE][NPC_SIDE];
 
   for(i = 0;i < NPC_SIDE; i++){			/* fill in border of legal mv */
     legal_moves[0][i].mvleft = -2;
@@ -488,9 +486,7 @@ void do_npc_armies(np,des_array)
   struct pt highlist[NPC_SIDE*NPC_SIDE];
   Sarmy *ap;
   struct argument args[N_EXEC_ARGS];
-  struct tmp_map {
-    int mvcost,mvleft;
-  } legal_moves[NPC_SIDE][NPC_SIDE],final;
+  struct tmp_map legal_moves[NPC_SIDE][NPC_SIDE],final;
 
   find_desire(np,des_array);			/* fill desireability array */
   for(i = 0;i < NPC_SIDE; i++){			/* fill in border of legal mv */
