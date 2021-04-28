@@ -115,7 +115,7 @@ int main(argc, argv)
   if (chdir(libdir) == -1) {
     fprintf(stderr,"Error: cannot cd to directory %s\n",libdir);
     clean_exit();
-    exit();
+    exit(1);
   }
   dom_print_intro();
   load_army_types();
