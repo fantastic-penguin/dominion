@@ -389,5 +389,8 @@ void cmd_amerge(Snation *np, struct argument args[]);
 void cmd_asplit(Snation *np, struct argument args[]);
 void cmd_astat(Snation *np, struct argument args[]);
 void find_desire(Snation *np, struct desire **des_array);
+int npc_des(Snation *np, int x, int y);
+int add_square(int x, int y, int radius, int add, struct desire **des_array, Snation *np);
+void set_diplo_status(Sdiplo **dm, int nation1, int nation2, int New_Status);
 
 #endif // _FUNCTIONS_H_
