@@ -27,7 +27,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <math.h>
-#incldue "functions.h"
+#include "functions.h"
 
 extern Sworld world;
 extern Suser user;
