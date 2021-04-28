@@ -52,7 +52,7 @@ int beroot = 1;
 Sdiplo **allocate_diplo();
 char *des();
 
-main(argc, argv)
+int main(argc, argv)
      int argc;
      char *argv[];
 {
@@ -174,13 +174,13 @@ main(argc, argv)
   }
 }
 
-asc_mark(m, v)
+void asc_mark(m, v)
      int m, v;
 {
 }
 
 
-draw_key()
+void draw_key()
 {
   printf("\ngrestore\n");
   printf("/Times-Roman findfont 15 scalefont setfont\n");
@@ -193,7 +193,7 @@ draw_key()
 }
 
 
-draw_axes(size, xc, yc)
+void draw_axes(size, xc, yc)
      int size, xc, yc;
 {
   int x, y, step=1;
@@ -211,7 +211,7 @@ draw_axes(size, xc, yc)
   printf("} for\n");
 }
 
-ps_prolog(size, type1, type2)
+void ps_prolog(size, type1, type2)
      int size, type1, type2;
 {
   printf("%%!\n");
@@ -260,7 +260,7 @@ ps_prolog(size, type1, type2)
   printf("%f %f scale\n\n", 6.5/size, 6.5/size);
 }
 
-ps_mark(x, y, m1, m2, t1, t2, vis)
+void ps_mark(x, y, m1, m2, t1, t2, vis)
      int x, y, m1, m2, t1, t2, vis;
 {
   float gray;
@@ -299,16 +299,16 @@ ps_mark(x, y, m1, m2, t1, t2, vis)
   }
 }
 
-critical()
+void critical()
 {
 }
-noncritical()
+void noncritical()
 {
 }
-cleanup()
+void cleanup()
 {
 }
-clean_exit()
+void clean_exit()
 {
 #ifdef ANDREW
   if (beroot == 1) {
@@ -321,7 +321,7 @@ clean_exit()
 
 /* GET_MAP_INFO asks the user where to center the map, and what size
    it should be */
-get_map_info(x, y, size, type1, type2)
+void get_map_info(x, y, size, type1, type2)
      int *x, *y, *size, *type1, *type2;
 {
   char buff[NAMELEN];
@@ -354,7 +354,7 @@ get_map_info(x, y, size, type1, type2)
 }
 
 /* GET_DISPLAY_TYPE get's the user's choice of the display parameter */
-get_display_type(t1, t2)
+void get_display_type(t1, t2)
      int *t1, *t2;
 {
   char buff[NAMELEN], a;
@@ -419,7 +419,7 @@ get_display_type(t1, t2)
 
 /* GET_USER actually takes care of reading in the world, selecting and
    loading a nation, and setting up data (such as visibility) */
-get_user()
+void get_user()
 {
   char nation[NAMELEN], passwd[NAMELEN];
   int i;
@@ -464,7 +464,7 @@ get_user()
 }
 
 
-dom_print_intro()
+void dom_print_intro()
 {
   fprintf(stderr, "\ndom_print - postscript map printer\n\n");
   fprintf(stderr, "Redirect output to file or pipe to printer.\n\n");
